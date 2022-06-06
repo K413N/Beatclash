@@ -3,7 +3,9 @@ import { Wrapper } from "./GlobalStyles";
 
 const Homepage = () => {
     return(
-        <Wrapper>HomePage</Wrapper>
+        <Wrapper>
+            <div>Homepage</div>
+            </Wrapper>
     )
 }
 
