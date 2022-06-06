@@ -5,11 +5,13 @@ import Homepage from "./Homepage";
 import Login from "./Login";
 import Profile from "./Profile";
 import Friends from "./Friends";
+import NavBar from "./NavBar";
 
 function App() {
   return (
     <BrowserRouter>
     <GlobalStyles />
+    <NavBar />
     <Routes>
       <PageWrapper>
         <Route exact path="/home" element={<Homepage />} />
