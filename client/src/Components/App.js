@@ -16,7 +16,7 @@ function App() {
     <NavBar />
     <Routes>
       <Fragment>
-        <Route exact path="/home" element={<Homepage />} />
+        <Route exact path="/" element={<Homepage />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/friends" element={<Friends />} />
         <Route exact path="/profile/:profileId" element={<Profile />} />
