@@ -64,14 +64,14 @@ export default createGlobalStyle`
 `;
 
 export const Wrapper = styled.div`
-background-color: black;
+background-color: gray;
 position: relative;
 width: 100%;
 height: 100%;
 `
 
 export const PageWrapper = styled.div`
-background-color: black;
+background-color: gray;
 position: absolute;
 margin-top: 80px;
 width: 100vw;

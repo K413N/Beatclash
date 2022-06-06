@@ -3,7 +3,9 @@ import { Wrapper } from "./GlobalStyles";
 
 const Friends = () => {
     return(
-        <Wrapper>Friends</Wrapper>
+        <Wrapper>
+        <div>Friends</div>
+        </Wrapper>
     )
 }
 

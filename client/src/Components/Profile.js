@@ -3,7 +3,9 @@ import { Wrapper } from "./GlobalStyles";
 
 const Profile = () => {
     return(
-        <Wrapper>Profile</Wrapper>
+        <Wrapper>
+        <div>Profile</div>
+        </Wrapper>
     )
 }
 

@@ -4,8 +4,8 @@ import { Wrapper } from "./GlobalStyles";
 const Homepage = () => {
     return(
         <Wrapper>
-            <div>Homepage</div>
-            </Wrapper>
+        <div>Homepage</div>
+        </Wrapper>
     )
 }
 

@@ -3,7 +3,9 @@ import { Wrapper } from "./GlobalStyles";
 
 const NavBar = () => {
     return(
-        <Wrapper>NavBar</Wrapper>
+        <Wrapper>
+        <div>NavBar</div>
+        </Wrapper>
     )
 }
 

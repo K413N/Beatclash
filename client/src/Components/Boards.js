@@ -3,7 +3,9 @@ import { Wrapper } from "./GlobalStyles";
 
 const Boards = () => {
     return(
-        <Wrapper>Boards</Wrapper>
+        <Wrapper>
+        <div>Boards</div>
+        </Wrapper>
     )
 }
 

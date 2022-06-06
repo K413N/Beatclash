@@ -6,24 +6,23 @@ import Login from "./Login";
 import Profile from "./Profile";
 import Friends from "./Friends";
 import NavBar from "./NavBar";
+import { Fragment } from "react";
 
 function App() {
   return (
-    <>
     <BrowserRouter>
     <GlobalStyles />
 
     <NavBar />
     <Routes>
-      <PageWrapper>
+      <Fragment>
         <Route exact path="/home" element={<Homepage />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/friends" element={<Friends />} />
         <Route exact path="/profile/:profileId" element={<Profile />} />
-      </PageWrapper>
+      </Fragment>
     </Routes>
     </BrowserRouter>
-    </>
   );
 }
 

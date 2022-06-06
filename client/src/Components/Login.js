@@ -3,7 +3,9 @@ import { Wrapper } from "./GlobalStyles";
 
 const Login = () => {
     return(
-        <Wrapper>Login</Wrapper>
+        <Wrapper>
+        <div>Login</div>
+        </Wrapper>
     )
 }
 
