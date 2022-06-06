@@ -7,7 +7,7 @@ const NavBar = () => {
     return(
         <Wrapper>
         <NavWrap>
-            <NLink to="/"><div>Beatclash</div></NLink>
+            <NLink to="/about"><div>Beatclash</div></NLink>
             <SearchWrapper>
             <SearchBar />
             <SearchButton>
@@ -16,22 +16,57 @@ const NavBar = () => {
             </SearchWrapper>
         </NavWrap>
         <NavBottom>
-            <NLink2 to="/login">Login</NLink2>
+            <TabColumn>
+                <TabTitle>Navigation</TabTitle>
+            <TabRow>
+            <NLink2 to="/home">Home</NLink2>
             <NLink2 to="/friends">Friends</NLink2>
             <NLink2 to="/error">Profile</NLink2>
+            </TabRow>
+            </TabColumn>
         </NavBottom>
         </Wrapper>
     )
 }
 
+
+
 export default NavBar;
 
+const TabTitle = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #111;
+color: gold;
+font-size: 19px;
+font-weight: 600;
+width: 50%;
+`
+
+const TabColumn = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
+
+const TabRow = styled.div`
+display: flex;
+flex-direction: row;
+`
+
 const NLink2 = styled(NavLink)`
-padding: 6px;
+margin: 0 2px 0 2px;
+padding: 0 16px 6px 16px;
+height: 50%;
 text-decoration: none;
+background-color: #222;
 color: red;
+border-radius: 5px 5px 0 0;
 
 &&:hover {
+    background-color: #111;
     color: gold;
 }
 `
@@ -40,9 +75,9 @@ const NavBottom = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
-align-items: center;
+align-items: flex-end;
 width: 100%;
-height: 40px;
+height: 30px;
 background-color: #111;
 `
 
@@ -50,7 +85,13 @@ const ButtonIcon = styled(FiSearch)`
 width: 100%;
 height: 100%;
 color: darkred;
+background-color: #222;
+
+&&:hover{
 background-color: #111;
+color: gold;
+cursor: pointer;
+}
 `
 
 const SearchWrapper = styled.div`
@@ -60,7 +101,7 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 float: right;
-height: 100%;
+height: 80%;
 `
 
 const SearchBar = styled.input`
@@ -78,6 +119,11 @@ align-items: center;
 font-size: 60px;
 color: white;
 text-decoration: none;
+
+&&:hover{
+color: gold;
+cursor: pointer;
+}
 `
 
 const SearchButton = styled.button`
@@ -88,9 +134,6 @@ background-color:transparent;
 outline:none;
 
 &&:hover{
-border-style: solid;
-border-width: 4px;
-border-color: red;
 cursor: pointer;
 }
 `
