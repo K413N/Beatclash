@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import { Wrapper } from "./GlobalStyles";
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
+    const { profileId } = useParams();
+
+
     return(
         <Wrapper>
-        <div>Profile</div>
+        <div>{profileId}</div>
         </Wrapper>
     )
 }
