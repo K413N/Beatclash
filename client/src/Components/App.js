@@ -9,8 +9,10 @@ import NavBar from "./NavBar";
 
 function App() {
   return (
+    <>
     <BrowserRouter>
     <GlobalStyles />
+
     <NavBar />
     <Routes>
       <PageWrapper>
@@ -21,6 +23,7 @@ function App() {
       </PageWrapper>
     </Routes>
     </BrowserRouter>
+    </>
   );
 }
 
