@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { Wrapper } from "./GlobalStyles";
 
-const Homepage = () => {
+const Login = () => {
     return(
-        <Wrapper>HomePage</Wrapper>
+        <Wrapper>Login</Wrapper>
     )
 }
 
-export default Homepage;
+export default Login;
