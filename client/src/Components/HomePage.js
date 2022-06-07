@@ -51,7 +51,7 @@ const Homepage = () => {
 export default Homepage;
 
 const Wrapper = styled.div`
-margin-top: ${(props) => (props.chat === true ? "290px" : "90px")};
+margin-top: ${(props) => (props.chat === true ? "290px" : "70px")};
 background-color: gray;
 position: relative;
 width: 100%;
