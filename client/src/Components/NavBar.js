@@ -83,7 +83,7 @@ z-index: 1;
 
 const ChatButton = styled.button`
 position: absolute;
-top: 25px;
+top: 10px;
 left: calc(50% - 50px);
 width: 100px;
 height: 50px;
@@ -178,7 +178,7 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 float: right;
-height: 80%;
+height: 100%;
 `
 
 const SearchBar = styled.input`
@@ -193,7 +193,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
-font-size: 60px;
+font-size: 32px;
 color: white;
 text-decoration: none;
 
@@ -205,14 +205,10 @@ cursor: pointer;
 
 const SearchButton = styled.button`
 width: 80px;
-height: 100%;
+height: 150%;
 border:none;
 background-color:transparent;
 outline:none;
-
-&&:hover{
-cursor: pointer;
-}
 `
 
 const NavWrap = styled.div`
@@ -221,8 +217,8 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 width: 100vw;
-height: 60px;
-padding: 2px 32px 2px 32px;
+height: 40px;
+padding: 6px 32px 6px 32px;
 background-color: var(--primary-color);
 color: lightgray;
 border-color: var(--accent-bg-color);
