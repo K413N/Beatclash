@@ -1,6 +1,5 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
-import { PageWrapper } from "./GlobalStyles";
 import { Fragment } from "react";
 import Homepage from "./Homepage";
 import Login from "./Login";

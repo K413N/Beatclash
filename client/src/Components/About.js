@@ -9,7 +9,7 @@ const About = () => {
         <Wrapper chat={chat}>
         <Title>About</Title>
         <AboutWrapper>
-            <AboutText>This website was made by Kalen Coulson.</AboutText>
+            <AboutText>This website was made by Kalen.</AboutText>
             <AboutText>
                 The idea of this website was to give producers a way to
                 collaborate and share content in a more community driven
