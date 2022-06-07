@@ -83,12 +83,12 @@ z-index: 1;
 
 const ChatButton = styled.button`
 position: absolute;
-top: 0;
+top: 25px;
 left: calc(50% - 50px);
 width: 100px;
-height: 100px;
+height: 50px;
 border:none;
-background-color:transparent;
+background-color: transparent;
 outline:none;
 `
 
@@ -97,10 +97,13 @@ width: 100%;
 height: 100%;
 color: darkred;
 background-color: #222;
-border-radius: 5px 5px 0 0;
+border-color: darkred;
+border-width: 4px;
+border-style: solid;
+border-radius: 12px;
 
 &&:hover{
-background-color: transparent;
+background-color: #111;
 color: gold;
 cursor: pointer;
 }
