@@ -27,7 +27,7 @@ const About = () => {
 export default About;
 
 const Wrapper = styled.div`
-margin-top: ${(props) => (props.chat === true ? "290px" : "70px")};
+margin-top: ${(props) => (props.chat === true ? "270px" : "70px")};
 background-color: gray;
 position: relative;
 width: 100%;
