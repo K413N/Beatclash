@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export const breakpoints = { tablet: "600px" };
 
+
 export default createGlobalStyle`
     :root {
       --primary-color: #111;
@@ -42,6 +43,7 @@ export default createGlobalStyle`
     }
     body {
         line-height: 1;
+        background-color: black;
     }
     ol, ul {
         list-style: none;
@@ -63,7 +65,18 @@ export default createGlobalStyle`
     }
 `;
 
+export const Title = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #222;
+color: gold;
+font-size: 40px;
+padding-top: 6px;
+`
+
 export const Wrapper = styled.div`
+margin-top: 90px;
 background-color: gray;
 position: relative;
 width: 100%;
@@ -73,7 +86,7 @@ height: 100%;
 export const PageWrapper = styled.div`
 background-color: gray;
 position: absolute;
-margin-top: 80px;
+margin-top: 0;
 width: 100vw;
 height: 100vw;
 `

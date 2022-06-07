@@ -1,17 +1,36 @@
 import styled from "styled-components";
 import { Wrapper } from "./GlobalStyles";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiMessageSquare } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
+import { useState, setState, useContext } from "react";
+import { Context } from "./Context";
 
 const NavBar = () => {
+
+    const {chat, setChat} = useContext(Context);
+
+    const chatHandler = () => {
+        if(chat){
+            setChat(false);
+            console.log("Closing chat!")
+        } else {
+            setChat(true);
+            console.log("Opening chat!")
+        }
+    }
+
     return(
-        <Wrapper>
+        
+            <ChatWrap>
         <NavWrap>
             <NLink to="/home"><div>Beatclash</div></NLink>
+            <ChatButton onClick={chatHandler}>
+                <ChatIcon />
+            </ChatButton>
             <SearchWrapper>
             <SearchBar />
             <SearchButton>
-                <ButtonIcon></ButtonIcon>
+                <SearchIcon></SearchIcon>
             </SearchButton>
             </SearchWrapper>
         </NavWrap>
@@ -34,13 +53,58 @@ const NavBar = () => {
             </TabRow>
             </TabColumn>
         </NavBottom>
-        </Wrapper>
+        {
+            chat ? <ChatWindow /> : <div/>
+        }
+        </ChatWrap>
+        
+        
     )
 }
 
 
 
 export default NavBar;
+
+const ChatWrap = styled.div`
+display: flex;
+position: fixed;
+top: 0;
+flex-direction: column;
+z-index: 9001;
+`
+
+const ChatWindow = styled.div`
+width: 100%;
+height: 200px;
+background-color: #113;
+z-index: 1;
+`
+
+const ChatButton = styled.button`
+position: absolute;
+top: 0;
+left: calc(50% - 50px);
+width: 100px;
+height: 100px;
+border:none;
+background-color:transparent;
+outline:none;
+`
+
+const ChatIcon = styled(FiMessageSquare)`
+width: 100%;
+height: 100%;
+color: darkred;
+background-color: #222;
+border-radius: 5px 5px 0 0;
+
+&&:hover{
+background-color: transparent;
+color: gold;
+cursor: pointer;
+}
+`
 
 const TabTitle = styled.div`
 display: flex;
@@ -90,7 +154,8 @@ height: 30px;
 background-color: #111;
 `
 
-const ButtonIcon = styled(FiSearch)`
+
+const SearchIcon = styled(FiSearch)`
 width: 100%;
 height: 100%;
 color: darkred;
@@ -154,6 +219,7 @@ justify-content: space-between;
 align-items: center;
 width: 100vw;
 height: 60px;
+padding: 2px 32px 2px 32px;
 background-color: var(--primary-color);
 color: lightgray;
 border-color: var(--accent-bg-color);

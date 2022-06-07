@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Wrapper } from "./GlobalStyles";
 
 const Error = () => {
     return(
@@ -10,3 +9,11 @@ const Error = () => {
 };
 
 export default Error;
+
+const Wrapper = styled.div`
+margin-top: ${(props) => (props.chat === true ? "290px" : "90px")};
+background-color: gray;
+position: relative;
+width: 100%;
+height: 100%;
+`
