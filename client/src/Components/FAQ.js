@@ -4,10 +4,10 @@ import { Context } from "./Context";
 import { useContext } from "react";
 
 const FAQ = () => {
-    const {chat} = useContext(Context);
+    const {chat, setTitle} = useContext(Context);
+    setTitle("FAQ");
     return(
         <Wrapper chat={chat}>
-        <Title>FAQ</Title>
         <FAQWrapper>
             <FAQText>There has been no frequently asked questions yet!</FAQText>
            </FAQWrapper>

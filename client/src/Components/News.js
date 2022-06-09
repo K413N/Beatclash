@@ -4,10 +4,10 @@ import { Context } from "./Context";
 import { useContext } from "react";
 
 const News = () => {
-    const {chat} = useContext(Context);
+    const {chat, setTitle} = useContext(Context);
+    setTitle("News");
     return(
         <Wrapper chat={chat}>
-        <Title>News</Title>
         <NewsWrapper>
             <NewsText>Website is currently under development.</NewsText>
            </NewsWrapper>

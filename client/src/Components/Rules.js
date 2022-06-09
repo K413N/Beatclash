@@ -4,10 +4,10 @@ import { Context } from "./Context";
 import { useContext } from "react";
 
 const Rules = () => {
-    const {chat} = useContext(Context);
+    const {chat, setTitle} = useContext(Context);
+    setTitle("Rules");
     return(
         <Wrapper chat={chat}>
-        <Title>Rules</Title>
         <RulesWrapper>
             <RulesText>Rule 1: Don't upload content that is not yours.</RulesText>
             <RulesText>Rule 2: Don't break the law.</RulesText>

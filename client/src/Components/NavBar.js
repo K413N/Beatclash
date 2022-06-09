@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Wrapper } from "./GlobalStyles";
+import { Wrapper, Title } from "./GlobalStyles";
 import { FiSearch, FiMessageSquare } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import { useState, setState, useContext } from "react";
@@ -7,7 +7,7 @@ import { Context } from "./Context";
 
 const NavBar = () => {
 
-    const {chat, setChat} = useContext(Context);
+    const {chat, setChat, setTitle, title} = useContext(Context);
 
     const chatHandler = () => {
         if(chat){
@@ -56,6 +56,7 @@ const NavBar = () => {
         {
             chat ? <ChatWindow /> : <div/>
         }
+        <Title>{title}</Title>
         </ChatWrap>
         
         

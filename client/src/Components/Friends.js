@@ -3,7 +3,8 @@ import { Context } from "./Context";
 import { useContext } from "react";
 
 const Friends = () => {
-    const {chat} = useContext(Context);
+    const {chat, setTitle} = useContext(Context);
+    setTitle("Friends");
     return(
         <Wrapper chat={chat}>
         <div>Friends</div>

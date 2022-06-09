@@ -5,8 +5,8 @@ import { useContext } from "react";
 
 const Profile = () => {
     const { profileId } = useParams();
-    const {chat} = useContext(Context);
-
+    const {chat, setTitle} = useContext(Context);
+    setTitle("Profile");
 
     return(
         <Wrapper chat={chat}>

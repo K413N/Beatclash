@@ -4,10 +4,10 @@ import { Context } from "./Context";
 import { useContext } from "react";
 
 const About = () => {
-    const {chat} = useContext(Context);
+    const {chat, setTitle} = useContext(Context);
+    setTitle("About");
     return(
         <Wrapper chat={chat}>
-        <Title>About</Title>
         <AboutWrapper>
             <AboutText>This website was made by Kalen.</AboutText>
             <AboutText>

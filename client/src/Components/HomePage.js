@@ -6,10 +6,10 @@ import { Context } from "./Context";
 import { useContext } from "react";
 
 const Homepage = () => {
-    const {chat} = useContext(Context);
+    const {chat, setTitle} = useContext(Context);
+    setTitle("Home");
     return(
         <Wrapper chat={chat}>
-            <Title>Home</Title>
         <BoardWrapper>
             <BoardInner>
                 <BoardNav to="/home">
