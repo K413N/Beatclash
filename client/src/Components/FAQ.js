@@ -18,7 +18,7 @@ const FAQ = () => {
 export default FAQ;
 
 const Wrapper = styled.div`
-margin-top: ${(props) => (props.chat === true ? "270px" : "70px")};
+margin-top: ${(props) => (props.chat === true ? "316px" : "116px")};
 background-color: gray;
 position: relative;
 width: 100%;
