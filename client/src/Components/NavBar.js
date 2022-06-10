@@ -89,7 +89,7 @@ position: fixed;
 width: 450px;
 height: 300px;
 bottom: 0;
-left: calc(100vw - 540px);
+left: calc(100vw - 555px);
 background-color: #113;
 border-style: solid;
 border-color: white;

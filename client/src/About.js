@@ -46,7 +46,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 background-color: #333;
-height: 50vw;
+height: 40vw;
 `
 
 const AboutText = styled.div`
