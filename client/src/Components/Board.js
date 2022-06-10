@@ -59,7 +59,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-background-color: #333;
+background-color: #111;
 height: 200px;
 width: 100%;
 padding: 6px;

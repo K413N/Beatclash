@@ -9,13 +9,7 @@ const Forum = () => {
     return(
         <Wrapper chat={chat}>
             <InnerWrapper>
-                <Board />
-                <Board />
-                <Board />
-                <Board />
-                <Board />
-                <Board />
-                <Board />
+                <PHText>Create a list of drop down menues revealing board components here</PHText>
             </InnerWrapper>
             <BottomPad />
         </Wrapper>
@@ -23,6 +17,9 @@ const Forum = () => {
 }
 
 export default Forum;
+const PHText = styled.div`
+color:white;
+`
 
 const BottomPad = styled.div`
 width: 100%;
