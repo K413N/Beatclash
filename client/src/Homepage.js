@@ -18,6 +18,7 @@ const Forums = () => {
                 <BoardGrouping>
                 <GroupTitle>Developer's Corner</GroupTitle>
                 <Board btitle={"Music Production"} bdesc={"Techniques on music producing!"} />
+                <Board btitle={"Game Development"} bdesc={"Anything related to projects in game engines!"} />
                 <Board btitle={"Youtube"} bdesc={"Share your youtube videos!"} />
                 <Board btitle={"Art"} bdesc={"Browse and share your art!"} />
                 <Board btitle={"3D Modeling"} bdesc={"Anything 3D goes here!"} />

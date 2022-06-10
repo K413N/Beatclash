@@ -12,6 +12,7 @@ import Rules from "./Rules";
 import FAQ from "./FAQ";
 import News from "./News";
 import Forums from "./Forums";
+import ChatComponent from "./Components/ChatComponent";
 
 // Used for Routing
 
@@ -21,6 +22,7 @@ function App() {
     <GlobalStyles />
 
     <NavBar />
+    <ChatComponent />
     <Routes>
       <Fragment>
         <Route exact path="/" element={<Homepage />} />

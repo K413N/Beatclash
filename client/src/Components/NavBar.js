@@ -14,15 +14,7 @@ const NavBar = () => {
 
     const {chat, setChat, setTitle, title} = useContext(Context);
 
-    const chatHandler = () => {
-        if(chat){
-            setChat(false);
-            console.log("Closing chat!")
-        } else {
-            setChat(true);
-            console.log("Opening chat!")
-        }
-    }
+    
 
     return(
         
@@ -58,14 +50,7 @@ const NavBar = () => {
             {title}
         </Title>
         
-            <ChatWrap>
-        {
-            chat ? <ChatWindow /> : <div/>
-        }
-        <ChatButton onClick={chatHandler}>
-                <ChatIcon />
-            </ChatButton>
-            </ChatWrap>
+            
             
         </FixedWrap>
         
@@ -77,76 +62,12 @@ const NavBar = () => {
 
 export default NavBar;
 
-
-
-const ChatWrap = styled.div`
-display: flex;
-flex-direction: row;
-`
-
-const ChatWindow = styled.div`
-position: fixed;
-width: 450px;
-height: 300px;
-bottom: 0;
-left: calc(100vw - 555px);
-background-color: #113;
-border-style: solid;
-border-color: white;
-border-width: 1px;
-z-index: 1;
-`
-
-const ChatButton = styled.button`
-position: fixed;
-width: 80px;
-height: 30px;
-bottom: 8px;
-right: 10px;
-border:none;
-background-color: transparent;
-outline:none;
-`
-
-const BottomBar = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-position: fixed;
-bottom: 0px;
-width: 100%;
-height: 40px;
-padding: 0px 16px 0px 16px;
-border-top-style: solid;
-border-top-color: red;
-border-top-width: 1px;
-background-color: #333;
-`
-
 const FixedWrap = styled.div`
 display: flex;
 position: fixed;
 top: 0;
 flex-direction: column;
 z-index: 9001;
-`
-
-const ChatIcon = styled(FiMessageSquare)`
-width: 100%;
-height: 100%;
-color: darkred;
-background-color: #222;
-border-color: darkred;
-border-width: 4px;
-border-style: solid;
-border-radius: 12px;
-
-&&:hover{
-background-color: #333;
-color: gold;
-cursor: pointer;
-}
 `
 
 const TabTitle = styled.div`

@@ -71,10 +71,12 @@ padding: 6px;
 
 
 const PostReplies = styled.div`
+font-size: 12px;
 color: lightgray;
 `
 
 const PostTitle = styled.div`
+font-size: 12px;
 color: white;
 `
 
@@ -93,8 +95,10 @@ const RecentPost = styled(NavLink)`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
+align-items: center;
 padding: 4px 8px 4px 8px;
-width: 500px;
+width: 100%;
+height: 100%;
 font-size: 24px;
 background-color: #222;
 border-style: solid;
@@ -112,12 +116,15 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 justify-content: flex-start;
+width: 50%;
+height: 100%;
 padding: 6px;
 `
 
 const BoardDescription = styled.div`
 padding: 16px;
 font-size: 16px;
+width: 200%;
 color: lightgray;
 `
 
