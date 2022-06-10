@@ -63,6 +63,7 @@ export default createGlobalStyle`
     h2 {
       font-size: 28px;
     }
+
 `;
 
 export const Title = styled.div`

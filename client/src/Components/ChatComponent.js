@@ -46,6 +46,7 @@ border-color: darkred;
 border-width: 4px;
 border-style: solid;
 border-radius: 12px;
+z-index: 1;
 
 &&:hover{
 background-color: #333;
@@ -76,4 +77,5 @@ right: 10px;
 border:none;
 background-color: transparent;
 outline:none;
+z-index: 1;
 `

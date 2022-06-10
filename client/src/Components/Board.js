@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Context } from "./Context";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import GlobalStyles from "../GlobalStyles";
 
 // This will display a clickable individual Board element
 // It shows the top 5 posts, which you can click to navigate to.
@@ -15,30 +16,30 @@ const Board = ({btitle, bdesc}) => {
                 <BoardInner>
                     <BoardNav to="/">
                     <BoardCol>
-                    <BoardTitle>{btitle}</BoardTitle>
-                    <BoardDescription>{bdesc}</BoardDescription>
+                    <BoardTitle className="btext">{btitle}</BoardTitle>
+                    <BoardDescription className="btext">{bdesc}</BoardDescription>
                     </BoardCol>
                     </BoardNav>
                     <BoardCol>
                         <RecentPost to="/">
-                            <PostTitle>Post Title</PostTitle>
-                            <PostReplies>0</PostReplies>
+                            <PostTitle className="btext">Post Title</PostTitle>
+                            <PostReplies className="btext">0</PostReplies>
                         </RecentPost >
                         <RecentPost to="/">
-                            <PostTitle>Post Title</PostTitle>
-                            <PostReplies>0</PostReplies>
+                            <PostTitle className="btext">Post Title</PostTitle>
+                            <PostReplies className="btext">0</PostReplies>
                         </RecentPost>
                         <RecentPost to="/">
-                            <PostTitle>Post Title</PostTitle>
-                            <PostReplies>0</PostReplies>
+                            <PostTitle className="btext">Post Title</PostTitle>
+                            <PostReplies className="btext">0</PostReplies>
                         </RecentPost>
                         <RecentPost to="/">
-                            <PostTitle>Post Title</PostTitle>
-                            <PostReplies>0</PostReplies>
+                            <PostTitle className="btext">Post Title</PostTitle>
+                            <PostReplies className="btext">0</PostReplies>
                         </RecentPost>
                         <RecentPost to="/">
-                            <PostTitle>Post Title</PostTitle>
-                            <PostReplies>0</PostReplies>
+                            <PostTitle className="btext">Post Title</PostTitle>
+                            <PostReplies className="btext">0</PostReplies>
                         </RecentPost>
                         
                     </BoardCol>
@@ -87,7 +88,10 @@ text-decoration: none;
 width: 100%;
 
 &&:hover {
-    background-color: #611;
+    background-color: #200;
+    .btext{
+        color: gold;
+    }
 }
 `
 
@@ -107,7 +111,10 @@ border-width: 1px;
 text-decoration: none;
 
 &&:hover {
-    background-color: #611;
+    background-color: #200;
+    .btext{
+        color: gold;
+    }
 }
 `
 
