@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { Context } from "./Context";
 import { useContext } from "react";
 
+// This will be the login button
+// It will be on the nav bar
+// when the user isn't logged in
+
 const Login = () => {
     const {chat} = useContext(Context);
     return(

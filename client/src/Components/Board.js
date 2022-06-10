@@ -3,6 +3,10 @@ import { Context } from "./Context";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
+// This will display a clickable individual Board element
+// It shows the top 5 posts, which you can click to navigate to.
+// Or click the board itself to view every post.
+
 const Board = () => {
     const {chat} = useContext(Context);
         return(

@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import { Context } from "./Components/Context";
 import { useContext } from "react";
+import { PageWrapper } from "./GlobalStyles";
 
 const News = () => {
     const {chat, setTitle} = useContext(Context);
     setTitle("News");
     return(
         <Wrapper chat={chat}>
+            <PageWrapper>
         <NewsWrapper>
             <NewsText>Website is currently under development.</NewsText>
            </NewsWrapper>
+           </PageWrapper>
         </Wrapper>
     )
 }
@@ -17,6 +20,8 @@ const News = () => {
 export default News;
 
 const Wrapper = styled.div`
+display: flex;
+justify-content: center;
 margin-top: 126px;
 background-color: black;
 position: relative;

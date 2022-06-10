@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+// Nothing fancy, just a loading text
+// No one wants to load a loader
+
 const Loading = () => {
 
     return(

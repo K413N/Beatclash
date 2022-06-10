@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+// Generic error component place holder
+
 const Error = () => {
     return(
         <Wrapper>

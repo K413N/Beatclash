@@ -1,15 +1,21 @@
 import styled from "styled-components";
 import { Context } from "./Components/Context";
 import { useContext } from "react";
+import { PageWrapper } from "./GlobalStyles";
+
+// This page will grow as time goes on, 
+// and more questions are asked.
 
 const FAQ = () => {
     const {chat, setTitle} = useContext(Context);
     setTitle("FAQ");
     return(
         <Wrapper chat={chat}>
+            <PageWrapper>
         <FAQWrapper>
             <FAQText>There has been no frequently asked questions yet!</FAQText>
            </FAQWrapper>
+           </PageWrapper>
         </Wrapper>
     )
 }
@@ -17,6 +23,8 @@ const FAQ = () => {
 export default FAQ;
 
 const Wrapper = styled.div`
+display: flex;
+justify-content: center;
 margin-top: 126px;
 background-color: black;
 position: relative;

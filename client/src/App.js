@@ -13,6 +13,7 @@ import FAQ from "./FAQ";
 import News from "./News";
 import Forums from "./Forums";
 
+// Used for Routing
 
 function App() {
   return (

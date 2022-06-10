@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { useContext } from "react";
 
+// This is an individual friend element
+// it will be rendered when mapping through
+// an array of the user's friends
+
 const Friend = () => {
     return(
         <Wrapper>

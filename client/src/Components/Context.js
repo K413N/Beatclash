@@ -3,6 +3,8 @@ import Loading from "./Loading";
 
 export const Context = createContext(null);
 
+// Context for global states
+
 export const ContextProvider = ({children}) => {
     const [chat, setChat] = useState(false);
     const [title, setTitle] = useState("test");

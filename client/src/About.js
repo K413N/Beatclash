@@ -1,14 +1,18 @@
 import styled from "styled-components";
 import { Context } from "./Components/Context";
 import { useContext } from "react";
+import { PageWrapper } from "./GlobalStyles";
+
+// This page shows information about the website.
 
 const About = () => {
     const {chat, setTitle} = useContext(Context);
     setTitle("About");
     return(
         <Wrapper chat={chat}>
+            <PageWrapper>
         <AboutWrapper>
-            <AboutText>This website was made by Kalen.</AboutText>
+            <AboutText>This website was made by Kalen Coulson.</AboutText>
             <AboutText>
                 The idea of this website was to give producers a way to
                 collaborate and share content in a more community driven
@@ -19,6 +23,7 @@ const About = () => {
                 Other than that, welcome!
             </AboutText>
         </AboutWrapper>
+        </PageWrapper>
         </Wrapper>
     )
 }
@@ -26,6 +31,8 @@ const About = () => {
 export default About;
 
 const Wrapper = styled.div`
+display: flex;
+justify-content: center;
 margin-top: 126px;
 background-color: black;
 position: relative;

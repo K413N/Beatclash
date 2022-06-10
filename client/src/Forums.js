@@ -2,21 +2,27 @@ import styled from "styled-components";
 import { Context } from "./Components/Context";
 import { useContext } from "react";
 import Board from "./Components/Board";
+import { PageWrapper } from "./GlobalStyles";
 
-const Forums = () => {
+
+
+const Boards = () => {
     const {chat, setTitle} = useContext(Context);
-    setTitle("Forums");
+    setTitle("Boards");
     return(
         <Wrapper chat={chat}>
+            <PageWrapper>
             <InnerWrapper>
                 <PHText>Create a list of drop down menues revealing board components here</PHText>
             </InnerWrapper>
+            </PageWrapper>
             <BottomPad />
+
         </Wrapper>
     )
 }
 
-export default Forums;
+export default Boards;
 const PHText = styled.div`
 color:white;
 `

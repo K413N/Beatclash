@@ -5,6 +5,11 @@ import { NavLink } from "react-router-dom";
 import { useState, setState, useContext } from "react";
 import { Context } from "./Context";
 
+// Some may find this nav bar annoying,
+// but I think its pretty intuitive
+// might make it collapsable later
+// much like the chat window.
+
 const NavBar = () => {
 
     const {chat, setChat, setTitle, title} = useContext(Context);
@@ -35,7 +40,6 @@ const NavBar = () => {
             <TabColumn>
                 <TabTitle>Navigation</TabTitle>
             <TabRow>
-            <NLink2 to="/forums">Forums</NLink2>
             <NLink2 to="/profile/:profileId">Profile</NLink2>
             <NLink2 to="/friends">Friends</NLink2>
             </TabRow>
