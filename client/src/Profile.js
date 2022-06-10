@@ -29,12 +29,19 @@ const Profile = () => {
                 <TabButton>Store</TabButton>
                 </Tabs>
         </TabWrapper>
-        <LowerWrapper>whatever tab you select will go here</LowerWrapper>
+        <LowerWrapper>
+            <LowerInnerWrapper>whatever tab you select will go here</LowerInnerWrapper>
+            </LowerWrapper>
         </Wrapper>
     )
 }
 
 export default Profile;
+
+const LowerInnerWrapper = styled.div`
+width: 50%;
+height: 100%;
+`
 
 const LowerWrapper = styled.div`
 width: 100%;
