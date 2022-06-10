@@ -8,9 +8,12 @@ export const ContextProvider = ({children}) => {
     const [title, setTitle] = useState("test");
     const [isLoading, setLoading] = useState(true);
     useEffect(() => {
-
+        setLoading(false);
     },[chat, title])
-
+    
+if(isLoading){
+    return (<Loading />)
+} else {
     return(
         <Context.Provider value={{
         chat, setChat,
@@ -18,4 +21,5 @@ export const ContextProvider = ({children}) => {
         title, setTitle
     }}>{children}</Context.Provider>
     );
+}
 }

@@ -15,6 +15,7 @@ const LoadingText = styled.div`
 background-color: darkblue;
 color: white;
 font-size: 64px;
+padding: 16px;
 z-index: 3000;
 `
 

@@ -84,7 +84,7 @@ position: fixed;
 width: 400px;
 height: 250px;
 bottom: 40px;
-left: calc(100vw - 404px);
+left: calc(100vw - 420px);
 background-color: #113;
 border-style: solid;
 border-color: white;

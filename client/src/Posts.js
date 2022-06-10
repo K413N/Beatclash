@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Context } from "./Context";
+import { Context } from "./Components/Context";
 import { useContext } from "react";
 
 const Posts = () => {
