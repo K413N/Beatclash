@@ -22,7 +22,7 @@ export default Rules;
 
 const Wrapper = styled.div`
 margin-top: 126px;
-background-color: gray;
+background-color: black;
 position: relative;
 width: 100%;
 height: 100%;

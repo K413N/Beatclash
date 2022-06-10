@@ -3,9 +3,9 @@ import { Context } from "./Components/Context";
 import { useContext } from "react";
 import Board from "./Components/Board";
 
-const Forum = () => {
+const Forums = () => {
     const {chat, setTitle} = useContext(Context);
-    setTitle("Forum");
+    setTitle("Forums");
     return(
         <Wrapper chat={chat}>
             <InnerWrapper>
@@ -16,7 +16,7 @@ const Forum = () => {
     )
 }
 
-export default Forum;
+export default Forums;
 const PHText = styled.div`
 color:white;
 `

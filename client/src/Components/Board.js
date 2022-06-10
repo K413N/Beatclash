@@ -9,30 +9,30 @@ const Board = () => {
             <Wrapper chat={chat}>
             <BoardWrapper>
                 <BoardInner>
-                    <BoardNav to="/home">
+                    <BoardNav to="/">
                     <BoardCol>
                     <BoardTitle>Title</BoardTitle>
                     <BoardDescription>Brief description of board</BoardDescription>
                     </BoardCol>
                     </BoardNav>
                     <BoardCol>
-                        <RecentPost to="/home">
+                        <RecentPost to="/">
                             <PostTitle>Post Title</PostTitle>
                             <PostReplies>0</PostReplies>
                         </RecentPost >
-                        <RecentPost to="/home">
+                        <RecentPost to="/">
                             <PostTitle>Post Title</PostTitle>
                             <PostReplies>0</PostReplies>
                         </RecentPost>
-                        <RecentPost to="/home">
+                        <RecentPost to="/">
                             <PostTitle>Post Title</PostTitle>
                             <PostReplies>0</PostReplies>
                         </RecentPost>
-                        <RecentPost to="/home">
+                        <RecentPost to="/">
                             <PostTitle>Post Title</PostTitle>
                             <PostReplies>0</PostReplies>
                         </RecentPost>
-                        <RecentPost to="/home">
+                        <RecentPost to="/">
                             <PostTitle>Post Title</PostTitle>
                             <PostReplies>0</PostReplies>
                         </RecentPost>
@@ -48,7 +48,7 @@ const Board = () => {
 export default Board;
 
 const Wrapper = styled.div`
-background-color: gray;
+background-color: black;
 position: relative;
 width: 100%;
 height: 100%;

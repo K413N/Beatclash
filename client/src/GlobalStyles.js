@@ -78,18 +78,13 @@ border-bottom-color: red;
 border-bottom-width: 1px;
 `
 
-export const Wrapper = styled.div`
-margin-top: 90px;
-background-color: gray;
-position: relative;
-width: 100%;
-height: 100%;
-`
-
 export const PageWrapper = styled.div`
-background-color: gray;
-position: absolute;
+background-color: #333;
+position: relative;
 margin-top: 0;
-width: 100vw;
-height: 100vw;
+width: 60%;
+height: 100%;
+border-style: solid;
+border-color: gray;
+border-width: 1px;
 `

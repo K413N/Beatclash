@@ -11,7 +11,7 @@ import About from "./About";
 import Rules from "./Rules";
 import FAQ from "./FAQ";
 import News from "./News";
-import Forum from "./Forum";
+import Forums from "./Forums";
 
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
     <NavBar />
     <Routes>
       <Fragment>
-        <Route exact path="/home" element={<Homepage />} />
-        <Route exact path="/forum" element={<Forum />} />
+        <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/forums" element={<Forums />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/faq" element={<FAQ />} />

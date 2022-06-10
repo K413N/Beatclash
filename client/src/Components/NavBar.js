@@ -23,7 +23,7 @@ const NavBar = () => {
         
             <FixedWrap>
         <NavWrap>
-            <NLink to="/home"><div>Beatclash</div></NLink>
+            <NLink to="/"><div>Beatclash</div></NLink>
             <SearchWrapper>
             <SearchBar />
             <SearchButton>
@@ -35,7 +35,7 @@ const NavBar = () => {
             <TabColumn>
                 <TabTitle>Navigation</TabTitle>
             <TabRow>
-            <NLink2 to="/forum">Forum</NLink2>
+            <NLink2 to="/forums">Forums</NLink2>
             <NLink2 to="/profile/:profileId">Profile</NLink2>
             <NLink2 to="/friends">Friends</NLink2>
             </TabRow>

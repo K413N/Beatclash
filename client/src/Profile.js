@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useParams, NavLink } from "react-router-dom";
 import { Context } from "./Components/Context";
 import { useContext } from "react";
+import { PageWrapper } from "./GlobalStyles";
 
 const Profile = () => {
     const { profileId } = useParams();
@@ -10,6 +11,7 @@ const Profile = () => {
 
     return(
         <Wrapper chat={chat}>
+            <PageWrapper>
         <ProfileWrapper>
             <AvatarWrapper />
             <ProfileCol>
@@ -32,6 +34,7 @@ const Profile = () => {
         <LowerWrapper>
             <LowerInnerWrapper>whatever tab you select will go here</LowerInnerWrapper>
             </LowerWrapper>
+            </PageWrapper>
         </Wrapper>
     )
 }
@@ -142,8 +145,11 @@ border-radius: 15%;
 `
 
 const Wrapper = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
 margin-top: 126px;
-background-color: gray;
+background-color: black;
 position: relative;
 width: 100%;
 height: 100%;
