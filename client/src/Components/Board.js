@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 // It shows the top 5 posts, which you can click to navigate to.
 // Or click the board itself to view every post.
 
-const Board = () => {
+const Board = ({btitle, bdesc}) => {
     const {chat} = useContext(Context);
         return(
             <Wrapper chat={chat}>
@@ -15,8 +15,8 @@ const Board = () => {
                 <BoardInner>
                     <BoardNav to="/">
                     <BoardCol>
-                    <BoardTitle>Title</BoardTitle>
-                    <BoardDescription>Brief description of board</BoardDescription>
+                    <BoardTitle>{btitle}</BoardTitle>
+                    <BoardDescription>{bdesc}</BoardDescription>
                     </BoardCol>
                     </BoardNav>
                     <BoardCol>

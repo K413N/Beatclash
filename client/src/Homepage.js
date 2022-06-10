@@ -10,9 +10,18 @@ const Forums = () => {
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
-            <InnerWrapper>
-                <PHText>Create a list of drop down menues revealing board components here</PHText>
-            </InnerWrapper>
+                <BoardGrouping>
+                    <GroupTitle>Discussions</GroupTitle>
+                <Board btitle={"General"} bdesc={"General discussion about anything!"} />
+                <Board btitle={"Music"} bdesc={"Discuss and share music!"} />
+                </BoardGrouping>
+                <BoardGrouping>
+                <GroupTitle>Developer's Corner</GroupTitle>
+                <Board btitle={"Music Production"} bdesc={"Techniques on music producing!"} />
+                <Board btitle={"Youtube"} bdesc={"Share your youtube videos!"} />
+                <Board btitle={"Art"} bdesc={"Browse and share your art!"} />
+                <Board btitle={"3D Modeling"} bdesc={"Anything 3D goes here!"} />
+                </BoardGrouping>
             <BottomPad />
             </PageWrapper>
         </Wrapper>
@@ -20,6 +29,17 @@ const Forums = () => {
 }
 
 export default Forums;
+
+const GroupTitle = styled.div`
+color: gold;
+font-size: 32px;
+`
+
+const BoardGrouping = styled.div`
+padding: 6px;
+background-color: #111;
+`
+
 const PHText = styled.div`
 color: white;
 `
@@ -29,9 +49,6 @@ width: 100%;
 height: 44px;
 `
 
-const InnerWrapper = styled.div`
-width: 70%;
-`
 
 const Wrapper = styled.div`
 display: flex;
