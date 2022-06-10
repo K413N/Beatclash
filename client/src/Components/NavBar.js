@@ -53,8 +53,7 @@ const NavBar = () => {
         <Title>
             {title}
         </Title>
-        <BottomBar>
-        <Disclaimer>All rights reserved. ©</Disclaimer>
+        
             <ChatWrap>
         {
             chat ? <ChatWindow /> : <div/>
@@ -63,7 +62,7 @@ const NavBar = () => {
                 <ChatIcon />
             </ChatButton>
             </ChatWrap>
-            </BottomBar>
+            
         </FixedWrap>
         
         
@@ -74,9 +73,7 @@ const NavBar = () => {
 
 export default NavBar;
 
-const Disclaimer = styled.div`
-color: lightgray;
-`
+
 
 const ChatWrap = styled.div`
 display: flex;
@@ -87,8 +84,8 @@ const ChatWindow = styled.div`
 position: fixed;
 width: 450px;
 height: 300px;
-bottom: 40px;
-left: calc(100vw - 500px);
+bottom: 0;
+left: calc(100vw - 540px);
 background-color: #113;
 border-style: solid;
 border-color: white;
@@ -97,10 +94,11 @@ z-index: 1;
 `
 
 const ChatButton = styled.button`
-position: relative;
+position: fixed;
 width: 80px;
 height: 30px;
-bottom: 4px;
+bottom: 8px;
+right: 10px;
 border:none;
 background-color: transparent;
 outline:none;
