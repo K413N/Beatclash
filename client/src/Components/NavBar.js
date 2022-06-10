@@ -24,9 +24,6 @@ const NavBar = () => {
             <ChatWrap>
         <NavWrap>
             <NLink to="/home"><div>Beatclash</div></NLink>
-            <ChatButton onClick={chatHandler}>
-                <ChatIcon />
-            </ChatButton>
             <SearchWrapper>
             <SearchBar />
             <SearchButton>
@@ -53,10 +50,16 @@ const NavBar = () => {
             </TabRow>
             </TabColumn>
         </NavBottom>
+        <Title>
+            {title}
+            
+            <ChatButton onClick={chatHandler}>
+                <ChatIcon />
+            </ChatButton>
+        </Title>
         {
             chat ? <ChatWindow /> : <div/>
         }
-        <Title>{title}</Title>
         </ChatWrap>
         
         
@@ -76,16 +79,19 @@ z-index: 9001;
 `
 
 const ChatWindow = styled.div`
-width: 100%;
-height: 200px;
+position: relative;
+left: calc(100vw - 420px);
+width: 400px;
+height: 250px;
+
 background-color: #113;
 z-index: 1;
 `
 
 const ChatButton = styled.button`
-position: absolute;
-top: 10px;
-left: calc(50% - 50px);
+position: relative;
+left: calc(50% - 116px);
+bottom: 6px;
 width: 100px;
 height: 50px;
 border:none;

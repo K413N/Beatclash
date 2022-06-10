@@ -15,7 +15,7 @@ const Posts = () => {
 export default Posts;
 
 const Wrapper = styled.div`
-margin-top: ${(props) => (props.chat === true ? "316px" : "116px")};
+margin-top: 126px;
 background-color: gray;
 position: relative;
 width: 100%;
