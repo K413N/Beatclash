@@ -83,7 +83,7 @@ text-decoration: none;
 width: 100%;
 
 &&:hover {
-    background-color: #431;
+    background-color: #611;
 }
 `
 
@@ -101,7 +101,7 @@ border-width: 1px;
 text-decoration: none;
 
 &&:hover {
-    background-color: #431;
+    background-color: #611;
 }
 `
 
