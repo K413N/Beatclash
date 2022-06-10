@@ -86,6 +86,9 @@ height: 250px;
 bottom: 40px;
 left: calc(100vw - 404px);
 background-color: #113;
+border-style: solid;
+border-color: white;
+border-width: 1px;
 z-index: 1;
 `
 
