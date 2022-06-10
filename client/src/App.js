@@ -11,7 +11,6 @@ import About from "./About";
 import Rules from "./Rules";
 import FAQ from "./FAQ";
 import News from "./News";
-import MyPosts from "./MyPosts";
 import Forum from "./Forum";
 
 
@@ -28,7 +27,6 @@ function App() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/faq" element={<FAQ />} />
-        <Route exact path="/posts" element={<MyPosts />} />
         <Route exact path="/rules" element={<Rules />} />
         <Route exact path="/news" element={<News />} />
         <Route exact path="/friends" element={<Friends />} />

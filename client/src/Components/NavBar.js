@@ -35,7 +35,6 @@ const NavBar = () => {
             <TabColumn>
                 <TabTitle>Navigation</TabTitle>
             <TabRow>
-            <NLink2 to="/posts">My Posts</NLink2>
             <NLink2 to="/forum">Forum</NLink2>
             <NLink2 to="/profile/:profileId">Profile</NLink2>
             <NLink2 to="/friends">Friends</NLink2>
