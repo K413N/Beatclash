@@ -80,11 +80,11 @@ flex-direction: row;
 `
 
 const ChatWindow = styled.div`
-position: relative;
+position: fixed;
 width: 400px;
 height: 250px;
-bottom: 252px;
-left: 84px;
+bottom: 40px;
+left: calc(100vw - 404px);
 background-color: #113;
 z-index: 1;
 `
@@ -93,6 +93,7 @@ const ChatButton = styled.button`
 position: relative;
 width: 80px;
 height: 30px;
+bottom: 4px;
 border:none;
 background-color: transparent;
 outline:none;
@@ -102,6 +103,7 @@ const BottomBar = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
+align-items: center;
 position: fixed;
 bottom: 0px;
 width: 100%;
@@ -132,7 +134,7 @@ border-style: solid;
 border-radius: 12px;
 
 &&:hover{
-background-color: #111;
+background-color: #333;
 color: gold;
 cursor: pointer;
 }
@@ -142,7 +144,7 @@ const TabTitle = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: #111;
+background-color: #333;
 color: gold;
 font-size: 19px;
 font-weight: 600;
@@ -171,7 +173,7 @@ color: red;
 border-radius: 5px 5px 0 0;
 
 &&:hover {
-    background-color: #111;
+    background-color: #333;
     color: gold;
 }
 `
@@ -183,7 +185,7 @@ justify-content: space-evenly;
 align-items: flex-end;
 width: 100%;
 height: 30px;
-background-color: #111;
+background-color: #333;
 `
 
 
@@ -194,7 +196,7 @@ color: darkred;
 background-color: #222;
 
 &&:hover{
-background-color: #111;
+background-color: #333;
 color: gold;
 cursor: pointer;
 }

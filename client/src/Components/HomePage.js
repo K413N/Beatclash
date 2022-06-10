@@ -130,7 +130,7 @@ const BoardInner = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
-background-color: #111;
+background-color: #333;
 height: 100%;
 padding: 6px;
 border-radius: 5px;

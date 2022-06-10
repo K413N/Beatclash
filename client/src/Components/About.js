@@ -39,7 +39,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-background-color: #111;
+background-color: #333;
 height: 50vw;
 `
 
