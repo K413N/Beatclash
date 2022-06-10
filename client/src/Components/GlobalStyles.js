@@ -73,6 +73,9 @@ background-color: #222;
 color: gold;
 font-size: 40px;
 padding-top: 6px;
+border-bottom-style: solid;
+border-bottom-color: red;
+border-bottom-width: 1px;
 `
 
 export const Wrapper = styled.div`

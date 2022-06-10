@@ -21,7 +21,7 @@ const NavBar = () => {
 
     return(
         
-            <ChatWrap>
+            <FixedWrap>
         <NavWrap>
             <NLink to="/home"><div>Beatclash</div></NLink>
             <SearchWrapper>
@@ -52,15 +52,19 @@ const NavBar = () => {
         </NavBottom>
         <Title>
             {title}
-            
-            <ChatButton onClick={chatHandler}>
-                <ChatIcon />
-            </ChatButton>
         </Title>
+        <BottomBar>
+        <div>place holder element</div>
+            <ChatWrap>
         {
             chat ? <ChatWindow /> : <div/>
         }
-        </ChatWrap>
+        <ChatButton onClick={chatHandler}>
+                <ChatIcon />
+            </ChatButton>
+            </ChatWrap>
+            </BottomBar>
+        </FixedWrap>
         
         
     )
@@ -72,31 +76,49 @@ export default NavBar;
 
 const ChatWrap = styled.div`
 display: flex;
-position: fixed;
-top: 0;
-flex-direction: column;
-z-index: 9001;
+flex-direction: row;
 `
 
 const ChatWindow = styled.div`
 position: relative;
-left: calc(100vw - 420px);
 width: 400px;
 height: 250px;
-
+bottom: 252px;
+left: 84px;
 background-color: #113;
 z-index: 1;
 `
 
 const ChatButton = styled.button`
 position: relative;
-left: calc(50% - 116px);
-bottom: 6px;
-width: 100px;
-height: 50px;
+width: 80px;
+height: 30px;
 border:none;
 background-color: transparent;
 outline:none;
+`
+
+const BottomBar = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+position: fixed;
+bottom: 0px;
+width: 100%;
+height: 40px;
+padding: 0px 16px 0px 16px;
+border-top-style: solid;
+border-top-color: red;
+border-top-width: 1px;
+background-color: #333;
+`
+
+const FixedWrap = styled.div`
+display: flex;
+position: fixed;
+top: 0;
+flex-direction: column;
+z-index: 9001;
 `
 
 const ChatIcon = styled(FiMessageSquare)`
