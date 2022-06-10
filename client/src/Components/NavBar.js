@@ -179,6 +179,10 @@ text-decoration: none;
 background-color: #222;
 color: red;
 border-radius: 5px 5px 0 0;
+border-width: 1px;
+border-style: solid;
+border-bottom-width: 0;
+border-color: gray;
 
 &&:hover {
     background-color: #333;
