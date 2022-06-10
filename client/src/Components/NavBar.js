@@ -55,7 +55,7 @@ const NavBar = () => {
             {title}
         </Title>
         <BottomBar>
-        <div>place holder element</div>
+        <Disclaimer>All rights reserved. ©</Disclaimer>
             <ChatWrap>
         {
             chat ? <ChatWindow /> : <div/>
@@ -74,6 +74,10 @@ const NavBar = () => {
 
 
 export default NavBar;
+
+const Disclaimer = styled.div`
+color: lightgray;
+`
 
 const ChatWrap = styled.div`
 display: flex;
