@@ -87,9 +87,9 @@ flex-direction: row;
 const ChatWindow = styled.div`
 position: fixed;
 width: 450px;
-height: 250px;
+height: 300px;
 bottom: 40px;
-left: calc(100vw - 460px);
+left: calc(100vw - 500px);
 background-color: #113;
 border-style: solid;
 border-color: white;

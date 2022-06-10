@@ -8,7 +8,7 @@ const Rules = () => {
     return(
         <Wrapper chat={chat}>
         <RulesWrapper>
-            <RulesText>Rule 1: Don't take credit for content that is not yours.</RulesText>
+            <RulesText>Rule 1: Do not take credit for content that is not yours.</RulesText>
             <RulesText>Rule 2: Don't break the law.</RulesText>
             <RulesText>Rule 3: No NSFW content.</RulesText>
             <RulesText>Rule 4: Respect each other, no racism, sexism, cursing or discrimination.</RulesText>

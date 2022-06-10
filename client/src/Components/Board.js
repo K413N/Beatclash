@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Context } from "./Context";
 import { useContext } from "react";
-import { FiAlertCircle } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 
 const Board = () => {
@@ -11,7 +10,6 @@ const Board = () => {
             <BoardWrapper>
                 <BoardInner>
                     <BoardNav to="/home">
-                    <BoardIMG />
                     <BoardCol>
                     <BoardTitle>Title</BoardTitle>
                     <BoardDescription>Brief description of board</BoardDescription>
@@ -94,7 +92,7 @@ justify-content: space-between;
 padding: 4px 8px 4px 8px;
 width: 500px;
 font-size: 24px;
-background-color: #333;
+background-color: #222;
 border-style: solid;
 border-color: black;
 border-width: 1px;
@@ -113,15 +111,9 @@ justify-content: flex-start;
 padding: 6px;
 `
 
-const BoardIMG = styled(FiAlertCircle)`
-background-color: black;
-color: darkred;
-width: 175px;
-height: 175px;
-`
-
 const BoardDescription = styled.div`
-font-size: 22px;
+padding: 16px;
+font-size: 16px;
 color: lightgray;
 `
 
@@ -145,7 +137,8 @@ border-style: solid;
 border-color: white;
 border-width: 1px;
 height: 100%;
+width: 100%;
 padding: 6px;
-border-radius: 5px;
+border-radius: 12px;
 color: white;
 `
