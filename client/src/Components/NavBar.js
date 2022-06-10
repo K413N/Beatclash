@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Wrapper, Title } from "./GlobalStyles";
+import { Wrapper, Title } from "../GlobalStyles"
 import { FiSearch, FiMessageSquare } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import { useState, setState, useContext } from "react";

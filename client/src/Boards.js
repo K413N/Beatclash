@@ -1,18 +1,18 @@
 import styled from "styled-components";
-import { Context } from "./Context";
+import { Context } from "./Components/Context";
 import { useContext } from "react";
 
-const MyPosts = () => {
+const Boards = () => {
     const {chat, setTitle} = useContext(Context);
-    setTitle("My Posts");
+    setTitle("Boards");
     return(
         <Wrapper chat={chat}>
-        <div>My Posts</div>
+        <div>Boards</div>
         </Wrapper>
     )
 }
 
-export default MyPosts;
+export default Boards;
 
 const Wrapper = styled.div`
 margin-top: 126px;

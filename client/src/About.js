@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Title } from "./GlobalStyles";
-import { Context } from "./Context";
+import { Context } from "./Components/Context";
 import { useContext } from "react";
 
 const About = () => {

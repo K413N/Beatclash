@@ -1,21 +1,18 @@
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
-import { Context } from "./Context";
+import { Context } from "./Components/Context";
 import { useContext } from "react";
 
-const Profile = () => {
-    const { profileId } = useParams();
+const MyPosts = () => {
     const {chat, setTitle} = useContext(Context);
-    setTitle("Profile");
-
+    setTitle("My Posts");
     return(
         <Wrapper chat={chat}>
-        <div>{profileId}</div>
+        <div>My Posts</div>
         </Wrapper>
     )
 }
 
-export default Profile;
+export default MyPosts;
 
 const Wrapper = styled.div`
 margin-top: 126px;

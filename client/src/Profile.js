@@ -1,18 +1,21 @@
 import styled from "styled-components";
-import { Context } from "./Context";
+import { useParams } from "react-router-dom";
+import { Context } from "./Components/Context";
 import { useContext } from "react";
 
-const Boards = () => {
+const Profile = () => {
+    const { profileId } = useParams();
     const {chat, setTitle} = useContext(Context);
-    setTitle("Boards");
+    setTitle("Profile");
+
     return(
         <Wrapper chat={chat}>
-        <div>Boards</div>
+        <div>{profileId}</div>
         </Wrapper>
     )
 }
 
-export default Boards;
+export default Profile;
 
 const Wrapper = styled.div`
 margin-top: 126px;

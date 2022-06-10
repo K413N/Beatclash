@@ -1,21 +1,21 @@
 import styled from "styled-components";
 import { Title } from "./GlobalStyles";
-import { Context } from "./Context";
+import { Context } from "./Components/Context";
 import { useContext } from "react";
 
-const FAQ = () => {
+const News = () => {
     const {chat, setTitle} = useContext(Context);
-    setTitle("FAQ");
+    setTitle("News");
     return(
         <Wrapper chat={chat}>
-        <FAQWrapper>
-            <FAQText>There has been no frequently asked questions yet!</FAQText>
-           </FAQWrapper>
+        <NewsWrapper>
+            <NewsText>Website is currently under development.</NewsText>
+           </NewsWrapper>
         </Wrapper>
     )
 }
 
-export default FAQ;
+export default News;
 
 const Wrapper = styled.div`
 margin-top: 126px;
@@ -25,7 +25,7 @@ width: 100%;
 height: 100%;
 `
 
-const FAQWrapper = styled.div`
+const NewsWrapper = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -34,7 +34,7 @@ background-color: #333;
 height: 50vw;
 `
 
-const FAQText = styled.div`
+const NewsText = styled.div`
 width: 40%;
 padding: 6px;
 text-align: center;
