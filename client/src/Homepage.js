@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Title } from "./GlobalStyles";
 import { FiAlertCircle } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import { Context } from "./Components/Context";
