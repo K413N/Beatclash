@@ -12,7 +12,7 @@ import Rules from "./Rules";
 import FAQ from "./FAQ";
 import News from "./News";
 import MyPosts from "./MyPosts";
-import Boards from "./Boards";
+import Forum from "./Forum";
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
     <Routes>
       <Fragment>
         <Route exact path="/home" element={<Homepage />} />
-        <Route exact path="/boards" element={<Boards />} />
+        <Route exact path="/forum" element={<Forum />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/faq" element={<FAQ />} />
