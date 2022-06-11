@@ -14,7 +14,7 @@ const Board = ({btitle, bdesc}) => {
             <Wrapper chat={chat}>
             <BoardWrapper>
                 <BoardInner>
-                    <BoardNav to="/">
+                    <BoardNav btitle={btitle} to={"/forums/" + btitle}>
                     <BoardCol>
                     <BoardTitle className="btext">{btitle}</BoardTitle>
                     <BoardDescription className="btext">{bdesc}</BoardDescription>
@@ -88,7 +88,7 @@ text-decoration: none;
 width: 100%;
 
 &&:hover {
-    background-color: #200;
+    background-color: #111;
     .btext{
         color: gold;
     }
@@ -111,7 +111,7 @@ border-width: 1px;
 text-decoration: none;
 
 &&:hover {
-    background-color: #200;
+    background-color: #111;
     .btext{
         color: gold;
     }

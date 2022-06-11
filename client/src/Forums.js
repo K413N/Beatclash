@@ -3,12 +3,15 @@ import { Context } from "./Components/Context";
 import { useContext } from "react";
 import Board from "./Components/Board";
 import { PageWrapper } from "./GlobalStyles";
+import { useParams } from "react-router-dom";
 
 
 
 const Boards = () => {
     const {chat, setTitle} = useContext(Context);
-    setTitle("Boards");
+    let postTitle = useParams();
+    console.log(postTitle);
+    setTitle(postTitle.boardid);
     return(
         <Wrapper chat={chat}>
             <PageWrapper>

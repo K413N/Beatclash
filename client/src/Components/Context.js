@@ -9,6 +9,8 @@ export const ContextProvider = ({children}) => {
     const [chat, setChat] = useState(false);
     const [title, setTitle] = useState("test");
     const [isLoading, setLoading] = useState(true);
+    const [postTitle, setPostTitle] = useState("");
+
     useEffect(() => {
         setLoading(false);
     },[chat, title])
@@ -20,7 +22,8 @@ if(isLoading){
         <Context.Provider value={{
         chat, setChat,
         isLoading, setLoading,
-        title, setTitle
+        title, setTitle,
+        postTitle, setPostTitle
     }}>{children}</Context.Provider>
     );
 }
