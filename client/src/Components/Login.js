@@ -10,17 +10,35 @@ const Login = () => {
     const {chat} = useContext(Context);
     return(
         <Wrapper chat={chat}>
-        <div>Login</div>
+        <LoginButton>Login</LoginButton>
         </Wrapper>
     )
 }
 
 export default Login;
 
-const Wrapper = styled.div`
-margin-top: 126px;
-background-color: black;
-position: relative;
-width: 100%;
+const LoginButton = styled.button`
+width: 120px;
 height: 100%;
+background-color: black;
+color: white;
+border-style: solid;
+border-width: 1px;
+border-color: gold;
+
+&&:hover {
+    background-color: #333;
+    color: gold
+}
+`
+
+const Wrapper = styled.div`
+position: absolute;
+top: 73px;
+right: 22px;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+width: 100%;
+height: 40px;
 `

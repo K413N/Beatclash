@@ -13,6 +13,7 @@ import FAQ from "./FAQ";
 import News from "./News";
 import Forums from "./Forums";
 import ChatComponent from "./Components/ChatComponent";
+import MainPost from "./MainPost";
 
 // Used for Routing
 
@@ -27,13 +28,14 @@ function App() {
       <Fragment>
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="/forums/:boardid" element={<Forums />} />
+        <Route exact path="/forums/:boardid/:postid" element={<MainPost />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/faq" element={<FAQ />} />
         <Route exact path="/rules" element={<Rules />} />
         <Route exact path="/news" element={<News />} />
         <Route exact path="/friends" element={<Friends />} />
-        <Route exact path="/profile/:profileId" element={<Profile />} />
+        <Route exact path="/profile/:profileid" element={<Profile />} />
         <Route exact path="/error" element={<Error />} />
       </Fragment>
     </Routes>

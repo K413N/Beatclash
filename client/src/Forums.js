@@ -4,20 +4,24 @@ import { useContext } from "react";
 import Board from "./Components/Board";
 import { PageWrapper } from "./GlobalStyles";
 import { useParams } from "react-router-dom";
+import PostSmall from "./Components/PostSmall";
 
 
 
 const Boards = () => {
     const {chat, setTitle} = useContext(Context);
-    let postTitle = useParams();
-    console.log(postTitle);
-    setTitle(postTitle.boardid);
+    let { boardid } = useParams();
+    setTitle(boardid);
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
-            <InnerWrapper>
-                <PHText>Create a list of drop down menues revealing board components here</PHText>
-            </InnerWrapper>
+                <InnerWrapper>
+                <PostSmall ptitle={"Post Title"} btitle={boardid} />
+                <PostSmall ptitle={"Post Title"} btitle={boardid} />
+                <PostSmall ptitle={"Post Title"} btitle={boardid} />
+                <PostSmall ptitle={"Post Title"} btitle={boardid} />
+                <PostSmall ptitle={"Post Title"} btitle={boardid} />
+                </InnerWrapper>
             </PageWrapper>
             <BottomPad />
 
@@ -36,7 +40,10 @@ height: 44px;
 `
 
 const InnerWrapper = styled.div`
-width: 70%;
+display: flex;
+flex-direction: column;
+width: 100%;
+height: 100%;
 `
 
 const Wrapper = styled.div`

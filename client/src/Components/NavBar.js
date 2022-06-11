@@ -4,6 +4,7 @@ import { FiSearch, FiMessageSquare } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import { useState, setState, useContext } from "react";
 import { Context } from "./Context";
+import Login from "./Login";
 
 // Some may find this nav bar annoying,
 // but I think its pretty intuitive
@@ -32,7 +33,7 @@ const NavBar = () => {
             <TabColumn>
                 <TabTitle>Navigation</TabTitle>
             <TabRow>
-            <NLink2 to="/profile/:profileId">Profile</NLink2>
+            <NLink2 to="/profile/:profileid">Profile</NLink2>
             <NLink2 to="/friends">Friends</NLink2>
             </TabRow>
             </TabColumn>
@@ -43,6 +44,7 @@ const NavBar = () => {
             <NLink2 to="/about">About</NLink2>
             <NLink2 to="/rules">Rules</NLink2>
             <NLink2 to="/faq">FAQ</NLink2>
+            <Login />
             </TabRow>
             </TabColumn>
         </NavBottom>
@@ -144,6 +146,7 @@ justify-content: center;
 align-items: center;
 float: right;
 height: 100%;
+width: 33.33%;
 `
 
 const SearchBar = styled.input`
