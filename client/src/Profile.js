@@ -17,7 +17,7 @@ const Profile = () => {
             <ProfileCol>
             <ProfileUserName>ProfileUserName</ProfileUserName>
             <ProfileRow>
-            <ProfileStatus>Short profile descriptions will be allowed to be edited here.</ProfileStatus>
+            <ProfileStatus>Short profile descriptions will be here.</ProfileStatus>
             <JoinDate>Joined: DD/MM/YYYY</JoinDate>
             </ProfileRow>
             </ProfileCol>
