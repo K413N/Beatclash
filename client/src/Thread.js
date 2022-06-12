@@ -10,10 +10,10 @@ import PageBottom from "./Components/PageBottom";
 // This will be the page
 // for the main post on a board
 
-const MainPost = () => {
+const Thread = () => {
     const {chat, setTitle} = useContext(Context);
-    const { postid } = useParams();
-    setTitle(postid);
+    const { threadid } = useParams();
+    setTitle(threadid);
 
 
     return(
@@ -29,7 +29,7 @@ const MainPost = () => {
     )
 }
 
-export default MainPost;
+export default Thread;
 
 const Spacer = styled.div`
 height: 150px;

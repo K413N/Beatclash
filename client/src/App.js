@@ -13,7 +13,7 @@ import FAQ from "./FAQ";
 import News from "./News";
 import Forums from "./Forums";
 import ChatComponent from "./Components/ChatComponent";
-import MainPost from "./MainPost";
+import Thread from "./Thread";
 
 // Used for Routing
 
@@ -28,7 +28,7 @@ function App() {
       <Fragment>
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="/forums/:boardid" element={<Forums />} />
-        <Route exact path="/forums/:boardid/:postid" element={<MainPost />} />
+        <Route exact path="/forums/:boardid/:threadid" element={<Thread />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/faq" element={<FAQ />} />

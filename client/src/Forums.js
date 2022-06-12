@@ -4,7 +4,7 @@ import { useContext } from "react";
 import Board from "./Components/Board";
 import { PageWrapper } from "./GlobalStyles";
 import { useParams } from "react-router-dom";
-import PostSmall from "./Components/PostSmall";
+import ThreadSmall from "./Components/ThreadSmall";
 
 
 
@@ -16,11 +16,11 @@ const Boards = () => {
         <Wrapper chat={chat}>
             <PageWrapper>
                 <InnerWrapper>
-                <PostSmall ptitle={"Post Title"} btitle={boardid} />
-                <PostSmall ptitle={"Post Title"} btitle={boardid} />
-                <PostSmall ptitle={"Post Title"} btitle={boardid} />
-                <PostSmall ptitle={"Post Title"} btitle={boardid} />
-                <PostSmall ptitle={"Post Title"} btitle={boardid} />
+                <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
+                <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
+                <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
+                <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
+                <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
                 </InnerWrapper>
             </PageWrapper>
             <BottomPad />

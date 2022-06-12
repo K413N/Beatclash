@@ -4,14 +4,14 @@ import { useContext, useParams } from "react";
 
 import { NavLink } from "react-router-dom";
 
-const PostSmall = ({btitle}) => {
-    let pid = "PostId";
+const ThreadSmall = ({btitle}) => {
+    let tid = "threadid";
     return(
     <Wrapper>
-            <PostWrapper to={"/forums/" + btitle + "/" + pid}>
-        <PostTitle>Title</PostTitle>
-        </PostWrapper>
-        <PostDetails>
+            <ThreadWrapper to={"/forums/" + btitle + "/" + tid}>
+        <ThreadTitle>Title</ThreadTitle>
+        </ThreadWrapper>
+        <ThreadDetails>
             <DetailElement>
                 <DetailTitle>OP</DetailTitle>
                 <Detail>Username</Detail>
@@ -28,13 +28,13 @@ const PostSmall = ({btitle}) => {
                 <DetailTitle>Active</DetailTitle>
                 <Detail>DD/MM/YYYY</Detail>
             </DetailElement>
-        </PostDetails>
+        </ThreadDetails>
     </Wrapper>
     )
 }
 
 
-export default PostSmall;
+export default ThreadSmall;
 
 const Detail = styled.div`
 color: gray;
@@ -57,7 +57,7 @@ height: 40px;
 padding: 4px;
 `
 
-const PostDetails = styled.div`
+const ThreadDetails = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -67,13 +67,13 @@ width: 100%;
 background-color: #333;
 `
 
-const PostWrapper = styled(NavLink)`
+const ThreadWrapper = styled(NavLink)`
 width: 100%;
 height: 100%;
 background-color: #111;
 `
 
-const PostTitle = styled.div`
+const ThreadTitle = styled.div`
 display: flex;
 align-items: center;
 inline-size: 150px;
