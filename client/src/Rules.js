@@ -13,7 +13,7 @@ const Rules = () => {
             <RulesText>Rule 1: Do not take credit for content that is not yours.</RulesText>
             <RulesText>Rule 2: Don't break the law.</RulesText>
             <RulesText>Rule 3: No NSFW content.</RulesText>
-            <RulesText>Rule 4: Respect each other, no racism, sexism, cursing or discrimination.</RulesText>
+            <RulesText>Rule 4: Respect each other, no racism, sexism, or discrimination.</RulesText>
             <RulesText>Rule 5: Keep posts related to the topic of the board.</RulesText>
         </RulesWrapper>
         </PageWrapper>

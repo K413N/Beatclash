@@ -3,20 +3,21 @@ import { Context } from "./Context";
 import { useContext } from "react";
 import GlobalStyles from "../GlobalStyles";
 
-const NewPost = () => {
+const NewThread = () => {
     return(
         <Wrapper>
-            <InputField placeholder="Write your post here!"></InputField>
-            <NewPostBottom>
-                <PostButton>Post!</PostButton>
-            </NewPostBottom>
+            <TitleField placeholder="Write your title here!"></TitleField>
+            <InputField placeholder="Everything in your post goes here!"></InputField>
+            <NewThreadBottom>
+                <ThreadButton>Post!</ThreadButton>
+            </NewThreadBottom>
     </Wrapper>
     )
 }
 
-export default NewPost;
+export default NewThread;
 
-const PostButton = styled.button`
+const ThreadButton = styled.button`
 width: 120px;
 height: 100%;
 background-color: #111;
@@ -31,12 +32,22 @@ border-width: 1px;
     color: gold;
 }`
 
-const NewPostBottom = styled.div`
+const NewThreadBottom = styled.div`
 display: flex;
 justify-content: flex-end;
 width: 100%;
 height: 40px;
 background-color: black;
+`
+
+const TitleField = styled.input`
+box-sizing: border-box;
+background-color: #222;
+color: white;
+width: 100%;
+height: 60px;
+font-size: 22px;
+z-index: 9001;
 `
 
 const InputField = styled.textarea`
@@ -46,6 +57,7 @@ color: white;
 width: 100%;
 height: 100%;
 font-size: 22px;
+line-height: inherit;
 `
 
 const Wrapper = styled.div`
@@ -54,6 +66,6 @@ flex-direction: column;
 background-color: #333;
 position: relative;
 width: 100%;
-height: 250px;
+height: 600px;
 padding: 16px;
 `

@@ -5,6 +5,7 @@ import Board from "./Components/Board";
 import { PageWrapper } from "./GlobalStyles";
 import { useParams } from "react-router-dom";
 import ThreadSmall from "./Components/ThreadSmall";
+import NewThread from "./Components/NewThread";
 
 
 
@@ -22,6 +23,7 @@ const Boards = () => {
                 <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
                 <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
                 </InnerWrapper>
+                <NewThread />
             </PageWrapper>
             <BottomPad />
 

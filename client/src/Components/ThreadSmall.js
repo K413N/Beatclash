@@ -71,6 +71,11 @@ const ThreadWrapper = styled(NavLink)`
 width: 100%;
 height: 100%;
 background-color: #111;
+
+&&:hover {
+    background-color: #333;
+    color: gold;
+}
 `
 
 const ThreadTitle = styled.div`
@@ -79,10 +84,11 @@ align-items: center;
 inline-size: 150px;
 width: 100%;
 height: 100%;
-font-size: 16px;
+font-size: 22px;
 color: white;
 padding: 6px;
 z-index: 1;
+text-decoration: none;
 `
 
 const Wrapper = styled.div`
