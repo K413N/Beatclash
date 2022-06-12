@@ -1,9 +1,9 @@
 const threads = [
     {
         _id: "88a33c23-3332-4ea2-bd71-be4a6430431g",
-        boardid: "General",
+        boardId: "General",
         op: "Beatclash Admin",
-        threadtitle: "Hello world",
+        threadTitle: "Hello world",
         body: "This is the first post created directly from mongodb!",
         likes: 0,
         dislikes: 0,

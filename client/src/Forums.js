@@ -11,17 +11,17 @@ import NewThread from "./Components/NewThread";
 
 const Boards = () => {
     const {chat, setTitle} = useContext(Context);
-    let { boardid } = useParams();
-    setTitle(boardid);
+    let { boardId } = useParams();
+    setTitle(boardId);
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
                 <InnerWrapper>
-                <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
-                <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
-                <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
-                <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
-                <ThreadSmall ptitle={"Post Title"} btitle={boardid} />
+                <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
+                <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
+                <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
+                <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
+                <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
                 </InnerWrapper>
                 <NewThread />
             </PageWrapper>

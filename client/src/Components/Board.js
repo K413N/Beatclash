@@ -8,13 +8,13 @@ import GlobalStyles from "../GlobalStyles";
 // It shows the top 5 posts, which you can click to navigate to.
 // Or click the board itself to view every post.
 
-const Board = ({btitle, bdesc, boardid}) => {
+const Board = ({btitle, bdesc, boardId}) => {
     const {chat} = useContext(Context);
         return(
             <Wrapper chat={chat}>
             <BoardWrapper>
                 <BoardInner>
-                    <BoardNav btitle={btitle} to={"/forums/" + boardid}>
+                    <BoardNav btitle={btitle} to={"/forums/" + boardId}>
                     <BoardCol>
                     <BoardTitle className="btext">{btitle}</BoardTitle>
                     <BoardDescription className="btext">{bdesc}</BoardDescription>

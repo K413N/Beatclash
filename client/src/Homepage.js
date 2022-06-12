@@ -12,16 +12,16 @@ const Forums = () => {
             <PageWrapper>
                 <BoardGrouping>
                     <GroupTitle>Discussions</GroupTitle>
-                <Board boardid={"gen"} btitle={"General"} bdesc={"General discussion about anything!"} />
-                <Board boardid={"mus"} btitle={"Music"} bdesc={"Discuss and share music!"} />
+                <Board boardId={"gen"} btitle={"General"} bdesc={"General discussion about anything!"} />
+                <Board boardId={"mus"} btitle={"Music"} bdesc={"Discuss and share music!"} />
                 </BoardGrouping>
                 <BoardGrouping>
                 <GroupTitle>Developer's Corner</GroupTitle>
-                <Board boardid={"pro"} btitle={"Music Production"} bdesc={"Techniques on music producing!"} />
-                <Board boardid={"dev"} btitle={"Game Development"} bdesc={"Anything related to projects in game engines!"} />
-                <Board boardid={"yt"} btitle={"Youtube"} bdesc={"Share your youtube videos!"} />
-                <Board boardid={"art"} btitle={"Art"} bdesc={"Browse and share your art!"} />
-                <Board boardid={"3d"} btitle={"3D Modeling"} bdesc={"Anything 3D goes here!"} />
+                <Board boardId={"pro"} btitle={"Music Production"} bdesc={"Techniques on music producing!"} />
+                <Board boardId={"dev"} btitle={"Game Development"} bdesc={"Anything related to projects in game engines!"} />
+                <Board boardId={"yt"} btitle={"Youtube"} bdesc={"Share your youtube videos!"} />
+                <Board boardId={"art"} btitle={"Art"} bdesc={"Browse and share your art!"} />
+                <Board boardId={"3d"} btitle={"3D Modeling"} bdesc={"Anything 3D goes here!"} />
                 </BoardGrouping>
             <BottomPad />
             </PageWrapper>

@@ -43,32 +43,32 @@ express()
     // .get("/api/get-user/:_id", getUser)
 
     // get all the threads of a specific board
-    // .get("/api/get-threads/:boardid", getThreads)
+    // .get("/api/get-threads/:boardId", getThreads)
 
     // get all information on a specific thread
-    // .get("/api/get-thread/:boardid/:_id", getThread)
+    // .get("/api/get-thread/:boardId/:_id", getThread)
 
     // create a new thread
-    // .post("/api/create-thread/:boardid", createThread)
+    // .post("/api/create-thread/:boardId", createThread)
 
     // create a reply to an existing thread
-    // .post("/api/create-reply/:boardid/:_id", createReply)
+    // .post("/api/create-reply/:boardId/:_id", createReply)
 
     // add a new user to the database
     // .post("/api/add-user", addUser)
 
     // update a thread, used when you edit
     // a thread that already exists.
-    // .patch("/api/update-reply/:boardid/:_id", updateThread)
+    // .patch("/api/update-reply/:boardId/:_id", updateThread)
 
     // update reply, used to edit your reply.
-    // .patch("/api/update-thread/:boardid/:_id/:_id", updateReply)
+    // .patch("/api/update-thread/:boardId/:_id/:_id", updateReply)
 
     // delete a thread by id
-    // .delete("/api/delete-thread/:boardid/:_id", deleteThread)
+    // .delete("/api/delete-thread/:boardId/:_id", deleteThread)
 
     // delete a reply
-    // .delete("/api/delete-reply/:boardid/:_id/:_id", deleteReply)
+    // .delete("/api/delete-reply/:boardId/:_id/:_id", deleteReply)
 
     // ---------------------------------
     // Nothing to modify below this line
