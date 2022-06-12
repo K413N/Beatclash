@@ -28,7 +28,7 @@ function App() {
       <Fragment>
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="/forums/:boardid" element={<Forums />} />
-        <Route exact path="/forums/:boardid/:threadid" element={<Thread />} />
+        <Route exact path="/forums/:boardid/:threadtitle" element={<Thread />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/faq" element={<FAQ />} />

@@ -7,9 +7,9 @@ const NewThread = () => {
     return(
         <Wrapper>
             <TitleField placeholder="Write your title here!"></TitleField>
-            <InputField placeholder="Everything in your post goes here!"></InputField>
+            <InputField placeholder="Everything in your thread goes here!"></InputField>
             <NewThreadBottom>
-                <ThreadButton>Post!</ThreadButton>
+                <ThreadButton>Create Thread!</ThreadButton>
             </NewThreadBottom>
     </Wrapper>
     )
@@ -36,7 +36,7 @@ const NewThreadBottom = styled.div`
 display: flex;
 justify-content: flex-end;
 width: 100%;
-height: 40px;
+height: 80px;
 background-color: black;
 `
 

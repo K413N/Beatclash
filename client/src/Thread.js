@@ -12,8 +12,8 @@ import PageBottom from "./Components/PageBottom";
 
 const Thread = () => {
     const {chat, setTitle} = useContext(Context);
-    const { threadid } = useParams();
-    setTitle(threadid);
+    const { threadtitle } = useParams();
+    setTitle(threadtitle);
 
 
     return(

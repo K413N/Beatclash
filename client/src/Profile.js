@@ -13,7 +13,7 @@ const Profile = () => {
         <Wrapper chat={chat}>
             <PageWrapper>
         <ProfileWrapper>
-            <AvatarWrapper />
+            <AvatarWrapper><Avatar src="https://images.unsplash.com/photo-1602848596718-45693ff58c78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=875&q=80" /></AvatarWrapper>
             <ProfileCol>
             <ProfileUserName>ProfileUserName</ProfileUserName>
             <ProfileRow>
@@ -153,6 +153,12 @@ border-width: 1px;
 border-color: white;
 border-left-width: 0;
 border-right-width: 0;
+`
+
+const Avatar = styled.img`
+width: 100%;
+height: 100%;
+border-radius: 15%;
 `
 
 const AvatarWrapper = styled.div`

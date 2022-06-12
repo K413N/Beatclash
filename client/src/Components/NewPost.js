@@ -3,20 +3,20 @@ import { Context } from "./Context";
 import { useContext } from "react";
 import GlobalStyles from "../GlobalStyles";
 
-const NewPost = () => {
+const NewReply = () => {
     return(
         <Wrapper>
-            <InputField placeholder="Write your post here!"></InputField>
-            <NewPostBottom>
-                <PostButton>Post!</PostButton>
-            </NewPostBottom>
+            <InputField placeholder="Write your Reply here!"></InputField>
+            <NewReplyBottom>
+                <ReplyButton>Reply!</ReplyButton>
+            </NewReplyBottom>
     </Wrapper>
     )
 }
 
-export default NewPost;
+export default NewReply;
 
-const PostButton = styled.button`
+const ReplyButton = styled.button`
 width: 120px;
 height: 100%;
 background-color: #111;
@@ -31,7 +31,7 @@ border-width: 1px;
     color: gold;
 }`
 
-const NewPostBottom = styled.div`
+const NewReplyBottom = styled.div`
 display: flex;
 justify-content: flex-end;
 width: 100%;
