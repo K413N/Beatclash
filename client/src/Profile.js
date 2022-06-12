@@ -17,7 +17,7 @@ const Profile = () => {
             <ProfileCol>
             <ProfileUserName>ProfileUserName</ProfileUserName>
             <ProfileRow>
-            <ProfileStatus>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</ProfileStatus>
+            <ProfileStatus>Short profile descriptions will be allowed to be edited here.</ProfileStatus>
             <JoinDate>Joined: DD/MM/YYYY</JoinDate>
             </ProfileRow>
             </ProfileCol>
@@ -52,6 +52,7 @@ justify-content: space-between;
 `
 
 const JoinDate = styled.div`
+width: 0;
 font-size: 16px;
 color: lightgray;
 padding: 16px;
@@ -124,13 +125,15 @@ width: 50%;
 `
 
 const ProfileStatus = styled.div`
-width: 100%;
+height: 130px;
+width: 450px;
 font-size: 16px;
 color: lightgray;
 padding: 16px;
 word-wrap: break-word;
-word-break: break-all;
+word-break: break-word;
 white-space: normal;
+text-overflow: ellipsis;
 `
 
 const ProfileUserName = styled.div`
