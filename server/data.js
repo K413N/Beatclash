@@ -1,6 +1,6 @@
 const threads = [
     {
-        _id: "88a33c23-3332-4ea2-bd71-be4a6430431g",
+        _id: "88a33c23-1332-4ea2-bd71-be4a6430431g",
         boardId: "General",
         op: "Beatclash Admin",
         threadTitle: "Hello world",
@@ -8,8 +8,8 @@ const threads = [
         likes: 0,
         dislikes: 0,
         date: "06/12/2022",
-        tags: "",
-        replies: [],
+        tags: [],
+        posts: [],
     }
 ];
 
@@ -23,8 +23,27 @@ const users = [
             avatar: "https://images.unsplash.com/photo-1602848596718-45693ff58c78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=875&q=80",
             joindate: "06/12/2022",
             description: "Hello, welcome to my profile",
-            tags: "",
-            friends: [],
+            tags: [],
+            friends: [
+                { _id: "88a33c23-3233-4ef2-bd71-be7a6430437v" },
+            ],
+            posts: [
+                { threadid: "88a33c23-1332-4ea2-bd71-be4a6430431g", isop: true }
+            ],
+        },
+        {
+            _id: "88a33c23-3233-4ef2-bd71-be7a6430437v",
+            username: "GoodDoggo",
+            givenname: "Good",
+            surname: "Doggo",
+            email: "GoodDoggo@hotdogs.net",
+            avatar: "https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+            joindate: "06/12/2022",
+            description: "borf borf",
+            tags: [],
+            friends: [
+                { _id: "88a33c23-3332-4ef2-bd71-be7a6430485f" },
+            ],
             posts: [],
         },
     ];

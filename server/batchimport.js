@@ -21,8 +21,15 @@ const batchImport = async () => {
     console.log("connected!");
 
     // reset database
-    // await db.collection("threads").drop();
-    // await db.collection("users").drop();
+    //
+    // if the batch import doesn't work
+    // comment out the drops
+    // it will throw an error
+    // if it tries to drop data that
+    // does not exist
+
+    await db.collection("threads").drop();
+    await db.collection("users").drop();
 
     await db.collection("users").insertMany(bcdata.users);
     await db.collection("threads").insertMany(bcdata.threads);
@@ -30,7 +37,7 @@ const batchImport = async () => {
     console.log("success!");
     
 
-    }catch (err) {
+    } catch (err) {
         console.log(err.stack);
     }
 
