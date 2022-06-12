@@ -1,4 +1,4 @@
-const fdata = require("./data");
+const bcdata = require("./data");
 const res = require("express/lib/response");
 const { MongoClient } = require("mongodb");
 
@@ -17,21 +17,17 @@ const batchImport = async () => {
     try {
         await client.connect();
 
-    const db = client.db("slingair");
+    const db = client.db("beatclash");
     console.log("connected!");
 
-    const flight1 = [{ _id: uuidv4(), flight: "SA231", seats: fdata.flights.SA231 }];
-    const flight2 = [{ _id: uuidv4(), flight: "SA232", seats: fdata.flights.SA232 }];
-
     // reset database
-    await db.collection("flights").drop();
-    await db.collection("reservations").drop();
+    // await db.collection("threads").drop();
+    // await db.collection("users").drop();
 
-    await db.collection("flights").insertMany(flight1);
-    await db.collection("flights").insertMany(flight2);
-    await db.collection("reservations").insertMany(fdata.reservations);
+    await db.collection("users").insertMany(bcdata.users);
+    await db.collection("threads").insertMany(bcdata.threads);
 
-        console.log("success!");
+    console.log("success!");
     
 
     }catch (err) {

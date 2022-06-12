@@ -12,16 +12,16 @@ const Forums = () => {
             <PageWrapper>
                 <BoardGrouping>
                     <GroupTitle>Discussions</GroupTitle>
-                <Board btitle={"General"} bdesc={"General discussion about anything!"} />
-                <Board btitle={"Music"} bdesc={"Discuss and share music!"} />
+                <Board boardid={"gen"} btitle={"General"} bdesc={"General discussion about anything!"} />
+                <Board boardid={"mus"} btitle={"Music"} bdesc={"Discuss and share music!"} />
                 </BoardGrouping>
                 <BoardGrouping>
                 <GroupTitle>Developer's Corner</GroupTitle>
-                <Board btitle={"Music Production"} bdesc={"Techniques on music producing!"} />
-                <Board btitle={"Game Development"} bdesc={"Anything related to projects in game engines!"} />
-                <Board btitle={"Youtube"} bdesc={"Share your youtube videos!"} />
-                <Board btitle={"Art"} bdesc={"Browse and share your art!"} />
-                <Board btitle={"3D Modeling"} bdesc={"Anything 3D goes here!"} />
+                <Board boardid={"pro"} btitle={"Music Production"} bdesc={"Techniques on music producing!"} />
+                <Board boardid={"dev"} btitle={"Game Development"} bdesc={"Anything related to projects in game engines!"} />
+                <Board boardid={"yt"} btitle={"Youtube"} bdesc={"Share your youtube videos!"} />
+                <Board boardid={"art"} btitle={"Art"} bdesc={"Browse and share your art!"} />
+                <Board boardid={"3d"} btitle={"3D Modeling"} bdesc={"Anything 3D goes here!"} />
                 </BoardGrouping>
             <BottomPad />
             </PageWrapper>

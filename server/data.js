@@ -29,3 +29,4 @@ const users = [
         },
     ];
 
+module.exports = { threads, users };
