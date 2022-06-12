@@ -16,7 +16,10 @@ const Profile = () => {
             <AvatarWrapper />
             <ProfileCol>
             <ProfileUserName>ProfileUserName</ProfileUserName>
-            <ProfileStatus>This is the profile description.</ProfileStatus>
+            <ProfileRow>
+            <ProfileStatus>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</ProfileStatus>
+            <JoinDate>Joined: DD/MM/YYYY</JoinDate>
+            </ProfileRow>
             </ProfileCol>
         </ProfileWrapper>
         <TagBoxWrapper>
@@ -40,6 +43,19 @@ const Profile = () => {
 }
 
 export default Profile;
+
+const ProfileRow = styled.div`
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+justify-content: space-between;
+`
+
+const JoinDate = styled.div`
+font-size: 16px;
+color: lightgray;
+padding: 16px;
+`
 
 const LowerInnerWrapper = styled.div`
 width: 50%;
@@ -104,15 +120,17 @@ border-bottom-color: white;
 `
 
 const ProfileCol = styled.div`
-display: flex;
-flex-direction: column;
-padding: 32px;
+width: 50%;
 `
 
 const ProfileStatus = styled.div`
+width: 100%;
 font-size: 16px;
 color: lightgray;
 padding: 16px;
+word-wrap: break-word;
+word-break: break-all;
+white-space: normal;
 `
 
 const ProfileUserName = styled.div`

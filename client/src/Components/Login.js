@@ -10,6 +10,7 @@ const Login = () => {
     const {chat} = useContext(Context);
     return(
         <Wrapper chat={chat}>
+            <LoginButton>Sign up</LoginButton>
         <LoginButton>Login</LoginButton>
         </Wrapper>
     )
