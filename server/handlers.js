@@ -226,7 +226,7 @@ const createReply = async (req, res) => {
 
       // find the posts array in the thread
       // const longLine = await db.collection("threads").findOne({ "_id": threadId });
-      const thread = await db.collection("threads").updateOne({ "_id": threadId }, { $push: { "posts": {
+      await db.collection("threads").updateOne({ "_id": threadId }, { $push: { "posts": {
          "_id": Reply._id,
          "userid": userId,
          "username": username,
