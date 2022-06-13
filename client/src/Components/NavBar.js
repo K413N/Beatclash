@@ -156,14 +156,17 @@ font-size: 22px;
 `
 
 const NLink = styled(NavLink)`
+margin-top: 40px;
 width: 240px;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
-font-size: 32px;
+font-size: 64px;
+background-color: #333;
 color: white;
 text-decoration: none;
+z-index: 1;
 
 &&:hover{
 color: gold;

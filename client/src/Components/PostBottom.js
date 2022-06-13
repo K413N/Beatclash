@@ -7,12 +7,14 @@ import GlobalStyles from "../GlobalStyles";
 const PostBottom = () => {
     let likes = 0;
     let dislikes = 0;
+    let replies = 0;
     return(
         <Wrapper>
             <BDetailWrapper>
                 <BDetailText>Posted: DD/MM/YYYY</BDetailText>
-                <BDetailText>Likes: {likes}</BDetailText>
-                <BDetailText>Dislikes: {dislikes}</BDetailText>
+                <BDetailText>Replies: <RnumColor>{replies}</RnumColor></BDetailText>
+                <BDetailText>Likes: <LnumColor>{likes}</LnumColor></BDetailText>
+                <BDetailText>Dislikes: <DnumColor>{dislikes}</DnumColor></BDetailText>
             </BDetailWrapper>
             <BottomButton>👍</BottomButton>
             <BottomButton>👎</BottomButton>
@@ -23,7 +25,23 @@ const PostBottom = () => {
 
 export default PostBottom;
 
+const RnumColor = styled.div`
+color: blue;
+padding: 0 12px 0 12px;
+`
+
+const LnumColor = styled.div`
+color: green;
+padding: 0 12px 0 12px;
+`
+
+const DnumColor = styled.div`
+color: red;
+padding: 0 12px 0 12px;
+`
+
 const BDetailText = styled.div`
+display: flex;
 color: gray;
 font-size: 12px;
 `

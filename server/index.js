@@ -11,7 +11,7 @@ const {
     getThreads,
     getThread,
     createThread,
-    // createReply,
+    createReply,
     // addUser,
     // updateThread,
     // updateReply,
@@ -52,7 +52,7 @@ express()
     .post("/api/create-thread/:boardId", createThread)
 
     // create a reply to an existing thread
-    // .post("/api/create-reply/:boardId/:_id", createReply)
+    .post("/api/create-reply/:boardId/:_id", createReply)
 
     // add a new user to the database
     // .post("/api/add-user", addUser)

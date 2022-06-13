@@ -189,6 +189,58 @@ const createThread = async (req, res) => {
   }
 }
 
+const createReply = async (req, res) => {
+
+  // Takes op, threadTitle, and body
+  // then grabs boardId from params
+  // creates one item to push all data
+  // into a thread object on the database
+
+  const { op, threadTitle, body } = req.body;
+  const boardId = req.params.boardId;
+
+  if( !boardId || !op || !threadTitle || !body) {
+    return res.status(400).json({
+      status: 400,
+      message: "Not all required data fields have been filled.",
+    });
+  } else {
+    const client = new MongoClient(MONGO_URI);
+
+    try {
+      await client.connect();
+      const db = client.db("beatclash");
+      console.log("connected!");
+
+      const newThread = {...req.body}
+
+      newThread._id = uuidv4();
+      newThread.likes = 0;
+      newThread.dislikes = 0;
+      newThread.date = "06/12/2022",
+      newThread.tags = [];
+      newThread.posts = [];
+
+      console.log(newThread);
+
+      // insert new thread with id into the database
+      const result = await db.collection("threads").insertOne(newThread);
+
+
+      // TO DO: update list of user's posts
+      // const userPosts = await db.collection("users").findOneAndUpdate();
+
+      return res.status(201).json({ status: 201, data: newThread, message: "Thread successfully added to database!"});
+
+    } catch (err) {
+      console.log(err.stack);
+      res.status(500).json({ status: 500, message: err.message });
+    }
+    client.close();
+    console.log("disconnected!");
+  }
+}
+
 module.exports = {
   getUsers,
   getFriends,
