@@ -13,13 +13,13 @@ const threads = [
         posts: [
             {
                 _id: "78a33c23-3732-4ff1-bk71-be7a6433485t",
-                userid: "88a33c23-3233-4ef2-bd71-be7a6430437v",
+                userId: "88a33c23-3233-4ef2-bd71-be7a6430437v",
                 username: "GoodDoggo",
                 body: "BORF! BORF!",
                 likes: 0,
                 dislikes: 0,
-                replies: 0,
                 date: "06/12/2022",
+                replies: [],
             }
         ],
     }

@@ -178,7 +178,7 @@ const createThread = async (req, res) => {
       // TO DO: update list of user's posts
       // const userPosts = await db.collection("users").findOneAndUpdate();
 
-      return res.status(201).json({ status: 201, data: newThread, message: "Thread successfully added to database!"});
+      return res.status(201).json({ status: 201, data: newThread, message: "Thread successfully added to the database!"});
 
     } catch (err) {
       console.log(err.stack);
@@ -191,15 +191,14 @@ const createThread = async (req, res) => {
 
 const createReply = async (req, res) => {
 
-  // Takes op, threadTitle, and body
+  // Takes userId, username, and body
   // then grabs boardId from params
   // creates one item to push all data
   // into a thread object on the database
 
-  const { op, threadTitle, body } = req.body;
-  const boardId = req.params.boardId;
+  const { userId, username, body } = req.body;
 
-  if( !boardId || !op || !threadTitle || !body) {
+  if( !userId || !username || !body) {
     return res.status(400).json({
       status: 400,
       message: "Not all required data fields have been filled.",
@@ -212,25 +211,35 @@ const createReply = async (req, res) => {
       const db = client.db("beatclash");
       console.log("connected!");
 
-      const newThread = {...req.body}
+      const threadId = req.params._id;
 
-      newThread._id = uuidv4();
-      newThread.likes = 0;
-      newThread.dislikes = 0;
-      newThread.date = "06/12/2022",
-      newThread.tags = [];
-      newThread.posts = [];
+      const Reply = {...req.body.data}
 
-      console.log(newThread);
+      Reply._id = uuidv4();
+      Reply.likes = 0;
+      Reply.dislikes = 0;
+      Reply.date = "06/12/2022",
+      Reply.replies = [];
 
-      // insert new thread with id into the database
-      const result = await db.collection("threads").insertOne(newThread);
+      console.log(Reply);
 
 
-      // TO DO: update list of user's posts
-      // const userPosts = await db.collection("users").findOneAndUpdate();
+      // find the posts array in the thread
+      // const longLine = await db.collection("threads").findOne({ "_id": threadId });
+      const thread = await db.collection("threads").updateOne({ "_id": threadId }, { $push: { "posts": {
+         "_id": Reply._id,
+         "userid": userId,
+         "username": username,
+         "body": body,
+         "likes": Reply.likes,
+         "dislikes": Reply.dislikes,
+         "date": Reply.date,
+         "replies": Reply.replies, 
+        } } });;
 
-      return res.status(201).json({ status: 201, data: newThread, message: "Thread successfully added to database!"});
+      // .updateOne({ "_id": threadId }, { $push: { "posts": { Reply } } });
+
+      return res.status(201).json({ status: 201, body: threadId, data: Reply, message: "Reply successfully added to the database!"});
 
     } catch (err) {
       console.log(err.stack);
@@ -248,7 +257,7 @@ module.exports = {
   getThreads,
   getThread,
   createThread,
-  // createReply,
+  createReply,
   // addUser,
   // updateThread,
   // updateReply,
