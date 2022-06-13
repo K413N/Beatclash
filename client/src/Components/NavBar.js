@@ -33,6 +33,7 @@ const NavBar = () => {
             <TabColumn>
                 <TabTitle>Navigation</TabTitle>
             <TabRow>
+            <NLink2 to="/news">News</NLink2>
             <NLink2 to="/profile/:profileid">Profile</NLink2>
             <NLink2 to="/friends">Friends</NLink2>
             </TabRow>
@@ -40,7 +41,6 @@ const NavBar = () => {
             <TabColumn>
                 <TabTitle>Information</TabTitle>
             <TabRow>
-            <NLink2 to="/news">News</NLink2>
             <NLink2 to="/about">About</NLink2>
             <NLink2 to="/rules">Rules</NLink2>
             <NLink2 to="/faq">FAQ</NLink2>

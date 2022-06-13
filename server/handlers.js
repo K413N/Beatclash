@@ -134,7 +134,9 @@ const getThread = async (req, res) => {
     res.status(500).json({ status: 500, data: req.body, message: err.message });
   }
 }
-
+//////////////////////////////////////
+// FIX UPDATING THE USER'S POST ARRAY
+//////////////////////////////////////
 const createThread = async (req, res) => {
 
   // Takes op, threadTitle, and body

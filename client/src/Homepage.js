@@ -12,6 +12,7 @@ const Forums = () => {
             <PageWrapper>
                 <BoardGrouping>
                     <GroupTitle>Discussions</GroupTitle>
+                    <Board boardId={"ev"} btitle={"Events"} bdesc={"Information on events!"} />
                 <Board boardId={"gen"} btitle={"General"} bdesc={"General discussion about anything!"} />
                 <Board boardId={"mus"} btitle={"Music"} bdesc={"Discuss and share music!"} />
                 </BoardGrouping>
