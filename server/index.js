@@ -6,11 +6,11 @@ const morgan = require("morgan");
 
 const {
     getUsers,
-    // getFriends,
-    // getUser,
-    // getThreads,
-    // getThread,
-    // createThread,
+    getFriends,
+    getUser,
+    getThreads,
+    getThread,
+    createThread,
     // createReply,
     // addUser,
     // updateThread,
@@ -37,19 +37,19 @@ express()
     .get("/api/get-users", getUsers)
 
     // get all friends of a user
-    // .get("/api/get-friends/:_id", getFriends)
+    .get("/api/get-friends/:_id", getFriends)
 
     // get all information on a single user
-    // .get("/api/get-user/:_id", getUser)
+    .get("/api/get-user/:_id", getUser)
 
     // get all the threads of a specific board
-    // .get("/api/get-threads/:boardId", getThreads)
+    .get("/api/get-threads/:boardId", getThreads)
 
     // get all information on a specific thread
-    // .get("/api/get-thread/:boardId/:_id", getThread)
+    .get("/api/get-thread/:boardId/:_id", getThread)
 
     // create a new thread
-    // .post("/api/create-thread/:boardId", createThread)
+    .post("/api/create-thread/:boardId", createThread)
 
     // create a reply to an existing thread
     // .post("/api/create-reply/:boardId/:_id", createReply)

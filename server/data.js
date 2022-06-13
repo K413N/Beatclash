@@ -1,7 +1,7 @@
 const threads = [
     {
         _id: "88a33c23-1332-4ea2-bd71-be4a6430431g",
-        boardId: "General",
+        boardId: "gen",
         op: "Beatclash Admin",
         threadTitle: "Hello world",
         body: "This is the first post created directly from mongodb!",
@@ -25,7 +25,7 @@ const users = [
             description: "Hello, welcome to my profile",
             tags: [],
             friends: [
-                { _id: "88a33c23-3233-4ef2-bd71-be7a6430437v" },
+                { _id: "88a33c23-3233-4ef2-bd71-be7a6430437v", },
             ],
             posts: [
                 { threadid: "88a33c23-1332-4ea2-bd71-be4a6430431g", isop: true }
@@ -42,7 +42,7 @@ const users = [
             description: "borf borf",
             tags: [],
             friends: [
-                { _id: "88a33c23-3332-4ef2-bd71-be7a6430485f" },
+                { _id: "88a33c23-3332-4ef2-bd71-be7a6430485f", },
             ],
             posts: [],
         },
