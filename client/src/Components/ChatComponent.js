@@ -2,23 +2,26 @@ import styled from "styled-components";
 import { Wrapper, Title } from "../GlobalStyles"
 import { FiSearch, FiMessageSquare } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
-import { useState, setState, useContext, useEffect, useInsertionEffect } from "react";
-// import { io } from "socket.io-client";
+import { useState, setState, useContext, useEffect, useInsertionEffect, useRef } from "react";
+import { io } from "socket.io-client";
 import { Context } from "./Context";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const ChatComponent = () => {
     const {chat, setChat, setTitle, title} = useContext(Context);
     const { user, isAuthenticated, isLoading } = useAuth0();
+    // const socketRef = useRef(null);
     // const socket = io.connect("http://localhost:8080");
     const [chatStateObject, setChatStateObject] = useState({ message: ""});
     const [chatArray, setChatArray] = useState([]);
 
-  
+//   useEffect(()=> {
+//     setSocket(io.connect("http://localhost:8080"));
+//   },[])
 
-    // socket.on("connect", () => {
-    //     socket.emit("send-message", { message: "connected!"});
-    // })
+//     socket.on("connect", () => {
+//         socket.emit("send-message", { message: "connected!"});
+//     })
   
 
     // const onMessageSubmit = (e) => {

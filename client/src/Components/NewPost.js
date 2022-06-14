@@ -2,14 +2,17 @@ import styled from "styled-components";
 import { Context } from "./Context";
 import { useContext, useState } from "react";
 import GlobalStyles from "../GlobalStyles";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const NewReply = () => {
+    let history = useHistory();
     const [formBody, setFormBody] = useState(null);
     const { boardId, threadId } = useParams();
     const [threadUrl, setThreadUrl] = useState(null);
     const { user, isAuthenticated, isLoading, nickname, user_id } = useAuth0();
+
+    const { singleThreadData, setSingleThreadData, setHasData, hasData } = useContext(Context);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,7 +20,7 @@ const NewReply = () => {
         console.log("submit clicked!");
 
         let formIsComplete = false;
-        if(formBody !== null){
+        if(formBody){
             formIsComplete = true;
         }
 
@@ -41,16 +44,32 @@ const NewReply = () => {
             return res.json()
         })
         .then(data => {
-            console.log(data.data);
-            setThreadUrl("/" + data.data._id);
+            console.log(data);
+            // setThreadUrl(data.data._id);
+            // history(boardId + "/" + data.data._id);
+            // setSingleThreadData({...singleThreadData});
+            let fetchurl = "/api/get-thread/" + boardId + "/" + threadId;
+        fetch(fetchurl)
+        .then((res) => res.json())
+        .then((data) => {
+            if(data.data){
+                console.log(data.data);
+                setSingleThreadData(data.data);
+                setHasData(true);
+            } else {
+                setHasData(false);
+                console.log("no data!");
+            }
         })
-        // this garbage isn't working
-            // navigate(threadUrl);
+        })
+
+        
+        
     }
 }
 
     return(
-        <Wrapper>
+        <Wrapper onSubmit={handleSubmit}>
             <InputField onChange={(event) => setFormBody(event.target.value)} placeholder="Write your Reply here!"></InputField>
             <NewReplyBottom>
                 <ReplyButton>Reply!</ReplyButton>
@@ -93,7 +112,7 @@ height: 100%;
 font-size: 22px;
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
 display: flex;
 flex-direction: column;
 background-color: #333;

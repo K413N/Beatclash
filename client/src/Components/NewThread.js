@@ -47,13 +47,14 @@ const NewThread = () => {
             })
             .then(data => {
                 console.log(data.data);
-                setThreadUrl("/" + data.data._id);
+                setThreadUrl(data.data._id);
+                history.push(boardId + "/" + data.data._id);
             })
 
-            // this garbage isn't working
-            history.push(threadUrl);
+           
+            
         }
-
+        
     }
 
     return(

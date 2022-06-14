@@ -7,6 +7,7 @@ import Post from "./Components/Post";
 import NewPost from "./Components/NewPost";
 import PageBottom from "./Components/PageBottom";
 import { useAuth0 } from "@auth0/auth0-react";
+import Loading from "./Components/Loading";
 
 // This will be the page
 // for the main post on a board
@@ -24,7 +25,7 @@ const Thread = () => {
     const { threadId, boardId } = useParams();
 
     useEffect(() => {
-        let fetchurl = "/api/get-thread/"+ boardId + "/" + threadId;
+        let fetchurl = "/api/get-thread/" + boardId + "/" + threadId;
         fetch(fetchurl)
         .then((res) => res.json())
         .then((data) => {
@@ -43,8 +44,9 @@ const Thread = () => {
     
 
 
-
-
+if(!singleThreadData){
+    return(<Loading />)
+} else {
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
@@ -75,7 +77,7 @@ const Thread = () => {
         <Spacer />
         </PageWrapper>
         </Wrapper>
-    )
+    )}
 }
 
 export default Thread;

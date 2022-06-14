@@ -210,12 +210,13 @@ const createReply = async (req, res) => {
 
   const { userId, username, body } = req.body;
 
-  console.log(req.body.body);
-
-  if( !userId || !username || !body) {
+  if(!body) {
     return res.status(400).json({
       status: 400,
-      message: "Not all required data fields have been filled.",
+      userId: userId,
+      username: username,
+      body: body,
+      message: "Not all required data fields have been filled."
     });
   } else {
     const client = new MongoClient(MONGO_URI);
@@ -232,8 +233,8 @@ const createReply = async (req, res) => {
       Reply._id = uuidv4();
       Reply.likes = 0;
       Reply.dislikes = 0;
+      Reply.replies = 0;
       Reply.date = "06/12/2022",
-      Reply.replies = [];
 
       console.log(Reply);
 

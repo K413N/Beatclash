@@ -8,28 +8,30 @@ export const Context = createContext(null);
 export const ContextProvider = ({children}) => {
     const [chat, setChat] = useState(false);
     const [title, setTitle] = useState("test");
-    const [isLoading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [postTitle, setPostTitle] = useState("");
     const [hasData, setHasData] = useState(null);
     const [threadData, setThreadData] = useState(null);
     const [singleThreadData, setSingleThreadData] = useState(null);
+    const [postedReply, setPostedReply] = useState(null);
 
     useEffect(() => {
         setLoading(false);
-    },[chat, title])
+    },[])
     
-if(isLoading){
+if(loading){
     return (<Loading />)
 } else {
     return(
         <Context.Provider value={{
         chat, setChat,
-        isLoading, setLoading,
+        loading, setLoading,
         title, setTitle,
         postTitle, setPostTitle,
         hasData, setHasData,
         threadData, setThreadData,
-        singleThreadData, setSingleThreadData
+        singleThreadData, setSingleThreadData,
+        postedReply, setPostedReply
     }}>{children}</Context.Provider>
     );
 }

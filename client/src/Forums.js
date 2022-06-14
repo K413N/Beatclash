@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import ThreadSmall from "./Components/ThreadSmall";
 import NewThread from "./Components/NewThread";
 import { useAuth0 } from "@auth0/auth0-react";
+import Loading from "./Components/Loading";
 
 
 
@@ -14,7 +15,8 @@ const Forums = () => {
     const {chat,
          setTitle,
           hasData, setHasData,
-        threadData, setThreadData} = useContext(Context);
+        threadData, setThreadData,
+    loading, setLoading} = useContext(Context);
 
     const { user, isAuthenticated, isLoading } = useAuth0();
     let { boardId } = useParams();
@@ -32,9 +34,13 @@ const Forums = () => {
             } else {
                 setHasData(false);
             }
+            setLoading(false);
         })
     },[])
 
+    if(!threadData){
+        return(<Loading />)
+    } else {
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
@@ -57,6 +63,8 @@ const Forums = () => {
 
         </Wrapper>
     )
+            }
+            
 }
 
 export default Forums;
