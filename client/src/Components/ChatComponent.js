@@ -106,6 +106,7 @@ const ChatFeed = styled.div`
 width: 100%;
 height: 260px;
 background-color: #005;
+color: #0f0;
 `
 
 const TextBox = styled.input`
