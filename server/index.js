@@ -3,6 +3,14 @@
 // import the needed node_modules.
 const express = require("express");
 const morgan = require("morgan");
+const http = require("http").createServer(express);
+const io = require("socket.io")(http);
+
+io.on("connection", socket => {
+    socket.on("message", ({ name, message }) => {
+        io.emit("message", { name, message })
+    })
+})
 
 const {
     getUsers,
@@ -30,9 +38,6 @@ express()
     // Any requests for static files will go into the public folder
     .use(express.static("public"))
 
-    // Nothing to modify above this line
-    // ---------------------------------
-    
     // get all the users on the website
     .get("/api/get-users", getUsers)
 
@@ -70,10 +75,7 @@ express()
     // delete a reply
     // .delete("/api/delete-reply/:boardId/:_id/:_id", deleteReply)
 
-    // ---------------------------------
-    // Nothing to modify below this line
-
-    // this is our catch all endpoint.
+    // catch all endpoint.
     .get("*", (req, res) => {
         res.status(404).json({
         status: 404,
@@ -81,5 +83,5 @@ express()
         });
     })
 
-    // Node spins up our server and sets it to listen on port 8000.
+    // Node creates server and sets it to listen on port 8000.
     .listen(8000, () => console.log(`Listening on port 8000`));

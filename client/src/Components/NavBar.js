@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 import { useState, setState, useContext } from "react";
 import { Context } from "./Context";
 import Login from "./Login";
+import Auth0Profile from "./Auth0Profile";
+import { useAuth0 } from "@auth0/auth0-react";
 
 // Some may find this nav bar annoying,
 // but I think its pretty intuitive
@@ -12,7 +14,7 @@ import Login from "./Login";
 // much like the chat window.
 
 const NavBar = () => {
-
+    const { user, isAuthenticated, isLoading } = useAuth0();
     const {chat, setChat, setTitle, title} = useContext(Context);
 
     
@@ -34,8 +36,14 @@ const NavBar = () => {
                 <TabTitle>Navigation</TabTitle>
             <TabRow>
             <NLink2 to="/news">News</NLink2>
-            <NLink2 to="/profile/:profileid">Profile</NLink2>
-            <NLink2 to="/friends">Friends</NLink2>
+            {
+                isAuthenticated && (
+                    <>
+                    <NLink2 to="/profile/:profileid">Profile</NLink2>
+                    <NLink2 to="/friends">Friends</NLink2>
+                    </>
+                )
+            }
             </TabRow>
             </TabColumn>
             <TabColumn>
@@ -44,6 +52,7 @@ const NavBar = () => {
             <NLink2 to="/about">About</NLink2>
             <NLink2 to="/rules">Rules</NLink2>
             <NLink2 to="/faq">FAQ</NLink2>
+            <Auth0Profile />
             <Login />
             </TabRow>
             </TabColumn>
@@ -51,6 +60,7 @@ const NavBar = () => {
         <Title>
             {title}
         </Title>
+        
         
             
             

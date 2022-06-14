@@ -6,11 +6,13 @@ import { PageWrapper } from "./GlobalStyles";
 import { useParams } from "react-router-dom";
 import ThreadSmall from "./Components/ThreadSmall";
 import NewThread from "./Components/NewThread";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
 const Boards = () => {
     const {chat, setTitle} = useContext(Context);
+    const { user, isAuthenticated, isLoading } = useAuth0();
     let { boardId } = useParams();
     setTitle(boardId);
     return(
@@ -23,7 +25,11 @@ const Boards = () => {
                 <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
                 <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
                 </InnerWrapper>
-                <NewThread />
+                {
+                    isAuthenticated && (
+                        <NewThread />
+                    )
+                }
             </PageWrapper>
             <BottomPad />
 

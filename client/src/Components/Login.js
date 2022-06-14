@@ -1,17 +1,31 @@
 import styled from "styled-components";
 import { Context } from "./Context";
 import { useContext } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 // This will be the login button
 // It will be on the nav bar
 // when the user isn't logged in
 
 const Login = () => {
+    const { user, isAuthenticated, isLoading } = useAuth0();
     const {chat} = useContext(Context);
+
+    const { loginWithRedirect } = useAuth0();
+    const { logout } = useAuth0();
+
     return(
         <Wrapper chat={chat}>
-            <LoginButton>Sign up</LoginButton>
-        <LoginButton>Login</LoginButton>
+            {
+                !isAuthenticated && 
+        <LoginButton onClick={() => loginWithRedirect()}>Login</LoginButton>
+            }
+            
+        {
+            isAuthenticated && (
+        <LoginButton onClick={() => logout({ returnTo: window.location.origin })}>Logout</LoginButton>
+        )
+        }
         </Wrapper>
     )
 }

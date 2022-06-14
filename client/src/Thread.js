@@ -6,12 +6,15 @@ import { PageWrapper } from "./GlobalStyles";
 import Post from "./Components/Post";
 import NewPost from "./Components/NewPost";
 import PageBottom from "./Components/PageBottom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 // This will be the page
 // for the main post on a board
 
 const Thread = () => {
     const {chat, setTitle} = useContext(Context);
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    
     const { threadTitle } = useParams();
     setTitle(threadTitle);
 
@@ -21,7 +24,11 @@ const Thread = () => {
             <PageWrapper>
         <Post />
         <Post />
-        <NewPost />
+        {
+            isAuthenticated && (
+                <NewPost />
+            )
+        }
         <PageBottom />
         <Spacer />
         </PageWrapper>
