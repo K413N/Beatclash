@@ -87,8 +87,10 @@ const getUser = async (req, res) => {
   }
 }
 
+// get all threads on a board.
 const getThreads = async (req, res) => {
   const client = new MongoClient(MONGO_URI);
+  const boardId = req.params.boardId;
 
   try {
     await client.connect();
@@ -96,13 +98,15 @@ const getThreads = async (req, res) => {
     const db = client.db("beatclash");
     console.log("connected!");
 
-    const threads = await db.collection("threads").find().toArray();
+    console.log(boardId);
 
-    const threadIds = threads.map((element) => {
-      return element._id;
-    })
+    const threads = await db.collection("threads").find({ "boardId": boardId }).toArray();
 
-    res.status(200).json({ status: 200, message: "success", data: threadIds });
+    // const threadIds = threads.map((element) => {
+    //   return element._id;
+    // })
+
+    res.status(200).json({ status: 200, message: "success", data: threads });
   } catch (err) {
     console.log(err.stack);
     res.status(500).json({ status: 500, data: req.body, message: err.message });
@@ -111,6 +115,7 @@ const getThreads = async (req, res) => {
   console.log("disconnected!");
 }
 
+// get the thread to pull all posts from
 const getThread = async (req, res) => {
   const client = new MongoClient(MONGO_URI);
   
@@ -120,7 +125,6 @@ const getThread = async (req, res) => {
     const db = client.db("beatclash");
     console.log("connected!");
 
-    // get the thread to pull all posts from
     const threadId = req.params._id;
     const threadObj = await db.collection("threads").findOne({ "_id": threadId });
 

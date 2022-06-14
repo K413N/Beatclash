@@ -10,6 +10,8 @@ export const ContextProvider = ({children}) => {
     const [title, setTitle] = useState("test");
     const [isLoading, setLoading] = useState(true);
     const [postTitle, setPostTitle] = useState("");
+    const [hasData, setHasData] = useState(null);
+    const [threadData, setThreadData] = useState(null);
 
     useEffect(() => {
         setLoading(false);
@@ -23,7 +25,9 @@ if(isLoading){
         chat, setChat,
         isLoading, setLoading,
         title, setTitle,
-        postTitle, setPostTitle
+        postTitle, setPostTitle,
+        hasData, setHasData,
+        threadData, setThreadData
     }}>{children}</Context.Provider>
     );
 }

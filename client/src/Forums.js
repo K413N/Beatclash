@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Context } from "./Components/Context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Board from "./Components/Board";
 import { PageWrapper } from "./GlobalStyles";
 import { useParams } from "react-router-dom";
@@ -11,20 +11,41 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 const Boards = () => {
-    const {chat, setTitle} = useContext(Context);
+    const {chat,
+         setTitle,
+          hasData, setHasData,
+        threadData, setThreadData} = useContext(Context);
+
     const { user, isAuthenticated, isLoading } = useAuth0();
     let { boardId } = useParams();
     setTitle(boardId);
+
+    useEffect(() => {
+        let fetchurl = "/api/get-threads/" + boardId;
+        fetch(fetchurl)
+        .then((res) => res.json())
+        .then((data) => {
+            if(data.data){
+                console.log(data.data);
+                setHasData(true);
+                setThreadData(data.data);
+            } else {
+                setHasData(false);
+            }
+        })
+    },[])
+
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
-                <InnerWrapper>
-                <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
-                <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
-                <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
-                <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
-                <ThreadSmall ptitle={"Post Title"} btitle={boardId} />
-                </InnerWrapper>
+            <InnerWrapper>
+            {
+                        hasData ? (threadData.map(element => {
+                
+                            <ThreadSmall tid={element._id} ptitle={element.threadTitle} btitle={boardId} />
+                
+                   })) : <div>wah</div>}
+                   </InnerWrapper>
                 {
                     isAuthenticated && (
                         <NewThread />

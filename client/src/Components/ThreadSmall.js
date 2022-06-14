@@ -4,8 +4,7 @@ import { useContext, useParams } from "react";
 
 import { NavLink } from "react-router-dom";
 
-const ThreadSmall = ({btitle}) => {
-    let tid = "threadTitle";
+const ThreadSmall = ({btitle, tid}) => {
     return(
     <Wrapper>
             <ThreadWrapper to={"/forums/" + btitle + "/" + tid}>
