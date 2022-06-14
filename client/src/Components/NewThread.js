@@ -3,11 +3,11 @@ import { Context } from "./Context";
 import { useContext, useState } from "react";
 import GlobalStyles from "../GlobalStyles";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 
 const NewThread = () => {
-    let navigate = useNavigate();
+    let history = useHistory();
     const [formBody, setFormBody] = useState(null);
     const [formTitle, setFormTitle] = useState(null);
     const [threadUrl, setThreadUrl] = useState(null);
@@ -50,7 +50,8 @@ const NewThread = () => {
                 setThreadUrl("/" + data.data._id);
             })
 
-            navigate(threadUrl);
+            // this garbage isn't working
+            history.push(threadUrl);
         }
 
     }

@@ -206,6 +206,8 @@ const createReply = async (req, res) => {
 
   const { userId, username, body } = req.body;
 
+  console.log(req.body.body);
+
   if( !userId || !username || !body) {
     return res.status(400).json({
       status: 400,

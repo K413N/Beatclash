@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
 import { Fragment } from "react";
 import Homepage from "./Homepage";
@@ -22,31 +22,29 @@ function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   return (
     <BrowserRouter>
-    <GlobalStyles />
+      <GlobalStyles />
 
-    <NavBar />
-    {
-      isAuthenticated && (
+      <NavBar />
+      {isAuthenticated && (
         <>
-        <ChatComponent />
+          <ChatComponent />
         </>
-      )
-    }
-    <Routes>
-      <Fragment>
-        <Route exact path="/" element={<Homepage />} />
-        <Route exact path="/forums/:boardId" element={<Forums />} />
-        <Route exact path="/forums/:boardId/:threadId" element={<Thread />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/faq" element={<FAQ />} />
-        <Route exact path="/rules" element={<Rules />} />
-        <Route exact path="/news" element={<News />} />
-        <Route exact path="/friends" element={<Friends />} />
-        <Route exact path="/profile/:profileid" element={<Profile />} />
-        <Route exact path="/error" element={<Error />} />
-      </Fragment>
-    </Routes>
+      )}
+      <Switch>
+        
+          <Route exact path="/"><Homepage /></Route>
+          <Route exact path="/forums/:boardId"><Forums /></Route>
+          <Route exact path="/forums/:boardId/:threadId"><Thread /></Route>
+          <Route exact path="/about"><About /></Route>
+          <Route exact path="/login"><Login /></Route>
+          <Route exact path="/faq"><FAQ /></Route>
+          <Route exact path="/rules"><Rules /></Route>
+          <Route exact path="/news"><News /></Route>
+          <Route exact path="/friends"><Friends /></Route>
+          <Route exact path="/profile/:profileid"><Profile /></Route>
+          <Route exact path="/error"><Error /></Route>
+        
+      </Switch>
     </BrowserRouter>
   );
 }

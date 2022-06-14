@@ -1,12 +1,57 @@
 import styled from "styled-components";
 import { Context } from "./Context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import GlobalStyles from "../GlobalStyles";
+import { useParams } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const NewReply = () => {
+    const [formBody, setFormBody] = useState(null);
+    const { boardId, threadId } = useParams();
+    const [threadUrl, setThreadUrl] = useState(null);
+    const { user, isAuthenticated, isLoading, nickname, user_id } = useAuth0();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        console.log("submit clicked!");
+
+        let formIsComplete = false;
+        if(formBody !== null){
+            formIsComplete = true;
+        }
+
+        let fetchurl = "/api/create-reply/" + boardId + "/" + threadId
+
+        if(formIsComplete){
+
+            fetch(fetchurl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                userId: user_id,
+                username: nickname,
+                body: formBody
+            })
+        })
+        .then(res => {
+            return res.json()
+        })
+        .then(data => {
+            console.log(data.data);
+            setThreadUrl("/" + data.data._id);
+        })
+        // this garbage isn't working
+            // navigate(threadUrl);
+    }
+}
+
     return(
         <Wrapper>
-            <InputField placeholder="Write your Reply here!"></InputField>
+            <InputField onChange={(event) => setFormBody(event.target.value)} placeholder="Write your Reply here!"></InputField>
             <NewReplyBottom>
                 <ReplyButton>Reply!</ReplyButton>
             </NewReplyBottom>

@@ -6,6 +6,7 @@ import { PageWrapper } from "./GlobalStyles";
 
 const Forums = () => {
     const {chat, setTitle} = useContext(Context);
+    console.log("Home Loaded!");
     setTitle("Forums");
     return(
         <Wrapper chat={chat}>

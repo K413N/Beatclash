@@ -16,8 +16,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 const NavBar = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
     const {chat, setChat, setTitle, title} = useContext(Context);
-
-    console.log(user);
     
 
     return(

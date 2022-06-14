@@ -1,13 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './App';
 import { ContextProvider } from './Components/Context';
 import { Auth0Provider } from '@auth0/auth0-react';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <React.StrictMode>
     
+//     <Auth0Provider
+//     domain={process.env.REACT_APP_AUTH0_DOMAIN}
+//     clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+//     redirectUri={window.location.origin}>
+//     <ContextProvider>
+//     <App />
+//     </ContextProvider>
+//     </Auth0Provider>
+
+//   </React.StrictMode>
+// );
+
+ReactDOM.render(
+  <React.StrictMode>
     <Auth0Provider
     domain={process.env.REACT_APP_AUTH0_DOMAIN}
     clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
@@ -16,10 +30,9 @@ root.render(
     <App />
     </ContextProvider>
     </Auth0Provider>
-
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
 
 
 // ReactDOM.render(
