@@ -3,14 +3,22 @@
 // import the needed node_modules.
 const express = require("express");
 const morgan = require("morgan");
-const http = require("http").createServer(express);
-const io = require("socket.io")(http);
+const cors = require("cors");
+const io = require("socket.io")(8080, {
+    cors: {
+        origin: ["http://localhost:3000"],
+    },
+});
 
-io.on("connection", socket => {
-    socket.on("message", ({ name, message }) => {
-        io.emit("message", { name, message })
+
+io.on("connect", socket => {
+    socket.on("send-message", message => {
+        console.log(message);
+        // socket.broadcast.emit("receive-message", { message });
     })
 })
+
+
 
 const {
     getUsers,
@@ -34,6 +42,8 @@ express()
     // This will give us will log more info to the console. see https://www.npmjs.com/package/morgan
     .use(morgan("tiny"))
     .use(express.json())
+    .use(cors())
+
 
     // Any requests for static files will go into the public folder
     .use(express.static("public"))

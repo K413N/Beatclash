@@ -2,11 +2,31 @@ import styled from "styled-components";
 import { Wrapper, Title } from "../GlobalStyles"
 import { FiSearch, FiMessageSquare } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
-import { useState, setState, useContext } from "react";
+import { useState, setState, useContext, useEffect, useInsertionEffect } from "react";
+import { io } from "socket.io-client";
 import { Context } from "./Context";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const ChatComponent = () => {
     const {chat, setChat, setTitle, title} = useContext(Context);
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    const socket = io.connect("http://localhost:8080");
+    const [chatStateObject, setChatStateObject] = useState({ message: ""});
+    const [chatArray, setChatArray] = useState([]);
+
+  
+
+    socket.on("connect", () => {
+        socket.emit("send-message", { message: "connected!"});
+    })
+  
+
+    const onMessageSubmit = (e) => {
+        e.preventDefault();
+        // const {message} = chatStateObject;
+        socket.emit("send-message", "hello");
+        setChatStateObject({ message: "" });
+    }
 
     const chatHandler = () => {
         if(chat){
@@ -21,7 +41,22 @@ const ChatComponent = () => {
     return(
     <ChatWrap>
         {
-            chat ? <ChatWindow /> : <div/>
+            chat ? <ChatWindow>
+               
+                    <ChatForm onSubmit={onMessageSubmit}>
+                        <ChatTitle>Chat</ChatTitle>
+                        <ChatFeed>
+                            feed goes here
+                        </ChatFeed>
+                        <BottomWrap>
+                            <TextBox 
+                            name="message"
+                            label="Message" />
+                            <SendButton type="submit">Send!</SendButton>
+                            </BottomWrap>
+                    </ChatForm>
+              
+            </ChatWindow> : <div/>
         }
         <ChatButton onClick={chatHandler}>
                 <ChatIcon />
@@ -31,6 +66,57 @@ const ChatComponent = () => {
 }
 
 export default ChatComponent;
+
+const SendButton = styled.button`
+background-color: black;
+color: #0f0;
+border-style: solid;
+border-width: 1px;
+border-color: #0f0;
+
+width: 80px;
+height: 20px;
+
+&&:hover {
+    background-color: #333;
+}
+`
+
+const BottomWrap = styled.div`
+display: flex;
+flex-direction: row;
+width: 100%;
+`
+
+const ChatForm = styled.form`
+width: 100%;
+height: 100%;
+`
+
+const ChatTitle = styled.div`
+background-color: black;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-bottom-color: #0f0;
+color: #0f0;
+padding: 0;
+`
+
+const ChatFeed = styled.div`
+width: 100%;
+height: 260px;
+background-color: #005;
+`
+
+const TextBox = styled.input`
+box-sizing: border-box;
+width: 100%;
+`
+
+const Chat = styled.div`
+width: 100%;
+height: 100%;
+`
 
 const ChatWrap = styled.div`
 display: flex;
@@ -56,6 +142,8 @@ cursor: pointer;
 `
 
 const ChatWindow = styled.div`
+display: flex;
+justify-content: center;
 position: fixed;
 width: 450px;
 height: 300px;
