@@ -8,14 +8,14 @@ import PostBottom from "./PostBottom";
 // props get filtered like so
 // Thread => Post => PostBottom
 
-const Post = ({op, date, likes, dislikes, replies, body}) => {
+const Post = ({user, date, likes, dislikes, replies, body}) => {
     return(
         <Wrapper>
             <PostWrapper>
                 <AvatarWrapper>
                     <Avatar />
                     <DetailWrapper>
-                    <PostUsername>{op}</PostUsername>
+                    <PostUsername>{user}</PostUsername>
                     <UserTags>User Tags</UserTags>
                     </DetailWrapper>
                     </AvatarWrapper>

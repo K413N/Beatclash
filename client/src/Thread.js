@@ -22,7 +22,6 @@ const Thread = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
     
     const { threadId, boardId } = useParams();
-    setTitle(threadId);
 
     useEffect(() => {
         let fetchurl = "/api/get-thread/"+ boardId + "/" + threadId;
@@ -40,6 +39,10 @@ const Thread = () => {
         })
     },[])
 
+    if(hasData){
+        setTitle(singleThreadData.threadTitle);
+    }
+
 
 
 
@@ -49,8 +52,18 @@ const Thread = () => {
         {
             hasData && (
                 <>
-                <Post body={singleThreadData.body} replies={singleThreadData.replies} dislikes={singleThreadData.dislikes} likes={singleThreadData.likes} date={singleThreadData.date} op={singleThreadData.op} />
+                <Post body={singleThreadData.body} replies={singleThreadData.replies} dislikes={singleThreadData.dislikes} likes={singleThreadData.likes} date={singleThreadData.date} user={singleThreadData.op} />
                 </>
+            )
+        }
+        {
+            hasData && (
+                singleThreadData.posts.map((element) => (
+                <>
+                <Post body={element.body} replies={element.replies} dislikes={element.dislikes} likes={element.likes} date={element.date} user={element.username} />
+                </>
+                ))
+                
             )
         }
         
