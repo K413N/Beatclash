@@ -4,16 +4,16 @@ import { useContext, useParams } from "react";
 
 import { NavLink } from "react-router-dom";
 
-const ThreadSmall = ({btitle, tid}) => {
+const ThreadSmall = ({btitle, tid, ttitle, tdate, op}) => {
     return(
     <Wrapper>
             <ThreadWrapper to={"/forums/" + btitle + "/" + tid}>
-        <ThreadTitle>Title</ThreadTitle>
+        <ThreadTitle>{ttitle}</ThreadTitle>
         </ThreadWrapper>
         <ThreadDetails>
             <DetailElement>
                 <DetailTitle>OP</DetailTitle>
-                <Detail>Username</Detail>
+                <Detail>{op}</Detail>
             </DetailElement>
             <DetailElement>
                 <DetailTitle>Recent</DetailTitle>
@@ -25,7 +25,7 @@ const ThreadSmall = ({btitle, tid}) => {
             </DetailElement>
             <DetailElement>
                 <DetailTitle>Active</DetailTitle>
-                <Detail>DD/MM/YYYY</Detail>
+                <Detail>{tdate}</Detail>
             </DetailElement>
         </ThreadDetails>
     </Wrapper>
@@ -52,7 +52,7 @@ border-style: solid;
 border-width: 1px;
 border-color: white;
 width: 100%;
-height: 40px;
+height: 60px;
 padding: 4px;
 `
 

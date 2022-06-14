@@ -40,11 +40,12 @@ const Boards = () => {
             <PageWrapper>
             <InnerWrapper>
             {
-                        hasData ? (threadData.map(element => {
-                
-                            <ThreadSmall tid={element._id} ptitle={element.threadTitle} btitle={boardId} />
-                
-                   })) : <div>wah</div>}
+                        hasData && (
+                            threadData.map(element => (
+                            <>
+                            <ThreadSmall op={element.op} tdate={element.date} tid={element._id} ttitle={element.threadTitle} btitle={boardId} />
+                            </>
+                   )))}
                    </InnerWrapper>
                 {
                     isAuthenticated && (
