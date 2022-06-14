@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Context } from "./Components/Context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { PageWrapper } from "./GlobalStyles";
 import Post from "./Components/Post";
@@ -11,19 +11,49 @@ import { useAuth0 } from "@auth0/auth0-react";
 // This will be the page
 // for the main post on a board
 
+// props get filtered like so
+// Thread => Post => PostBottom
+
 const Thread = () => {
-    const {chat, setTitle} = useContext(Context);
+    const {chat,
+        setTitle,
+         hasData, setHasData,
+       singleThreadData, setSingleThreadData} = useContext(Context);
     const { user, isAuthenticated, isLoading } = useAuth0();
     
-    const { threadTitle } = useParams();
-    setTitle(threadTitle);
+    const { threadId, boardId } = useParams();
+    setTitle(threadId);
+
+    useEffect(() => {
+        let fetchurl = "/api/get-thread/"+ boardId + "/" + threadId;
+        fetch(fetchurl)
+        .then((res) => res.json())
+        .then((data) => {
+            if(data.data){
+                console.log(data.data);
+                setSingleThreadData(data.data);
+                setHasData(true);
+            } else {
+                setHasData(false);
+                console.log("no data!");
+            }
+        })
+    },[])
+
+
 
 
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
-        <Post />
-        <Post />
+        {
+            hasData && (
+                <>
+                <Post body={singleThreadData.body} replies={singleThreadData.replies} dislikes={singleThreadData.dislikes} likes={singleThreadData.likes} date={singleThreadData.date} op={singleThreadData.op} />
+                </>
+            )
+        }
+        
         {
             isAuthenticated && (
                 <NewPost />

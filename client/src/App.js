@@ -36,7 +36,7 @@ function App() {
       <Fragment>
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="/forums/:boardId" element={<Forums />} />
-        <Route exact path="/forums/:boardId/:threadTitle" element={<Thread />} />
+        <Route exact path="/forums/:boardId/:threadId" element={<Thread />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/faq" element={<FAQ />} />

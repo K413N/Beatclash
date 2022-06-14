@@ -5,16 +5,18 @@ import { NavLink } from "react-router-dom";
 import GlobalStyles from "../GlobalStyles";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const PostBottom = () => {
+
+// props get filtered like so
+// Thread => Post => PostBottom
+
+const PostBottom = ({date, likes, dislikes, replies}) => {
     const { user, isAuthenticated, isLoading } = useAuth0();
 
-    let likes = 0;
-    let dislikes = 0;
-    let replies = 0;
+    
     return(
         <Wrapper>
             <BDetailWrapper>
-                <BDetailText>Posted: DD/MM/YYYY</BDetailText>
+                <BDetailText>Posted: {date}</BDetailText>
                 <BDetailText>Replies: <RnumColor>{replies}</RnumColor></BDetailText>
                 <BDetailText>Likes: <LnumColor>{likes}</LnumColor></BDetailText>
                 <BDetailText>Dislikes: <DnumColor>{dislikes}</DnumColor></BDetailText>

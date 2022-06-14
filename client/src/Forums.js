@@ -10,7 +10,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 
-const Boards = () => {
+const Forums = () => {
     const {chat,
          setTitle,
           hasData, setHasData,
@@ -41,7 +41,7 @@ const Boards = () => {
             <InnerWrapper>
             {
                         hasData && (
-                            threadData.map(element => (
+                            threadData.map((element) => (
                             <>
                             <ThreadSmall op={element.op} tdate={element.date} tid={element._id} ttitle={element.threadTitle} btitle={boardId} />
                             </>
@@ -59,7 +59,7 @@ const Boards = () => {
     )
 }
 
-export default Boards;
+export default Forums;
 const PHText = styled.div`
 color:white;
 `

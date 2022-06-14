@@ -12,6 +12,7 @@ export const ContextProvider = ({children}) => {
     const [postTitle, setPostTitle] = useState("");
     const [hasData, setHasData] = useState(null);
     const [threadData, setThreadData] = useState(null);
+    const [singleThreadData, setSingleThreadData] = useState(null);
 
     useEffect(() => {
         setLoading(false);
@@ -27,7 +28,8 @@ if(isLoading){
         title, setTitle,
         postTitle, setPostTitle,
         hasData, setHasData,
-        threadData, setThreadData
+        threadData, setThreadData,
+        singleThreadData, setSingleThreadData
     }}>{children}</Context.Provider>
     );
 }
