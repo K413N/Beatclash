@@ -39,8 +39,7 @@ const NavBar = () => {
             {
                 isAuthenticated && (
                     <>
-                    <NLink2 to="/profile/:profileid">Profile</NLink2>
-                    <NLink2 to="/friends">Friends</NLink2>
+                    <NLink2 to={"/profile/" + user}>Profile</NLink2>
                     </>
                 )
             }

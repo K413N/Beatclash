@@ -3,7 +3,7 @@ import { Wrapper, Title } from "../GlobalStyles"
 import { FiSearch, FiMessageSquare } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import { useState, setState, useContext, useEffect, useInsertionEffect } from "react";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import { Context } from "./Context";
 import { useAuth0 } from "@auth0/auth0-react";
 
