@@ -4,10 +4,10 @@ import { useContext } from "react";
 import Board from "./Components/Board";
 import { PageWrapper } from "./GlobalStyles";
 
-const Forums = () => {
+const Homepage = () => {
     const {chat, setTitle} = useContext(Context);
     console.log("Home Loaded!");
-    setTitle("Forums");
+    setTitle("Homepage");
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
@@ -31,7 +31,7 @@ const Forums = () => {
     )
 }
 
-export default Forums;
+export default Homepage;
 
 const GroupTitle = styled.div`
 color: gold;

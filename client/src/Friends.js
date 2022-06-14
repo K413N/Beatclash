@@ -6,7 +6,7 @@ import { PageWrapper } from "./GlobalStyles";
 
 const Friends = () => {
     const {chat, setTitle} = useContext(Context);
-    setTitle("Friends");
+    setTitle("Users");
     return(
         <Wrapper chat={chat}>
             <PageWrapper>

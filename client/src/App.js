@@ -36,7 +36,7 @@ function App() {
           <Route exact path="/faq"><FAQ /></Route>
           <Route exact path="/rules"><Rules /></Route>
           <Route exact path="/news"><News /></Route>
-          <Route exact path="/friends"><Friends /></Route>
+          <Route exact path="/users"><Friends /></Route>
           <Route exact path="/profile/:profileid"><Profile /></Route>
           <Route path=""><Error /></Route>
       </Switch>

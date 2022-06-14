@@ -1,15 +1,49 @@
 import styled from "styled-components";
 import { Context } from "./Context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import GlobalStyles from "../GlobalStyles";
+import { useAuth0 } from "@auth0/auth0-react";
+import Loading from "./Loading";
+
 
 // This will display a clickable individual Board element
 // It shows the top 5 posts, which you can click to navigate to.
 // Or click the board itself to view every post.
 
+
+
 const Board = ({btitle, bdesc, boardId}) => {
-    const {chat} = useContext(Context);
+    
+    const {chat,
+         hasData, setHasData,
+       threadData, setThreadData,
+    loading, setLoading} = useContext(Context);
+    
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    
+    useEffect(() => {
+        let fetchurl = "/api/get-threads/" + boardId;
+        fetch(fetchurl)
+        .then((res) => res.json())
+        .then((data) => {
+            if(data.data){
+                console.log(data.data);
+                setHasData(true);
+                setThreadData(data.data);
+            } else {
+                setHasData(false);
+            }
+            setLoading(false);
+        })
+    },[])
+
+    if(!hasData){
+        return (<Loading />)
+    } else {
+
+    
+    
         return(
             <Wrapper chat={chat}>
             <BoardWrapper>
@@ -21,36 +55,37 @@ const Board = ({btitle, bdesc, boardId}) => {
                     </BoardCol>
                     </BoardNav>
                     <BoardCol>
-                        <RecentPost to="/">
-                            <PostTitle className="btext">Post Title</PostTitle>
-                            <PostReplies className="btext">0</PostReplies>
+                        <Scrollable>
+                            {
+                                hasData && (
+                                    threadData.map((element) => (
+                                        <RecentPost to={"/" + boardId + "/" + element._id}>
+                            <PostTitle className="btext">{element.threadTitle}</PostTitle>
+                            <PostReplies className="btext">{element.replies}</PostReplies>
                         </RecentPost >
-                        <RecentPost to="/">
-                            <PostTitle className="btext">Post Title</PostTitle>
-                            <PostReplies className="btext">0</PostReplies>
-                        </RecentPost>
-                        <RecentPost to="/">
-                            <PostTitle className="btext">Post Title</PostTitle>
-                            <PostReplies className="btext">0</PostReplies>
-                        </RecentPost>
-                        <RecentPost to="/">
-                            <PostTitle className="btext">Post Title</PostTitle>
-                            <PostReplies className="btext">0</PostReplies>
-                        </RecentPost>
-                        <RecentPost to="/">
-                            <PostTitle className="btext">Post Title</PostTitle>
-                            <PostReplies className="btext">0</PostReplies>
-                        </RecentPost>
+                                    ))
+                                )
+                            }
+                        </Scrollable>
                         
                     </BoardCol>
                 </BoardInner>
             </BoardWrapper>
             </Wrapper>
         )
+                        }
     
 }
 
 export default Board;
+
+const Scrollable = styled.div`
+display: flex;
+flex-direction: column;
+width: 100%;
+height: 100%;
+overflow-y: scroll;
+`
 
 const Wrapper = styled.div`
 background-color: black;

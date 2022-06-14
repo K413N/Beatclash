@@ -41,6 +41,9 @@ const Forums = () => {
     if(!threadData){
         return(<Loading />)
     } else {
+
+    
+
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
