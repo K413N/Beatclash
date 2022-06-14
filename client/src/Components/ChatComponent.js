@@ -10,23 +10,23 @@ import { useAuth0 } from "@auth0/auth0-react";
 const ChatComponent = () => {
     const {chat, setChat, setTitle, title} = useContext(Context);
     const { user, isAuthenticated, isLoading } = useAuth0();
-    const socket = io.connect("http://localhost:8080");
+    // const socket = io.connect("http://localhost:8080");
     const [chatStateObject, setChatStateObject] = useState({ message: ""});
     const [chatArray, setChatArray] = useState([]);
 
   
 
-    socket.on("connect", () => {
-        socket.emit("send-message", { message: "connected!"});
-    })
+    // socket.on("connect", () => {
+    //     socket.emit("send-message", { message: "connected!"});
+    // })
   
 
-    const onMessageSubmit = (e) => {
-        e.preventDefault();
-        // const {message} = chatStateObject;
-        socket.emit("send-message", "hello");
-        setChatStateObject({ message: "" });
-    }
+    // const onMessageSubmit = (e) => {
+    //     e.preventDefault();
+    //     // const {message} = chatStateObject;
+    //     socket.emit("send-message", "hello");
+    //     setChatStateObject({ message: "" });
+    // }
 
     const chatHandler = () => {
         if(chat){
@@ -43,7 +43,7 @@ const ChatComponent = () => {
         {
             chat ? <ChatWindow>
                
-                    <ChatForm onSubmit={onMessageSubmit}>
+                    <ChatForm>
                         <ChatTitle>Chat</ChatTitle>
                         <ChatFeed>
                             feed goes here

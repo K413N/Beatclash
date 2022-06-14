@@ -3,8 +3,11 @@ import { Context } from "./Context";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import GlobalStyles from "../GlobalStyles";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const PostBottom = () => {
+    const { user, isAuthenticated, isLoading } = useAuth0();
+
     let likes = 0;
     let dislikes = 0;
     let replies = 0;
@@ -16,9 +19,16 @@ const PostBottom = () => {
                 <BDetailText>Likes: <LnumColor>{likes}</LnumColor></BDetailText>
                 <BDetailText>Dislikes: <DnumColor>{dislikes}</DnumColor></BDetailText>
             </BDetailWrapper>
-            <BottomButton>👍</BottomButton>
+            {
+                isAuthenticated && (
+                    <>
+                    <BottomButton>👍</BottomButton>
             <BottomButton>👎</BottomButton>
             <BottomButton>Reply</BottomButton>
+            </>
+                )
+            }
+            
         </Wrapper>
     )
 }

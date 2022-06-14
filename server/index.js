@@ -4,19 +4,19 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
-const io = require("socket.io")(8080, {
-    cors: {
-        origin: ["http://localhost:3000"],
-    },
-});
+// const io = require("socket.io")(8080, {
+//     cors: {
+//         origin: ["http://localhost:3000"],
+//     },
+// });
 
 
-io.on("connect", socket => {
-    socket.on("send-message", message => {
-        console.log(message);
-        // socket.broadcast.emit("receive-message", { message });
-    })
-})
+// io.on("connect", socket => {
+//     socket.on("send-message", message => {
+//         console.log(message);
+//         // socket.broadcast.emit("receive-message", { message });
+//     })
+// })
 
 
 

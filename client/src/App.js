@@ -14,16 +14,24 @@ import News from "./News";
 import Forums from "./Forums";
 import ChatComponent from "./Components/ChatComponent";
 import Thread from "./Thread";
+import { useAuth0 } from "@auth0/auth0-react";
 
 // Used for Routing
 
 function App() {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   return (
     <BrowserRouter>
     <GlobalStyles />
 
     <NavBar />
-    <ChatComponent />
+    {
+      isAuthenticated && (
+        <>
+        <ChatComponent />
+        </>
+      )
+    }
     <Routes>
       <Fragment>
         <Route exact path="/" element={<Homepage />} />
