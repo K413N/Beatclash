@@ -17,6 +17,7 @@ const NavBar = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
     const {chat, setChat, setTitle, title} = useContext(Context);
 
+    console.log(user);
     
 
     return(
@@ -39,7 +40,7 @@ const NavBar = () => {
             {
                 isAuthenticated && (
                     <>
-                    <NLink2 to={"/profile/" + user}>Profile</NLink2>
+                    <NLink2 to={"/profile/" + user.nickname}>Profile</NLink2>
                     </>
                 )
             }

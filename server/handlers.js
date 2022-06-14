@@ -149,9 +149,10 @@ const createThread = async (req, res) => {
   // into a thread object on the database
 
   const { op, threadTitle, body } = req.body;
+  console.log(req.body);
   const boardId = req.params.boardId;
 
-  if( !boardId || !op || !threadTitle || !body) {
+  if( !op || !threadTitle || !body) {
     return res.status(400).json({
       status: 400,
       message: "Not all required data fields have been filled.",
@@ -167,9 +168,12 @@ const createThread = async (req, res) => {
       const newThread = {...req.body}
 
       newThread._id = uuidv4();
+      newThread.boardId = boardId;
+      newThread.op = op;
       newThread.likes = 0;
       newThread.dislikes = 0;
-      newThread.date = "06/12/2022",
+      newThread.replies = 0;
+      newThread.date = "06/15/2022",
       newThread.tags = [];
       newThread.posts = [];
 

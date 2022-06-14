@@ -1,15 +1,66 @@
 import styled from "styled-components";
 import { Context } from "./Context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import GlobalStyles from "../GlobalStyles";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 const NewThread = () => {
+    let navigate = useNavigate();
+    const [formBody, setFormBody] = useState(null);
+    const [formTitle, setFormTitle] = useState(null);
+    const [threadUrl, setThreadUrl] = useState(null);
+    const { user, isAuthenticated, isLoading, nickname } = useAuth0();
+    console.log(user);
+    const { boardId } = useParams();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        console.log("submit clicked!");
+
+        let formIsComplete = false;
+        if(formTitle !== null && formBody !== null) {
+            formIsComplete = true;
+        } else {
+            formIsComplete = false;
+        }
+
+        if(formIsComplete){
+            const formObj = { formBody, formTitle, nickname };
+
+            fetch("/api/create-thread/" + boardId, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    op: user.nickname,
+                    threadTitle: formTitle,
+                    body: formBody
+                })
+            })
+            .then(res => {
+                return res.json()
+            })
+            .then(data => {
+                console.log(data.data);
+                setThreadUrl("/" + data.data._id);
+            })
+
+            navigate(threadUrl);
+        }
+
+    }
+
     return(
-        <Wrapper>
-            <TitleField placeholder="Write your title here!"></TitleField>
-            <InputField placeholder="Everything in your thread goes here!"></InputField>
+        <Wrapper onSubmit={handleSubmit}>
+            <TitleField onChange={(event) => setFormTitle(event.target.value)} placeholder="Write your title here!" required />
+            <InputField onChange={(event) => setFormBody(event.target.value)} placeholder="Everything in your thread goes here!" required />
             <NewThreadBottom>
-                <ThreadButton>Create Thread!</ThreadButton>
+                <ThreadButton type="submit">Create Thread!</ThreadButton>
             </NewThreadBottom>
     </Wrapper>
     )
@@ -59,7 +110,7 @@ font-size: 22px;
 line-height: inherit;
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
 display: flex;
 flex-direction: column;
 background-color: #333;

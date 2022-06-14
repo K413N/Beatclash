@@ -31,6 +31,7 @@ const Thread = () => {
             if(data.data){
                 console.log(data.data);
                 setSingleThreadData(data.data);
+                setTitle(data.data.threadTitle)
                 setHasData(true);
             } else {
                 setHasData(false);
@@ -39,9 +40,7 @@ const Thread = () => {
         })
     },[])
 
-    if(hasData){
-        setTitle(singleThreadData.threadTitle);
-    }
+    
 
 
 
