@@ -1,8 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
-import { Fragment } from "react";
 import Homepage from "./Homepage";
-import Login from "./Components/Login";
 import Profile from "./Profile";
 import Friends from "./Friends";
 import NavBar from "./Components/NavBar";
@@ -31,19 +29,16 @@ function App() {
         </>
       )}
       <Switch>
-        
           <Route exact path="/"><Homepage /></Route>
           <Route exact path="/forums/:boardId"><Forums /></Route>
           <Route exact path="/forums/:boardId/:threadId"><Thread /></Route>
           <Route exact path="/about"><About /></Route>
-          <Route exact path="/login"><Login /></Route>
           <Route exact path="/faq"><FAQ /></Route>
           <Route exact path="/rules"><Rules /></Route>
           <Route exact path="/news"><News /></Route>
           <Route exact path="/friends"><Friends /></Route>
           <Route exact path="/profile/:profileid"><Profile /></Route>
-          <Route exact path="/error"><Error /></Route>
-        
+          <Route path=""><Error /></Route>
       </Switch>
     </BrowserRouter>
   );

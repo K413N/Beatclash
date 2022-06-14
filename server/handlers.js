@@ -28,13 +28,15 @@ const getUsers = async (req, res) => {
 
     console.log(users);
 
+    client.close();
+    console.log("disconnected!");
+
     res.status(200).json({ status: 200, message: "success", data: userIds });
   } catch (err) {
     console.log(err.stack);
     res.status(500).json({ status: 500, data: req.body, message: err.message });
   }
-  client.close();
-  console.log("disconnected!");
+  
 }
 
 // get all friends of a user
@@ -105,14 +107,15 @@ const getThreads = async (req, res) => {
     // const threadIds = threads.map((element) => {
     //   return element._id;
     // })
+    client.close();
+  console.log("disconnected!");
 
-    res.status(200).json({ status: 200, message: "success", data: threads });
+    return res.status(200).json({ status: 200, message: "success", data: threads });
   } catch (err) {
     console.log(err.stack);
-    res.status(500).json({ status: 500, data: req.body, message: err.message });
+    return res.status(500).json({ status: 500, data: req.body, message: err.message });
   }
-  client.close();
-  console.log("disconnected!");
+  
 }
 
 // get the thread to pull all posts from
@@ -185,6 +188,8 @@ const createThread = async (req, res) => {
 
       // TO DO: update list of user's posts
       // const userPosts = await db.collection("users").findOneAndUpdate();
+      client.close();
+    console.log("disconnected!");
 
       return res.status(201).json({ status: 201, data: newThread, message: "Thread successfully added to the database!"});
 
@@ -192,8 +197,7 @@ const createThread = async (req, res) => {
       console.log(err.stack);
       res.status(500).json({ status: 500, message: err.message });
     }
-    client.close();
-    console.log("disconnected!");
+    
   }
 }
 
@@ -248,6 +252,8 @@ const createReply = async (req, res) => {
         } } });;
 
       // .updateOne({ "_id": threadId }, { $push: { "posts": { Reply } } });
+      client.close();
+    console.log("disconnected!");
 
       return res.status(201).json({ status: 201, body: threadId, data: Reply, message: "Reply successfully added to the database!"});
 
@@ -255,8 +261,7 @@ const createReply = async (req, res) => {
       console.log(err.stack);
       res.status(500).json({ status: 500, message: err.message });
     }
-    client.close();
-    console.log("disconnected!");
+    
   }
 }
 
