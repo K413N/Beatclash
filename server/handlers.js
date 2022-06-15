@@ -172,6 +172,11 @@ const createThread = async (req, res) => {
 
       // construct data before sending
 
+      var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
       newThread._id = uuidv4();
       newThread.boardId = boardId;
       newThread.media = mediaurl;
@@ -179,7 +184,7 @@ const createThread = async (req, res) => {
       newThread.likes = 0;
       newThread.dislikes = 0;
       newThread.replies = 0;
-      newThread.date = "06/15/2022",
+      newThread.date = dd + "/" + mm + "/" + yyyy,
       newThread.tags = [];
       newThread.posts = [];
 
@@ -238,13 +243,18 @@ const createReply = async (req, res) => {
       // sets certain variables like the UUID
       // so it can act as a failsafe
 
+      var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
       Reply._id = uuidv4();
       Reply.mediaurl = mediaurl;
       Reply.username = username;
       Reply.likes = 0;
       Reply.dislikes = 0;
       Reply.replies = 0;
-      Reply.date = "06/12/2022",
+      Reply.date = dd + "/" + mm + "/" + yyyy,
 
       console.log(Reply);
 
