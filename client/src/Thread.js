@@ -70,8 +70,8 @@ if(!singleThreadData){
         {
             hasData && (
                 singleThreadData.posts.map((element) => (
-                <PlayerWrap className="videoWrapper">
-                <Post body={element.body} replies={element.replies} dislikes={element.dislikes} likes={element.likes} date={element.date} user={element.username} />
+                    <PlayerWrap className="videoWrapper">
+                <Post mediaurl={element.mediaurl} body={element.body} replies={element.replies} dislikes={element.dislikes} likes={element.likes} date={element.date} user={element.username} />
                 </PlayerWrap>
                 ))
                 

@@ -4,11 +4,12 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import GlobalStyles from "../GlobalStyles";
 import PostBottom from "./PostBottom";
+import ReactPlayer from "react-player";
 
 // props get filtered like so
 // Thread => Post => PostBottom
 
-const Post = ({user, date, likes, dislikes, replies, body}) => {
+const Post = ({user, date, likes, dislikes, replies, body, mediaurl}) => {
     return(
         <Wrapper>
             <PostWrapper>
@@ -16,10 +17,15 @@ const Post = ({user, date, likes, dislikes, replies, body}) => {
                     <Avatar />
                     <DetailWrapper>
                     <PostUsername>{user}</PostUsername>
-                    <UserTags>User Tags</UserTags>
                     </DetailWrapper>
                     </AvatarWrapper>
                     <PostDetails>
+                        {
+                            mediaurl && (
+                                <ReactPlayer url={mediaurl}></ReactPlayer>
+                            )
+                        }
+                        
                         <PostText>{body}</PostText>
                         </PostDetails>
     </PostWrapper>

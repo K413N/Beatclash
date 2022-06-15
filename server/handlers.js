@@ -170,6 +170,8 @@ const createThread = async (req, res) => {
 
       const newThread = {...req.body}
 
+      // construct data before sending
+
       newThread._id = uuidv4();
       newThread.boardId = boardId;
       newThread.media = mediaurl;
@@ -209,12 +211,11 @@ const createReply = async (req, res) => {
   // creates one item to push all data
   // into a thread object on the database
 
-  const { userId, username, body } = req.body;
+  const { username, body, mediaurl } = req.body;
 
   if(!body) {
     return res.status(400).json({
       status: 400,
-      userId: userId,
       username: username,
       body: body,
       message: "Not all required data fields have been filled."
@@ -231,7 +232,15 @@ const createReply = async (req, res) => {
 
       const Reply = {...req.body.data}
 
+      // construct data before sending
+      // this doesn't do anything cause
+      // I use $push, but it still
+      // sets certain variables like the UUID
+      // so it can act as a failsafe
+
       Reply._id = uuidv4();
+      Reply.mediaurl = mediaurl;
+      Reply.username = username;
       Reply.likes = 0;
       Reply.dislikes = 0;
       Reply.replies = 0;
@@ -244,8 +253,8 @@ const createReply = async (req, res) => {
       // const longLine = await db.collection("threads").findOne({ "_id": threadId });
       await db.collection("threads").updateOne({ "_id": threadId }, { $push: { "posts": {
          "_id": Reply._id,
-         "userid": userId,
-         "username": username,
+         "mediaurl": Reply.mediaurl,
+         "username": Reply.username,
          "body": body,
          "likes": Reply.likes,
          "dislikes": Reply.dislikes,

@@ -18,6 +18,7 @@ const NavBar = () => {
     const {chat, setChat, setTitle, title} = useContext(Context);
     
 
+    console.log(user);
     return(
         
             <FixedWrap>
@@ -38,7 +39,7 @@ const NavBar = () => {
             {
                 isAuthenticated && (
                     <>
-                    <NLink2 to={"/profile/" + user.nickname}>Profile</NLink2>
+                    <NLink2 to={"/profile/" + user.sub}>Profile</NLink2>
                     </>
                 )
             }

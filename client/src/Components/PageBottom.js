@@ -7,6 +7,13 @@ import GlobalStyles from "../GlobalStyles";
 const PageBottom = () => {
     let likes = 0;
     let dislikes = 0;
+
+    const TopScroll = (e) => {
+        e.preventDefault();
+        window.scrollTo(0,0);
+    }
+
+
     return(
         <Wrapper>
             <PageBottomWrapper>
@@ -14,6 +21,7 @@ const PageBottom = () => {
             <BottomButton>◀</BottomButton>
             <BDetailWrapper>
                 <BDetailText>Page: 0 of 0</BDetailText>
+                <ScrollToTop onClick={(e) => TopScroll(e)}>Scroll to top</ScrollToTop>
                 <BDetailText>Pages: 0 1 2 3 4</BDetailText>
             </BDetailWrapper>
             <BottomButton>▶</BottomButton>
@@ -24,6 +32,19 @@ const PageBottom = () => {
 }
 
 export default PageBottom;
+
+
+const ScrollToTop = styled.button`
+width: 120px;
+height: 100%;
+background-color: #111;
+font-size: 22px;
+color: white;
+border-style: solid;
+border-color: gold;
+border-width: 1px;
+font-size: 12px;
+`
 
 const PageBottomWrapper = styled.div`
 display: flex;

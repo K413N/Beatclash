@@ -3,13 +3,18 @@ import { Context } from "./Components/Context";
 import { useContext } from "react";
 import Board from "./Components/Board";
 import { PageWrapper } from "./GlobalStyles";
+import Loading from "./Components/Loading";
 
 // list of all the boards on the forum
 
 const Homepage = () => {
-    const {chat, setTitle} = useContext(Context);
+    const {chat, setTitle, loading } = useContext(Context);
     console.log("Home Loaded!");
     setTitle("Homepage");
+
+    if(loading){
+        return (<Loading />)
+    } else {
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
@@ -31,6 +36,7 @@ const Homepage = () => {
             </PageWrapper>
         </Wrapper>
     )
+    }
 }
 
 export default Homepage;

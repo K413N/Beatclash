@@ -8,6 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const NewReply = () => {
     let history = useHistory();
     const [formBody, setFormBody] = useState(null);
+    const [formMediaUrl, setFormMediaUrl] = useState(null);
     const { boardId, threadId } = useParams();
     const [threadUrl, setThreadUrl] = useState(null);
     const { user, isAuthenticated, isLoading, nickname, user_id } = useAuth0();
@@ -35,9 +36,9 @@ const NewReply = () => {
                     "Accept": "application/json"
             },
             body: JSON.stringify({
-                userId: user_id,
-                username: nickname,
-                body: formBody
+                username: user.nickname,
+                body: formBody,
+                mediaurl: formMediaUrl
             })
         })
         .then(res => {
@@ -70,6 +71,7 @@ const NewReply = () => {
 
     return(
         <Wrapper onSubmit={handleSubmit}>
+            <MediaUrl onChange={(event) => setFormMediaUrl(event.target.value)} placeholder="Paste your media url here!" />
             <InputField value={formBody} onChange={(event) => setFormBody(event.target.value)} placeholder="Write your Reply here!"></InputField>
             <NewReplyBottom>
                 <ReplyButton>Reply!</ReplyButton>
@@ -101,6 +103,15 @@ justify-content: flex-end;
 width: 100%;
 height: 40px;
 background-color: black;
+`
+
+const MediaUrl = styled.input`
+box-sizing: border-box;
+background-color: #222;
+color: white;
+width: 100%;
+height: 60px;
+font-size: 22px;
 `
 
 const InputField = styled.textarea`
