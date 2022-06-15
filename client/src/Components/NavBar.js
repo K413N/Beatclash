@@ -54,10 +54,11 @@ const NavBar = () => {
             </TabRow>
             </TabColumn>
         </NavBottom>
-        <Auth0Profile />
         <Title>
             {title}
         </Title>
+        <Auth0Profile />
+        
         
         
             
