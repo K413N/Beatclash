@@ -13,7 +13,6 @@ const EditProfile = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Hello!");
         let fetchurl = "/api/update-profile/" + authUrl;
 
         fetch(fetchurl, {
@@ -33,7 +32,6 @@ const EditProfile = () => {
             return res.json()
         })
         .then(data => {
-            console.log(data.data);
             history.push("profile/" + authUrl);
 
         })

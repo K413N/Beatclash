@@ -16,7 +16,6 @@ const UserCard = ({userId}) => {
         .then((data) => {
             if(data.data){
                 setCardData(data.data);
-                console.log(data.data);
             } else {
                 console.log("no data!");
             }

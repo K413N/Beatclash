@@ -9,7 +9,6 @@ import Loading from "./Components/Loading";
 
 const Homepage = () => {
     const {chat, setTitle, loading } = useContext(Context);
-    console.log("Home Loaded!");
     setTitle("Homepage");
 
     if(loading){

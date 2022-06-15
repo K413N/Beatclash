@@ -34,10 +34,8 @@ const ChatComponent = () => {
     const chatHandler = () => {
         if(chat){
             setChat(false);
-            console.log("Closing chat!")
         } else {
             setChat(true);
-            console.log("Opening chat!")
         }
     }
 

@@ -18,8 +18,6 @@ const NewReply = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log("submit clicked!");
-
         let formIsComplete = false;
         if(formBody){
             formIsComplete = true;
@@ -45,7 +43,6 @@ const NewReply = () => {
             return res.json()
         })
         .then(data => {
-            console.log(data);
             // setThreadUrl(data.data._id);
             // history(boardId + "/" + data.data._id);
             // setSingleThreadData({...singleThreadData});
@@ -54,7 +51,6 @@ const NewReply = () => {
         .then((res) => res.json())
         .then((data) => {
             if(data.data){
-                console.log(data.data);
                 setSingleThreadData(data.data);
                 setHasData(true);
             } else {

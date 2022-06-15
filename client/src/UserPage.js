@@ -16,7 +16,6 @@ const UserPage = () => {
         .then((data) => {
             if(data.data){
                 setAllUsers(data.data);
-                console.log(data.data);
             } else {
                 console.log("no data!");
             }

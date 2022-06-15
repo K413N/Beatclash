@@ -13,13 +13,10 @@ const NewThread = () => {
     const [formMediaUrl, setFormMediaUrl] = useState(null);
     const [threadUrl, setThreadUrl] = useState(null);
     const { user, isAuthenticated, isLoading, nickname } = useAuth0();
-    console.log(user);
     const { boardId } = useParams();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        console.log("submit clicked!");
 
         let formIsComplete = false;
         if(formTitle !== null && formBody !== null) {
@@ -48,7 +45,6 @@ const NewThread = () => {
                 return res.json()
             })
             .then(data => {
-                console.log(data.data);
                 setThreadUrl(data.data._id);
                 history.push(boardId + "/" + data.data._id);
             })

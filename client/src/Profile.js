@@ -22,8 +22,6 @@ const Profile = () => {
         .then((data) => {
             if(data.data){
                 setProfileData(data.data);
-                console.log(data.data);
-                console.log(tabState);
             }
             else {
                 console.log("no data!");
@@ -46,7 +44,6 @@ const Profile = () => {
             avatar = profileData.avatar;
         }
         
-    console.log(profileData);
 
     return(
         <Wrapper chat={chat}>
