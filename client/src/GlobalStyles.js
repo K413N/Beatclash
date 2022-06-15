@@ -64,6 +64,13 @@ export default createGlobalStyle`
       font-size: 28px;
     }
 
+    .video-wrapper {
+ height: 100%;
+ width: 100%;
+ min-height: 225px;
+}
+    
+
 `;
 
 export const Title = styled.div`

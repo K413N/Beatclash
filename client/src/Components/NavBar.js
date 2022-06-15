@@ -50,11 +50,11 @@ const NavBar = () => {
             <NLink2 to="/about">About</NLink2>
             <NLink2 to="/rules">Rules</NLink2>
             <NLink2 to="/faq">FAQ</NLink2>
-            <Auth0Profile />
             <Login />
             </TabRow>
             </TabColumn>
         </NavBottom>
+        <Auth0Profile />
         <Title>
             {title}
         </Title>

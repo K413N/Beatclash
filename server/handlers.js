@@ -151,7 +151,7 @@ const createThread = async (req, res) => {
   // creates one item to push all data
   // into a thread object on the database
 
-  const { op, threadTitle, body } = req.body;
+  const { op, threadTitle, body, mediaurl } = req.body;
   console.log(req.body);
   const boardId = req.params.boardId;
 
@@ -172,6 +172,7 @@ const createThread = async (req, res) => {
 
       newThread._id = uuidv4();
       newThread.boardId = boardId;
+      newThread.media = mediaurl;
       newThread.op = op;
       newThread.likes = 0;
       newThread.dislikes = 0;

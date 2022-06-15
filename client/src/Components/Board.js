@@ -19,6 +19,10 @@ const Board = ({btitle, bdesc, boardId}) => {
          hasData, setHasData,
     loading, setLoading,
 threadData, setThreadData} = useContext(Context);
+
+useEffect(() => {
+    
+},[threadData])
     
     
     
@@ -38,9 +42,9 @@ threadData, setThreadData} = useContext(Context);
                                 hasData && (
                                     threadData.map((element) => (
                                         element.boardId === boardId ?
-                                        <RecentPost to={"/" + boardId + "/" + element._id}>
+                                        <RecentPost to={"/forums/" + boardId + "/" + element._id}>
                                         <PostTitle className="btext">{element.threadTitle}</PostTitle>
-                                        <PostReplies className="btext">{element.replies}</PostReplies>
+                                        {/* <PostReplies className="btext">{element.replies}</PostReplies> */}
                                     </RecentPost > : <></>
                                     )
                                     

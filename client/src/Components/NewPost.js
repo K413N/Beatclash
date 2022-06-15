@@ -63,14 +63,14 @@ const NewReply = () => {
         })
         })
 
-        
+        setFormBody("");
         
     }
 }
 
     return(
         <Wrapper onSubmit={handleSubmit}>
-            <InputField onChange={(event) => setFormBody(event.target.value)} placeholder="Write your Reply here!"></InputField>
+            <InputField value={formBody} onChange={(event) => setFormBody(event.target.value)} placeholder="Write your Reply here!"></InputField>
             <NewReplyBottom>
                 <ReplyButton>Reply!</ReplyButton>
             </NewReplyBottom>

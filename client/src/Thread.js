@@ -8,6 +8,7 @@ import NewPost from "./Components/NewPost";
 import PageBottom from "./Components/PageBottom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Loading from "./Components/Loading";
+import ReactPlayer from "react-player";
 
 // This will be the page
 // for the main post on a board
@@ -50,6 +51,15 @@ if(!singleThreadData){
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
+                {
+                    singleThreadData.media && (
+                        <MediaWrap>
+                        <MediaPlayer 
+                         url={singleThreadData.media} />
+                        </MediaWrap>
+                    )
+                }
+
         {
             hasData && (
                 <>
@@ -60,9 +70,9 @@ if(!singleThreadData){
         {
             hasData && (
                 singleThreadData.posts.map((element) => (
-                <>
+                <PlayerWrap className="videoWrapper">
                 <Post body={element.body} replies={element.replies} dislikes={element.dislikes} likes={element.likes} date={element.date} user={element.username} />
-                </>
+                </PlayerWrap>
                 ))
                 
             )
@@ -81,6 +91,24 @@ if(!singleThreadData){
 }
 
 export default Thread;
+
+const MediaPlayer = styled(ReactPlayer)`
+display: flex;
+justify-content: center;
+align-items: center;
+height: 200px;
+`
+
+const MediaWrap = styled.div`
+display: flex;
+justify-content: center;
+`
+
+const PlayerWrap = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+`
 
 const Spacer = styled.div`
 height: 150px;

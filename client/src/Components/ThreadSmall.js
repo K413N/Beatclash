@@ -70,6 +70,7 @@ const ThreadWrapper = styled(NavLink)`
 width: 100%;
 height: 100%;
 background-color: #111;
+text-decoration: none;
 
 &&:hover {
     background-color: #333;

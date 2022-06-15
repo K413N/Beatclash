@@ -10,6 +10,7 @@ const NewThread = () => {
     let history = useHistory();
     const [formBody, setFormBody] = useState(null);
     const [formTitle, setFormTitle] = useState(null);
+    const [formMediaUrl, setFormMediaUrl] = useState(null);
     const [threadUrl, setThreadUrl] = useState(null);
     const { user, isAuthenticated, isLoading, nickname } = useAuth0();
     console.log(user);
@@ -28,7 +29,7 @@ const NewThread = () => {
         }
 
         if(formIsComplete){
-            const formObj = { formBody, formTitle, nickname };
+            const formObj = { formMediaUrl, formBody, formTitle, nickname };
 
             fetch("/api/create-thread/" + boardId, {
                 method: "POST",
@@ -39,7 +40,8 @@ const NewThread = () => {
                 body: JSON.stringify({
                     op: user.nickname,
                     threadTitle: formTitle,
-                    body: formBody
+                    body: formBody,
+                    mediaurl: formMediaUrl
                 })
             })
             .then(res => {
@@ -60,6 +62,7 @@ const NewThread = () => {
     return(
         <Wrapper onSubmit={handleSubmit}>
             <TitleField onChange={(event) => setFormTitle(event.target.value)} placeholder="Write your title here!" required />
+            <MediaUrl onChange={(event) => setFormMediaUrl(event.target.value)} placeholder="Paste your media url here!" required />
             <InputField onChange={(event) => setFormBody(event.target.value)} placeholder="Everything in your thread goes here!" required />
             <NewThreadBottom>
                 <ThreadButton type="submit">Create Thread!</ThreadButton>
@@ -91,6 +94,15 @@ justify-content: flex-end;
 width: 100%;
 height: 80px;
 background-color: black;
+`
+
+const MediaUrl = styled.input`
+box-sizing: border-box;
+background-color: #222;
+color: white;
+width: 100%;
+height: 60px;
+font-size: 22px;
 `
 
 const TitleField = styled.input`

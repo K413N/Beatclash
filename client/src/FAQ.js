@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Context } from "./Components/Context";
 import { useContext } from "react";
 import { PageWrapper } from "./GlobalStyles";
+import ReactPlayer from "react-player";
 
 // This page will grow as time goes on, 
 // and more questions are asked.
@@ -14,10 +15,26 @@ const FAQ = () => {
             <PageWrapper>
         <FAQWrapper>
             <FAQText>
-                <audio controls>
-                    <source src=""></source>
-                </audio>
-                
+                <MediaWrap>
+                <div>I use ReactPlayer to play all media you find on this website!</div>
+                <br />
+                <div>The supported media urls are:</div>
+                <br />
+                <ul>
+                <li>Youtube</li>
+                <li>Soundcloud</li>
+                <li>Facebook</li>
+                <li>Vimeo</li>
+                <li>Twitch</li>
+                <li>Streamable</li>
+                <li>Wistia</li>
+                <li>DailyMotion</li>
+                <li>Mixcloud</li>
+                <li>Vidyard</li>
+                <li>Kaltura</li>
+                <li>and files like mp4, webms, ogv, mp3, HLS(m3u8), DASH(mpd)</li>
+                </ul>
+                </MediaWrap>
                 </FAQText>
            </FAQWrapper>
            </PageWrapper>
@@ -26,6 +43,13 @@ const FAQ = () => {
 }
 
 export default FAQ;
+
+const MediaWrap = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+`
 
 const Wrapper = styled.div`
 display: flex;
