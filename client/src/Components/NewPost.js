@@ -65,13 +65,13 @@ const NewReply = () => {
         })
 
         setFormBody("");
-        
+        setFormMediaUrl("");
     }
 }
 
     return(
         <Wrapper onSubmit={handleSubmit}>
-            <MediaUrl onChange={(event) => setFormMediaUrl(event.target.value)} placeholder="Paste your media url here!" />
+            <MediaUrl value={formMediaUrl} onChange={(event) => setFormMediaUrl(event.target.value)} placeholder="Paste your media url here!" />
             <InputField value={formBody} onChange={(event) => setFormBody(event.target.value)} placeholder="Write your Reply here!" required></InputField>
             <NewReplyBottom>
                 <ReplyButton>Reply!</ReplyButton>
