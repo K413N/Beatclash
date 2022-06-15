@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/rules"><Rules /></Route>
           <Route exact path="/news"><News /></Route>
           <Route exact path="/users"><Friends /></Route>
-          <Route exact path="/profile/:profileid"><Profile /></Route>
+          <Route exact path="/profile/:profileId"><Profile /></Route>
           <Route path=""><Error /></Route>
       </Switch>
     </BrowserRouter>
