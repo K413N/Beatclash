@@ -41,8 +41,8 @@ searchData, setSearchData} = useContext(Context);
 
     console.log(searchData);
 
-    if(!hasData){
-        return(<Loading />)
+    if(!searchData){
+        return(<div />)
     } else {
 
     

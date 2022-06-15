@@ -22,7 +22,7 @@ const NavBar = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         
-        history.push("search/" + searchText);
+        history.push("/search/" + searchText);
     }
     
     return(
