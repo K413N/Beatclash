@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
+import { Context } from "./Context";
 
 const Auth0Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const { setProfileUrl } = useContext(Context);
 
   if (isLoading) {
     return <div>Loading ...</div>;
   }
+
+  const slicedurl = user.sub.slice(6, user.sub.length);
+
+  setProfileUrl(slicedurl);
 
   return (
     isAuthenticated && (

@@ -15,7 +15,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
-    const {chat, setChat, setTitle, title} = useContext(Context);
+    const {chat, setChat, setTitle, title, profileUrl} = useContext(Context);
     
 
     console.log(user);
@@ -39,7 +39,7 @@ const NavBar = () => {
             {
                 isAuthenticated && (
                     <>
-                    <NLink2 to={"/profile/" + user.sub}>Profile</NLink2>
+                    <NLink2 to={"/profile/" + profileUrl }>Profile</NLink2>
                     </>
                 )
             }

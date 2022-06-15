@@ -14,6 +14,9 @@ export const ContextProvider = ({children}) => {
     const [threadData, setThreadData] = useState(null);
     const [singleThreadData, setSingleThreadData] = useState(null);
     const [postedReply, setPostedReply] = useState(null);
+    const [profileUrl, setProfileUrl] = useState(null);
+    const [profileData, setProfileData] = useState(null);
+    const [tabState, setTabState] = useState(null);
 
     useEffect(() => {
         setLoading(false);
@@ -31,7 +34,10 @@ if(loading){
         hasData, setHasData,
         threadData, setThreadData,
         singleThreadData, setSingleThreadData,
-        postedReply, setPostedReply
+        postedReply, setPostedReply,
+        profileUrl, setProfileUrl,
+        profileData, setProfileData,
+        tabState, setTabState
     }}>{children}</Context.Provider>
     );
 }

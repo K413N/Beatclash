@@ -1,13 +1,45 @@
 import styled from "styled-components";
 import { useParams, NavLink } from "react-router-dom";
 import { Context } from "./Components/Context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { PageWrapper } from "./GlobalStyles";
+import Loading from "./Components/Loading";
+import ActivityTab from "./Components/ProfileTabs/ActivityTab";
+import FriendsTab from "./Components/ProfileTabs/FriendsTab";
+import SoundcloudTab from "./Components/ProfileTabs/SoundcloudTab";
+import YoutubeTab from "./Components/ProfileTabs/YoutubeTab";
+import StoreTab from "./Components/ProfileTabs/StoreTab";
 
 const Profile = () => {
     const { profileId } = useParams();
-    const {chat, setTitle} = useContext(Context);
+    const {chat, setTitle, setProfileData, profileData, loading, tabState, setTabState } = useContext(Context);
     setTitle("Profile");
+
+    useEffect(() => {
+        let fetchurl = "/api/get-user/" + profileId;
+        fetch(fetchurl)
+        .then((res) => res.json())
+        .then((data) => {
+            if(data.data){
+                setProfileData(data.data);
+                console.log(data.data);
+                console.log(tabState);
+            }
+            else {
+                console.log("no data!");
+            }
+        })
+    },[])
+
+    const handleTab = (e) => {
+        setTabState(e.target.value);
+    };
+
+    if(!profileData){
+        return (<Loading />)
+    } else {
+        
+    
 
     return(
         <Wrapper chat={chat}>
@@ -15,10 +47,10 @@ const Profile = () => {
         <ProfileWrapper>
             <AvatarWrapper><Avatar src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" /></AvatarWrapper>
             <ProfileCol>
-            <ProfileUserName>ProfileUserName</ProfileUserName>
+            <ProfileUserName>{profileData.username}</ProfileUserName>
             <ProfileRow>
             <ProfileStatus>Short profile descriptions will be here.</ProfileStatus>
-            <JoinDate>Joined: DD/MM/YYYY</JoinDate>
+            <JoinDate>Joined: {profileData.joindate}</JoinDate>
             </ProfileRow>
             </ProfileCol>
         </ProfileWrapper>
@@ -27,19 +59,29 @@ const Profile = () => {
         </TagBoxWrapper>
         <TabWrapper>
             <Tabs>
-                <TabButton>Activity</TabButton>
-                <TabButton>Friends</TabButton>
-                <TabButton>Soundcloud</TabButton>
-                <TabButton>Youtube</TabButton>
-                <TabButton>Store</TabButton>
+                <TabButton value="activity" onClick={(e) => handleTab(e)}>Activity</TabButton>
+                <TabButton value="friends" onClick={handleTab}>Friends</TabButton>
+                <TabButton value="soundcloud" onClick={handleTab}>Soundcloud</TabButton>
+                <TabButton value="youtube" onClick={handleTab}>Youtube</TabButton>
+                <TabButton value="store" onClick={handleTab}>Store</TabButton>
                 </Tabs>
         </TabWrapper>
         <LowerWrapper>
-            <LowerInnerWrapper>whatever tab you select will go here</LowerInnerWrapper>
+            <LowerInnerWrapper>
+                {
+                    tabState === "activity" ? (<ActivityTab />) :
+                    tabState === "friends" ? (<FriendsTab />) :
+                    tabState === "soundcloud" ? (<SoundcloudTab />) :
+                    tabState === "youtube" ? (<YoutubeTab />) :
+                    tabState === "store" ? (<StoreTab />)
+                    : <></>
+                }
+                </LowerInnerWrapper>
             </LowerWrapper>
             </PageWrapper>
         </Wrapper>
     )
+    }
 }
 
 export default Profile;
@@ -59,7 +101,8 @@ padding: 16px;
 `
 
 const LowerInnerWrapper = styled.div`
-width: 50%;
+background-color: #333;
+width: 100%;
 height: 100%;
 `
 
