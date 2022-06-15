@@ -14,6 +14,7 @@ import ChatComponent from "./Components/ChatComponent";
 import Thread from "./Thread";
 import { useAuth0 } from "@auth0/auth0-react";
 import EditProfile from "./EditProfile";
+import SearchResults from "./SearchResults";
 
 // Used for Routing
 
@@ -30,6 +31,7 @@ function App() {
         </>
       )}
       <Switch>
+      <Route exact path="/search/:searchId"><SearchResults /></Route>
           <Route exact path="/"><Homepage /></Route>
           <Route exact path="/forums/:boardId"><Forums /></Route>
           <Route exact path="/forums/:boardId/:threadId"><Thread /></Route>

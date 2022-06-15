@@ -19,6 +19,7 @@ export const ContextProvider = ({children}) => {
     const [tabState, setTabState] = useState("activity");
     const [allUsers, setAllUsers] = useState(null);
     const [authUrl, setAuthUrl] = useState(null);
+    const [searchData, setSearchData] = useState(null);
 
     useEffect(() => {
         setLoading(false);
@@ -41,7 +42,8 @@ if(loading){
         profileData, setProfileData,
         tabState, setTabState,
         allUsers, setAllUsers,
-        authUrl, setAuthUrl
+        authUrl, setAuthUrl,
+        searchData, setSearchData
     }}>{children}</Context.Provider>
     );
 }

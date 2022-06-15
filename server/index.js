@@ -29,6 +29,7 @@ const {
     createThread,
     createReply,
     updateProfile,
+    searchThreads,
     // addUser,
     // updateThread,
     // updateReply,
@@ -63,6 +64,9 @@ express()
 
     // get all information on a specific thread
     .get("/api/get-thread/:boardId/:_id", getThread)
+
+    // search all thread titles using user input text
+    .get("/api/search-threads/:search", searchThreads)
 
     // create a new thread
     .post("/api/create-thread/:boardId", createThread)

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Wrapper, Title } from "../GlobalStyles"
 import { FiSearch, FiMessageSquare } from "react-icons/fi";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useState, setState, useContext } from "react";
 import { Context } from "./Context";
 import Login from "./Login";
@@ -14,17 +14,25 @@ import { useAuth0 } from "@auth0/auth0-react";
 // much like the chat window.
 
 const NavBar = () => {
+    let history = useHistory();
     const { user, isAuthenticated, isLoading } = useAuth0();
     const {chat, setChat, setTitle, title, profileUrl} = useContext(Context);
+    const [searchText, setSearchText] = useState(null);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        
+        history.push("search/" + searchText);
+    }
     
     return(
         
             <FixedWrap>
         <NavWrap>
             <NLink to="/"><div>Beatclash</div></NLink>
-            <SearchWrapper>
-            <SearchBar />
-            <SearchButton>
+            <SearchWrapper onSubmit={handleSearch}>
+            <SearchBar placeholder="Search for titles..." onChange={(event) => setSearchText(event.target.value)} />
+            <SearchButton type="submit">
                 <SearchIcon></SearchIcon>
             </SearchButton>
             </SearchWrapper>
@@ -147,7 +155,7 @@ cursor: pointer;
 }
 `
 
-const SearchWrapper = styled.div`
+const SearchWrapper = styled.form`
 position: relative;
 display: flex;
 flex-direction: row;

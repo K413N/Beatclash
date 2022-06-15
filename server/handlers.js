@@ -63,6 +63,48 @@ const getFriends = async (req, res) => {
   }
 }
 
+const searchThreads = async (req, res) => {
+  const client = new MongoClient(MONGO_URI);
+  try{
+    await client.connect();
+
+    const db = client.db("beatclash");
+    console.log("connected");
+
+    const searchText = req.params.search;
+   
+
+    const allThreads = await db.collection("threads").find().toArray();
+    
+    const threadIds = [];
+
+    allThreads.forEach((element) => {
+      if(element.threadTitle.toLowerCase().includes(searchText.toLowerCase())){
+        threadIds.push([element._id, element.op, element.boardId, element.threadTitle, element.date]);
+      }
+      
+      
+    })
+    
+
+
+
+    client.close();
+    console.log("disconnected!");
+
+    if(threadIds[0] !== undefined) {
+      return res.status(200).json({ status: 200, data: threadIds });
+    } else {
+      return res.status(200).json({ status: 200, message: "No threads found!" });
+    }
+
+
+  } catch (err) {
+    console.log(err.stack);
+    res.status(500).json({ status: 500, data: req.body, message: err.message });
+  }
+}
+
 // get a single user's information
 const getUser = async (req, res) => {
   const client = new MongoClient(MONGO_URI);
@@ -362,6 +404,7 @@ module.exports = {
   createThread,
   createReply,
   updateProfile,
+  searchThreads,
   // addUser,
   // updateThread,
   // updateReply,
