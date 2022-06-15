@@ -4,6 +4,8 @@ import { useContext } from "react";
 import Board from "./Components/Board";
 import { PageWrapper } from "./GlobalStyles";
 
+// list of all the boards on the forum
+
 const Homepage = () => {
     const {chat, setTitle} = useContext(Context);
     console.log("Home Loaded!");
