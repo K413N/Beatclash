@@ -24,7 +24,7 @@ const ThreadSmall = ({btitle, tid, ttitle, tdate, op}) => {
                 <Detail>0</Detail>
             </DetailElement>
             <DetailElement>
-                <DetailTitle>Active</DetailTitle>
+                <DetailTitle>Posted</DetailTitle>
                 <Detail>{tdate}</Detail>
             </DetailElement>
         </ThreadDetails>
