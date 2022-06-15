@@ -38,6 +38,13 @@ const Profile = () => {
     if(!profileData){
         return (<Loading />)
     } else {
+        let avatar = "";
+
+        if(!profileData.avatar){
+            avatar = "https://images.unsplash.com/photo-1528590005476-4f5a6f2bdd9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80";
+        } else {
+            avatar = profileData.avatar;
+        }
         
     console.log(profileData);
 
@@ -45,7 +52,7 @@ const Profile = () => {
         <Wrapper chat={chat}>
             <PageWrapper>
         <ProfileWrapper>
-            <AvatarWrapper><Avatar src={profileData.avatar} /></AvatarWrapper>
+            <AvatarWrapper><Avatar src={avatar} /></AvatarWrapper>
             <ProfileCol>
             <ProfileUserName>{profileData.username}</ProfileUserName>
             <ProfileRow>

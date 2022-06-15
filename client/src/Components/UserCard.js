@@ -26,9 +26,16 @@ const UserCard = ({userId}) => {
     if(!cardData){
         return(<Loading />)
     } else {
+        let avatar = "";
+
+        if(!cardData.avatar){
+            avatar = "https://images.unsplash.com/photo-1528590005476-4f5a6f2bdd9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        } else {
+            avatar = cardData.avatar;
+        }
     return(
         <Wrapper>
-            <ProfileImage src={cardData.avatar} />
+            <ProfileImage src={avatar} />
         <FName>{cardData.username}</FName>
         <ButtonWrapper>
             <TabButton to={"/profile/" + cardData._id}>Profile</TabButton>
