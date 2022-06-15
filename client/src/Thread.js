@@ -63,7 +63,7 @@ if(!singleThreadData){
         {
             hasData && (
                 <>
-                <Post body={singleThreadData.body} replies={singleThreadData.replies} dislikes={singleThreadData.dislikes} likes={singleThreadData.likes} date={singleThreadData.date} user={singleThreadData.op} />
+                <Post avatar={singleThreadData.avatar} body={singleThreadData.body} replies={singleThreadData.replies} dislikes={singleThreadData.dislikes} likes={singleThreadData.likes} date={singleThreadData.date} user={singleThreadData.op} />
                 </>
             )
         }

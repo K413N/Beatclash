@@ -5,16 +5,45 @@ import { NavLink } from "react-router-dom";
 import GlobalStyles from "../GlobalStyles";
 import PostBottom from "./PostBottom";
 import ReactPlayer from "react-player";
+import { useEffect, useState } from "react";
+import Loading from "./Loading";
 
 // props get filtered like so
 // Thread => Post => PostBottom
 
 const Post = ({user, date, likes, dislikes, replies, body, mediaurl}) => {
+    const [postData, setPostData] = useState(null);
+
+    useEffect(() => {
+        fetch("/api/get-user/" + user)
+        .then((res) => res.json())
+        .then((data) => {
+            if(data.data){
+                setPostData(data);
+                console.log(data);
+            } else {
+                console.log("no data!");
+            }
+        })
+    },[])
+    let avatar = "";
+    if(!postData){
+        return(<Loading />)
+    } else {
+        
+
+        if(!postData.avatar){
+            avatar = "https://images.unsplash.com/photo-1528590005476-4f5a6f2bdd9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80";
+        } else {
+            avatar = postData.avatar;
+        }
+    }
+
     return(
         <Wrapper>
             <PostWrapper>
                 <AvatarWrapper>
-                    <Avatar />
+                    <Avatar src={avatar} />
                     <DetailWrapper>
                     <PostUsername>{user}</PostUsername>
                     </DetailWrapper>
@@ -84,7 +113,7 @@ color: white;
 font-size: 16px;
 `
 
-const Avatar = styled.div`
+const Avatar = styled.img`
 width: 100px;
 height: 100px;
 background-color: blue;
