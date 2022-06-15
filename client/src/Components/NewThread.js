@@ -13,6 +13,7 @@ const NewThread = () => {
     const [formMediaUrl, setFormMediaUrl] = useState(null);
     const [threadUrl, setThreadUrl] = useState(null);
     const { user, isAuthenticated, isLoading, nickname } = useAuth0();
+    const { authUrl } = useContext(Context);
     const { boardId } = useParams();
 
     const handleSubmit = (e) => {
@@ -35,6 +36,7 @@ const NewThread = () => {
                     "Accept": "application/json"
                 },
                 body: JSON.stringify({
+                    userId: authUrl,
                     op: user.nickname,
                     threadTitle: formTitle,
                     body: formBody,

@@ -201,7 +201,7 @@ const createThread = async (req, res) => {
   // creates one item to push all data
   // into a thread object on the database
 
-  const { op, threadTitle, body, mediaurl } = req.body;
+  const { op, threadTitle, body, mediaurl, userId } = req.body;
   console.log(req.body);
   const boardId = req.params.boardId;
 
@@ -230,6 +230,7 @@ var yyyy = today.getFullYear();
       newThread._id = uuidv4();
       newThread.boardId = boardId;
       newThread.media = mediaurl;
+      newThread.userId = userId;
       newThread.op = op;
       newThread.likes = 0;
       newThread.dislikes = 0;
@@ -325,7 +326,7 @@ const createReply = async (req, res) => {
   // creates one item to push all data
   // into a thread object on the database
 
-  const { username, body, mediaurl } = req.body;
+  const { username, body, mediaurl, avatar } = req.body;
 
   if(!body) {
     return res.status(400).json({
@@ -360,6 +361,7 @@ var yyyy = today.getFullYear();
       Reply._id = uuidv4();
       Reply.mediaurl = mediaurl;
       Reply.username = username;
+      Reply.avatar = avatar;
       Reply.likes = 0;
       Reply.dislikes = 0;
       Reply.replies = 0;
@@ -372,7 +374,9 @@ var yyyy = today.getFullYear();
       // const longLine = await db.collection("threads").findOne({ "_id": threadId });
       await db.collection("threads").updateOne({ "_id": threadId }, { $push: { "posts": {
          "_id": Reply._id,
+         "userId": Reply.userId,
          "mediaurl": Reply.mediaurl,
+         "avatar": Reply.avatar,
          "username": Reply.username,
          "body": body,
          "likes": Reply.likes,

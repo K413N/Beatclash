@@ -11,9 +11,11 @@ const NewReply = () => {
     const [formMediaUrl, setFormMediaUrl] = useState(null);
     const { boardId, threadId } = useParams();
     const [threadUrl, setThreadUrl] = useState(null);
-    const { user, isAuthenticated, isLoading, nickname, user_id } = useAuth0();
+    const { user, isAuthenticated, isLoading, nickname } = useAuth0();
 
-    const { singleThreadData, setSingleThreadData, setHasData, hasData } = useContext(Context);
+    const { singleThreadData, setSingleThreadData, setHasData, hasData, authUrl } = useContext(Context);
+
+    console.log(user.picture);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,6 +36,8 @@ const NewReply = () => {
                     "Accept": "application/json"
             },
             body: JSON.stringify({
+                userId: authUrl,
+                avatar: user.picture,
                 username: user.nickname,
                 body: formBody,
                 mediaurl: formMediaUrl

@@ -20,10 +20,12 @@ const Board = ({btitle, bdesc, boardId}) => {
     loading, setLoading,
 threadData, setThreadData} = useContext(Context);
 
-useEffect(() => {
+
     
-},[threadData])
-    
+    if(loading){
+        return(<Loading />)
+    } else {
+
     
     
         return(
@@ -59,6 +61,7 @@ useEffect(() => {
             </BoardWrapper>
             </Wrapper>
         )
+                        }
     }
     
 

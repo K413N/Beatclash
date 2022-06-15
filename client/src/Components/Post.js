@@ -11,16 +11,19 @@ import Loading from "./Loading";
 // props get filtered like so
 // Thread => Post => PostBottom
 
-const Post = ({user, date, likes, dislikes, replies, body, mediaurl}) => {
+const Post = ({user, date, likes, dislikes, replies, body, mediaurl, userId}) => {
     const [postData, setPostData] = useState(null);
 
+    console.log(userId);
+    let fetchurl = "/api/get-user/" + userId;
+
     useEffect(() => {
-        fetch("/api/get-user/" + user)
+        fetch(fetchurl)
         .then((res) => res.json())
         .then((data) => {
             if(data.data){
-                setPostData(data);
-                console.log(data);
+                setPostData(data.data);
+                console.log(data.data);
             } else {
                 console.log("no data!");
             }

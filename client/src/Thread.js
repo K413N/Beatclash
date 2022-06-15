@@ -31,7 +31,6 @@ const Thread = () => {
         .then((res) => res.json())
         .then((data) => {
             if(data.data){
-                console.log(data.data);
                 setSingleThreadData(data.data);
                 setTitle(data.data.threadTitle)
                 setHasData(true);
@@ -42,7 +41,7 @@ const Thread = () => {
         })
     },[])
 
-    
+    console.log(singleThreadData);
 
 
 if(!singleThreadData){
@@ -63,7 +62,7 @@ if(!singleThreadData){
         {
             hasData && (
                 <>
-                <Post avatar={singleThreadData.avatar} body={singleThreadData.body} replies={singleThreadData.replies} dislikes={singleThreadData.dislikes} likes={singleThreadData.likes} date={singleThreadData.date} user={singleThreadData.op} />
+                <Post userId={singleThreadData.userId} avatar={singleThreadData.avatar} body={singleThreadData.body} replies={singleThreadData.replies} dislikes={singleThreadData.dislikes} likes={singleThreadData.likes} date={singleThreadData.date} user={singleThreadData.op} />
                 </>
             )
         }
@@ -71,7 +70,7 @@ if(!singleThreadData){
             hasData && (
                 singleThreadData.posts.map((element) => (
                     <PlayerWrap className="videoWrapper">
-                <Post mediaurl={element.mediaurl} body={element.body} replies={element.replies} dislikes={element.dislikes} likes={element.likes} date={element.date} user={element.username} />
+                <Post userId={element.userId} avatar={element.avatar} mediaurl={element.mediaurl} body={element.body} replies={element.replies} dislikes={element.dislikes} likes={element.likes} date={element.date} user={element.username} />
                 </PlayerWrap>
                 ))
                 
