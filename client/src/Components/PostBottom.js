@@ -12,6 +12,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 const PostBottom = ({date, likes, dislikes, replies}) => {
     const { user, isAuthenticated, isLoading } = useAuth0();
 
+    const BottomScroll = (e) => {
+        e.preventDefault();
+        window.scrollTo(0, 90000);
+    }
     
     return(
         <Wrapper>
@@ -26,7 +30,7 @@ const PostBottom = ({date, likes, dislikes, replies}) => {
                     <>
                     <BottomButton>👍</BottomButton>
             <BottomButton>👎</BottomButton>
-            <BottomButton>Reply</BottomButton>
+            <BottomButton onClick={(e) => BottomScroll(e)}>Reply</BottomButton>
             </>
                 )
             }
