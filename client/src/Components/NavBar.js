@@ -17,8 +17,6 @@ const NavBar = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
     const {chat, setChat, setTitle, title, profileUrl} = useContext(Context);
     
-
-    console.log(user);
     return(
         
             <FixedWrap>

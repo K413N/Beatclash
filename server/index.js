@@ -28,6 +28,7 @@ const {
     getThread,
     createThread,
     createReply,
+    updateProfile,
     // addUser,
     // updateThread,
     // updateReply,
@@ -68,6 +69,9 @@ express()
 
     // create a reply to an existing thread
     .post("/api/create-reply/:boardId/:_id", createReply)
+
+    // update user profile
+    .patch("/api/update-profile/:_id", updateProfile)
 
     // add a new user to the database
     // .post("/api/add-user", addUser)

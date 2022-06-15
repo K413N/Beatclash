@@ -1,28 +1,48 @@
 import styled from "styled-components";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import Loading from "./Loading";
+import { NavLink } from "react-router-dom";
 
 // This is an individual user element
 // it will be rendered when mapping through
 // an array of the users
 
-const UserCard = () => {
+const UserCard = ({userId}) => {
+    const [cardData, setCardData] = useState(null);
+
+    useEffect(() => {
+        fetch("/api/get-user/" + userId)
+        .then((res) => res.json())
+        .then((data) => {
+            if(data.data){
+                setCardData(data.data);
+                console.log(data.data);
+            } else {
+                console.log("no data!");
+            }
+        })
+    },[])
+
+    if(!cardData){
+        return(<Loading />)
+    } else {
     return(
         <Wrapper>
-            <ProfileImage />
-        <FName>Username</FName>
+            <ProfileImage src={cardData.avatar} />
+        <FName>{cardData.username}</FName>
         <ButtonWrapper>
-            <TabButton>Profile</TabButton>
-            <TabButton>Message</TabButton>
+            <TabButton to={"/profile/" + cardData._id}>Profile</TabButton>
         </ButtonWrapper>
         </Wrapper>
     )
+    }
 }
 
 export default UserCard;
 
 
 
-const TabButton = styled.button`
+const TabButton = styled(NavLink)`
 margin: 0 2px 0 2px;
 padding: 0 16px 6px 16px;
 height: 100%;
@@ -56,7 +76,7 @@ font-size: 22px;
 padding: 16px;
 `
 
-const ProfileImage = styled.div`
+const ProfileImage = styled.img`
 width: 150px;
 height: 150px;
 border-radius: 50%;

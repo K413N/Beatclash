@@ -12,7 +12,7 @@ import StoreTab from "./Components/ProfileTabs/StoreTab";
 
 const Profile = () => {
     const { profileId } = useParams();
-    const {chat, setTitle, setProfileData, profileData, loading, tabState, setTabState } = useContext(Context);
+    const {chat, setTitle, setProfileData, profileData, loading, tabState, setTabState, authUrl } = useContext(Context);
     setTitle("Profile");
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const Profile = () => {
                 console.log("no data!");
             }
         })
-    },[])
+    },[profileId])
 
     const handleTab = (e) => {
         setTabState(e.target.value);
@@ -39,23 +39,29 @@ const Profile = () => {
         return (<Loading />)
     } else {
         
-    
+    console.log(profileData);
 
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
         <ProfileWrapper>
-            <AvatarWrapper><Avatar src="https://images.unsplash.com/photo-1528590005476-4f5a6f2bdd9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" /></AvatarWrapper>
+            <AvatarWrapper><Avatar src={profileData.avatar} /></AvatarWrapper>
             <ProfileCol>
             <ProfileUserName>{profileData.username}</ProfileUserName>
             <ProfileRow>
             <ProfileStatus>{profileData.description}</ProfileStatus>
-            <JoinDate>Joined: {profileData.joindate}</JoinDate>
+            
             </ProfileRow>
             </ProfileCol>
+            {
+                authUrl === profileId && (
+                    <EditProfileButton to="/edit-profile">Edit Profile!</EditProfileButton>
+                )
+            }
         </ProfileWrapper>
+        
         <TagBoxWrapper>
-            <TagBox>A list of tags will go here.</TagBox>
+            <TagBox>Joined: {profileData.joindate}</TagBox>
         </TagBoxWrapper>
         <TabWrapper>
             <Tabs>
@@ -85,6 +91,22 @@ const Profile = () => {
 }
 
 export default Profile;
+
+
+
+const EditProfileButton = styled(NavLink)`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 120px;
+height: 40px;
+background-color: black;
+text-decoration: none;
+color: #0f0;
+border-style: solid;
+border-width: 1px;
+border-color: green;
+`
 
 const ProfileRow = styled.div`
 display: flex;

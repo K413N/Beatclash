@@ -62,7 +62,7 @@ const NewThread = () => {
     return(
         <Wrapper onSubmit={handleSubmit}>
             <TitleField onChange={(event) => setFormTitle(event.target.value)} placeholder="Write your title here!" required />
-            <MediaUrl onChange={(event) => setFormMediaUrl(event.target.value)} placeholder="Paste your media url here!" required />
+            <MediaUrl onChange={(event) => setFormMediaUrl(event.target.value)} placeholder="Paste your media url here!" />
             <InputField onChange={(event) => setFormBody(event.target.value)} placeholder="Everything in your thread goes here!" required />
             <NewThreadBottom>
                 <ThreadButton type="submit">Create Thread!</ThreadButton>

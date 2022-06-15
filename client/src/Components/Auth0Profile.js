@@ -5,7 +5,7 @@ import { Context } from "./Context";
 
 const Auth0Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const { setProfileUrl } = useContext(Context);
+  const { setProfileUrl, setAuthUrl } = useContext(Context);
 
   if (!user) {
     return <div>Loading ...</div>;
@@ -13,6 +13,7 @@ const Auth0Profile = () => {
 
   const slicedurl = user.sub.slice(6, user.sub.length);
 
+  setAuthUrl(slicedurl);
   setProfileUrl(slicedurl);
 
 

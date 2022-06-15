@@ -13,6 +13,7 @@ import Forums from "./Forums";
 import ChatComponent from "./Components/ChatComponent";
 import Thread from "./Thread";
 import { useAuth0 } from "@auth0/auth0-react";
+import EditProfile from "./EditProfile";
 
 // Used for Routing
 
@@ -38,6 +39,7 @@ function App() {
           <Route exact path="/news"><News /></Route>
           <Route exact path="/users"><Friends /></Route>
           <Route exact path="/profile/:profileId"><Profile /></Route>
+          <Route path="/edit-profile"><EditProfile /></Route>
           <Route path=""><Error /></Route>
       </Switch>
     </BrowserRouter>

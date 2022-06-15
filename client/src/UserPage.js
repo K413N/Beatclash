@@ -1,31 +1,43 @@
 import styled from "styled-components";
 import { Context } from "./Components/Context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UserCard from "./Components/UserCard";
 import { PageWrapper } from "./GlobalStyles";
+import Loading from "./Components/Loading";
+import { User } from "@auth0/auth0-react";
 
 const UserPage = () => {
-    const {chat, setTitle} = useContext(Context);
+    const {chat, setTitle, setAllUsers, allUsers} = useContext(Context);
     setTitle("Users");
+
+    useEffect(() => {
+        fetch("/api/get-users")
+        .then((res) => res.json())
+        .then((data) => {
+            if(data.data){
+                setAllUsers(data.data);
+                console.log(data.data);
+            } else {
+                console.log("no data!");
+            }
+        })
+    },[])
+
+    if(!allUsers){
+        return(<Loading />)
+    }
+
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
                 <UserCardWrapper>
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
+                {
+                        allUsers.map(element => (
+                            <>
+                            <UserCard userId={element} />
+                            </>
+                        ))
+                    }
         </UserCardWrapper>
         <BottomPad />
 

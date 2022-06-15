@@ -26,7 +26,6 @@ const getUsers = async (req, res) => {
 
     
 
-    console.log(users);
 
     client.close();
     console.log("disconnected!");
@@ -77,11 +76,20 @@ const getUser = async (req, res) => {
     // get the user to pull all friends from
     const userId = req.params._id;
     const userObj = await db.collection("users").findOne({ "_id": userId });
+    console.log(userObj);
+
+    const filteredUser = {};
+
+    filteredUser.username = userObj.username;
+    filteredUser.avatar = userObj.avatar;
+    filteredUser.description = userObj.description;
+    filteredUser.joindate = userObj.joindate;
+    filteredUser._id = userObj._id;
 
     client.close();
     console.log("disconnected!");
 
-    return res.status(200).json({ status: 200, data: userObj });
+    return res.status(200).json({ status: 200, data: filteredUser });
 
   } catch (err) {
     console.log(err.stack);
@@ -184,7 +192,7 @@ var yyyy = today.getFullYear();
       newThread.likes = 0;
       newThread.dislikes = 0;
       newThread.replies = 0;
-      newThread.date = dd + "/" + mm + "/" + yyyy,
+      newThread.date = mm + "/" + dd + "/" + yyyy,
       newThread.tags = [];
       newThread.posts = [];
 
@@ -207,6 +215,65 @@ var yyyy = today.getFullYear();
     }
     
   }
+}
+
+const updateProfile = async (req, res) => {
+
+  // takes data from the profile editor
+  // applies it to the user object
+  // on the mongodb database
+
+  const { username, description, avatar, authUrl } = req.body;
+
+  if(!description && !avatar && !username) {
+    return res.status(400).json({
+      status: 400,
+      username: username,
+      message: "Not all required data fields have been filled."
+  })
+} else {
+  const client = new MongoClient(MONGO_URI);
+
+  try {
+    await client.connect();
+    const db = client.db("beatclash");
+    console.log("connected");
+
+    // Prep user information data
+
+    // Update the user information
+
+    console.log(authUrl);
+
+    await db.collection("users").updateOne(
+      { "_id": authUrl },
+      { $set: {"description": `${description}`}},
+      )
+
+      await db.collection("users").updateOne(
+        { "_id": authUrl },
+        { $set: {"avatar": `${avatar}`}},
+      )
+
+      await db.collection("users").updateOne(
+        { "_id": authUrl },
+        { $set: {"username": `${username}`}},
+      )
+      // { $set: {"username": `${username}`}},
+
+      const UserProfile = await db.collection("users").findOne({ "_id": authUrl });
+    
+
+    client.close();
+    console.log("disconnected!");
+
+    res.status(200).json({ status: 200, message: "Profile updated!", data: UserProfile});
+
+  } catch (err) {
+    console.log(err.stack);
+    res.status(500).json({ status: 500, message: err.message });
+  }
+}
 }
 
 const createReply = async (req, res) => {
@@ -254,7 +321,7 @@ var yyyy = today.getFullYear();
       Reply.likes = 0;
       Reply.dislikes = 0;
       Reply.replies = 0;
-      Reply.date = dd + "/" + mm + "/" + yyyy,
+      Reply.date = mm + "/" + dd + "/" + yyyy,
 
       console.log(Reply);
 
@@ -294,6 +361,7 @@ module.exports = {
   getThread,
   createThread,
   createReply,
+  updateProfile,
   // addUser,
   // updateThread,
   // updateReply,
