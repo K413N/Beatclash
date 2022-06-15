@@ -7,13 +7,15 @@ const Auth0Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const { setProfileUrl } = useContext(Context);
 
-  if (isLoading) {
+  if (!user) {
     return <div>Loading ...</div>;
   }
 
   const slicedurl = user.sub.slice(6, user.sub.length);
 
   setProfileUrl(slicedurl);
+
+
 
   return (
     isAuthenticated && (

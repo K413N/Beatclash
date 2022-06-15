@@ -45,11 +45,11 @@ const Profile = () => {
         <Wrapper chat={chat}>
             <PageWrapper>
         <ProfileWrapper>
-            <AvatarWrapper><Avatar src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" /></AvatarWrapper>
+            <AvatarWrapper><Avatar src="https://images.unsplash.com/photo-1528590005476-4f5a6f2bdd9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" /></AvatarWrapper>
             <ProfileCol>
             <ProfileUserName>{profileData.username}</ProfileUserName>
             <ProfileRow>
-            <ProfileStatus>Short profile descriptions will be here.</ProfileStatus>
+            <ProfileStatus>{profileData.description}</ProfileStatus>
             <JoinDate>Joined: {profileData.joindate}</JoinDate>
             </ProfileRow>
             </ProfileCol>

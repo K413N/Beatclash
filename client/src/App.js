@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
 import Homepage from "./Homepage";
 import Profile from "./Profile";
-import Friends from "./Friends";
+import Friends from "./UserPage";
 import NavBar from "./Components/NavBar";
 import Error from "./Error";
 import About from "./About";

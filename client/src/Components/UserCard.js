@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { useContext } from "react";
 
-// This is an individual friend element
+// This is an individual user element
 // it will be rendered when mapping through
-// an array of the user's friends
+// an array of the users
 
-const Friend = () => {
+const UserCard = () => {
     return(
         <Wrapper>
             <ProfileImage />
@@ -18,7 +18,7 @@ const Friend = () => {
     )
 }
 
-export default Friend;
+export default UserCard;
 
 
 

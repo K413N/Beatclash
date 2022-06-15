@@ -1,32 +1,32 @@
 import styled from "styled-components";
 import { Context } from "./Components/Context";
 import { useContext } from "react";
-import Friend from "./Components/Friend";
+import UserCard from "./Components/UserCard";
 import { PageWrapper } from "./GlobalStyles";
 
-const Friends = () => {
+const UserPage = () => {
     const {chat, setTitle} = useContext(Context);
     setTitle("Users");
     return(
         <Wrapper chat={chat}>
             <PageWrapper>
-                <FriendWrapper>
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        <Friend />
-        </FriendWrapper>
+                <UserCardWrapper>
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        </UserCardWrapper>
         <BottomPad />
 
         </PageWrapper>
@@ -34,9 +34,9 @@ const Friends = () => {
     )
 }
 
-export default Friends;
+export default UserPage;
 
-const FriendWrapper = styled.div`
+const UserCardWrapper = styled.div`
 display: flex;
 justify-content: center;
 flex-wrap: wrap;

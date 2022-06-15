@@ -43,6 +43,7 @@ const NavBar = () => {
                     </>
                 )
             }
+            <NLink2 to="/users">Users</NLink2>
             </TabRow>
             </TabColumn>
             <TabColumn>
