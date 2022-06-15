@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Context } from "./Context";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import GlobalStyles from "../GlobalStyles";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -17,31 +17,9 @@ const Board = ({btitle, bdesc, boardId}) => {
     
     const {chat,
          hasData, setHasData,
-       threadData, setThreadData,
-    loading, setLoading} = useContext(Context);
+    loading, setLoading,
+threadData, setThreadData} = useContext(Context);
     
-    const { user, isAuthenticated, isLoading } = useAuth0();
-    
-    useEffect(() => {
-        let fetchurl = "/api/get-threads/" + boardId;
-        fetch(fetchurl)
-        .then((res) => res.json())
-        .then((data) => {
-            if(data.data){
-                console.log(data.data);
-                setHasData(true);
-                setThreadData(data.data);
-            } else {
-                setHasData(false);
-            }
-            setLoading(false);
-        })
-    },[])
-
-    if(!hasData){
-        return (<Loading />)
-    } else {
-
     
     
         return(
@@ -59,11 +37,15 @@ const Board = ({btitle, bdesc, boardId}) => {
                             {
                                 hasData && (
                                     threadData.map((element) => (
+                                        element.boardId === boardId ?
                                         <RecentPost to={"/" + boardId + "/" + element._id}>
-                            <PostTitle className="btext">{element.threadTitle}</PostTitle>
-                            <PostReplies className="btext">{element.replies}</PostReplies>
-                        </RecentPost >
-                                    ))
+                                        <PostTitle className="btext">{element.threadTitle}</PostTitle>
+                                        <PostReplies className="btext">{element.replies}</PostReplies>
+                                    </RecentPost > : <></>
+                                    )
+                                    
+                                        
+                                    )
                                 )
                             }
                         </Scrollable>
@@ -73,9 +55,9 @@ const Board = ({btitle, bdesc, boardId}) => {
             </BoardWrapper>
             </Wrapper>
         )
-                        }
+    }
     
-}
+
 
 export default Board;
 

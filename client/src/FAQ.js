@@ -13,7 +13,12 @@ const FAQ = () => {
         <Wrapper chat={chat}>
             <PageWrapper>
         <FAQWrapper>
-            <FAQText>There has been no frequently asked questions yet!</FAQText>
+            <FAQText>
+                <audio controls>
+                    <source src=""></source>
+                </audio>
+                
+                </FAQText>
            </FAQWrapper>
            </PageWrapper>
         </Wrapper>
