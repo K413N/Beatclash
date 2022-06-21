@@ -106,7 +106,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 background-color: #111;
-height: 200px;
+height: 150px;
 width: 100%;
 padding: 6px;
 `
@@ -177,7 +177,8 @@ color: lightgray;
 `
 
 const BoardTitle = styled.div`
-font-size: 32px;
+width: 100%;
+font-size: 28px;
 color: white;
 border-style: solid;
 border-width: 1px;
