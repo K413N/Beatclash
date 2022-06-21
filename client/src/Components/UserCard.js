@@ -68,6 +68,7 @@ border-color: gray;
 `
 
 const ButtonWrapper = styled.div`
+position: relative;
 display: flex;
 flex-direction: row;
 justify-content: space-evenly;
@@ -78,8 +79,10 @@ padding: 6px;
 
 const FName = styled.div`
 color: gold;
-font-size: 22px;
+height: 40px;
+font-size: 16px;
 padding: 16px;
+text-overflow: ellipsis;
 `
 
 const ProfileImage = styled.img`
