@@ -30,6 +30,7 @@ const {
     createReply,
     updateProfile,
     searchThreads,
+    handleLike,
     // addUser,
     // updateThread,
     // updateReply,
@@ -76,6 +77,9 @@ express()
 
     // update user profile
     .patch("/api/update-profile/:_id", updateProfile)
+
+    // handle like functionality
+    .post("/api/handle-like/:boardId/:_id", handleLike)
 
     // add a new user to the database
     // .post("/api/add-user", addUser)

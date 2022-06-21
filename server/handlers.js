@@ -399,6 +399,10 @@ var yyyy = today.getFullYear();
   }
 }
 
+const handleLike = async (req, res) => {
+  
+}
+
 module.exports = {
   getUsers,
   getFriends,
@@ -409,6 +413,7 @@ module.exports = {
   createReply,
   updateProfile,
   searchThreads,
+  handleLike,
   // addUser,
   // updateThread,
   // updateReply,
