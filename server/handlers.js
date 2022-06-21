@@ -321,17 +321,17 @@ const updateProfile = async (req, res) => {
 
 const createReply = async (req, res) => {
 
-  // Takes userId, username, and body
+  // Takes userId, mediaurl, and body
+  // Gets user's information
   // then grabs boardId from params
   // creates one item to push all data
   // into a thread object on the database
 
-  const { username, body, mediaurl, avatar } = req.body;
+  const { userId, body, mediaurl } = req.body;
 
   if(!body) {
     return res.status(400).json({
       status: 400,
-      username: username,
       body: body,
       message: "Not all required data fields have been filled."
     });
@@ -360,8 +360,7 @@ var yyyy = today.getFullYear();
 
       Reply._id = uuidv4();
       Reply.mediaurl = mediaurl;
-      Reply.username = username;
-      Reply.avatar = avatar;
+      Reply.userId = userId;
       Reply.likes = 0;
       Reply.dislikes = 0;
       Reply.replies = 0;
@@ -376,8 +375,6 @@ var yyyy = today.getFullYear();
          "_id": Reply._id,
          "userId": Reply.userId,
          "mediaurl": Reply.mediaurl,
-         "avatar": Reply.avatar,
-         "username": Reply.username,
          "body": body,
          "likes": Reply.likes,
          "dislikes": Reply.dislikes,
@@ -400,7 +397,7 @@ var yyyy = today.getFullYear();
 }
 
 const handleLike = async (req, res) => {
-  
+
 }
 
 module.exports = {

@@ -11,7 +11,7 @@ import Loading from "./Loading";
 // props get filtered like so
 // Thread => Post => PostBottom
 
-const Post = ({user, date, likes, dislikes, replies, body, mediaurl, userId}) => {
+const Post = ({ date, likes, dislikes, replies, body, mediaurl, userId}) => {
     const [postData, setPostData] = useState(null);
 
     console.log(userId);
@@ -48,7 +48,7 @@ const Post = ({user, date, likes, dislikes, replies, body, mediaurl, userId}) =>
                 <AvatarWrapper>
                     <Avatar src={avatar} />
                     <DetailWrapper>
-                    <PostUsername>{user}</PostUsername>
+                    <PostUsername>{postData.username}</PostUsername>
                     </DetailWrapper>
                     </AvatarWrapper>
                     <PostDetails>

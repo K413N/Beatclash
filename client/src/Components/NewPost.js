@@ -15,7 +15,7 @@ const NewReply = () => {
 
     const { singleThreadData, setSingleThreadData, setHasData, hasData, authUrl } = useContext(Context);
 
-    console.log(user.picture);
+    console.log(authUrl);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -37,8 +37,6 @@ const NewReply = () => {
             },
             body: JSON.stringify({
                 userId: authUrl,
-                avatar: user.picture,
-                username: user.nickname,
                 body: formBody,
                 mediaurl: formMediaUrl
             })
