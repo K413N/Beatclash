@@ -20,9 +20,26 @@ const Board = ({btitle, bdesc, boardId}) => {
     loading, setLoading,
 threadData, setThreadData} = useContext(Context);
 
+const [boardData, setBoardData] = useState(null);
+
+useEffect(() => {
+    let fetchurl = "/api/get-threads/" + boardId;
+    fetch(fetchurl)
+    .then((res) => res.json())
+    .then((data) => {
+        if(data.data){
+            setHasData(true);
+            setBoardData(data.data);
+        } else {
+            setHasData(false);
+        }
+        setLoading(false);
+    })
+}, [])
+
 
     
-    if(loading){
+    if(!boardData){
         return(<Loading />)
     } else {
 
@@ -42,7 +59,7 @@ threadData, setThreadData} = useContext(Context);
                         <Scrollable>
                             {
                                 hasData && (
-                                    threadData.map((element) => (
+                                    boardData.map((element) => (
                                         element.boardId === boardId ?
                                         <RecentPost to={"/forums/" + boardId + "/" + element._id}>
                                         <PostTitle className="btext">{element.threadTitle}</PostTitle>
