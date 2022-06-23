@@ -37,7 +37,7 @@ searchData, setSearchData} = useContext(Context);
             }
             setLoading(false);
         })
-    },[])
+    },[searchId])
 
     console.log(searchData);
 

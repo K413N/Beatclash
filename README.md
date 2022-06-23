@@ -47,3 +47,7 @@ All threads and posts are stored on the database
 ## Profiles
 All profiles are stored on the database as well
 ![profile gif](./_ReadmeImages/Profile.gif)
+
+## Search
+There is built in search functionality to find threads by title
+![profile gif](./_ReadmeImages/Search.gif)
