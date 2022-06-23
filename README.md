@@ -33,5 +33,5 @@ The aim of this project was to create a forum that would allow users to share co
 * .DASH(mpd)
 
 ## Homepage
-Lists all the boards
+Lists all the boards, and threads
 ![homepage gif](./_ReadmeImages/Homepage.gif)
