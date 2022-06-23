@@ -13,11 +13,11 @@ Ability to create, and reply to threads
 ![thread gif](./_ReadmeImages/Posts.gif)
 
 ## Mongodb
-All threads and posts are stored on the database
+All threads and posts are stored on mongodb
 ![mongo gif](./_ReadmeImages/Mongo.gif)
 
 ## Profiles
-All profiles are stored on the database as well
+All profiles are stored on mongodb as well
 ![profile gif](./_ReadmeImages/Profile.gif)
 
 ## Search
