@@ -34,4 +34,4 @@ The aim of this project was to create a forum that would allow users to share co
 
 ## Homepage
 Lists all the boards
-![homepage gif](_ReadmeImages\Homepage.gif)
+![homepage gif](./_ReadmeImages/Homepage.gif)
