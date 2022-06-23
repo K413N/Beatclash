@@ -32,3 +32,6 @@ The aim of this project was to create a forum that would allow users to share co
 * .HLS(m3u8)
 * .DASH(mpd)
 
+## Homepage
+Lists all the boards
+![homepage gif](_ReadmeImages\Homepage.gif)
